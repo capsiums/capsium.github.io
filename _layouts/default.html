@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script src="{{ '/assets/js/script.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="{{ site.baseurl }}/" class="navbar-brand">Capsium</a>
+        <ul class="navbar-nav">
+          <li><a href="{{ site.baseurl }}/">Home</a></li>
+          <li><a href="{{ site.baseurl }}/features">Features</a></li>
+          <li><a href="{{ site.baseurl }}/install">Install</a></li>
+          <li><a href="{{ site.baseurl }}/learn">Learn</a></li>
+          <li><a href="{{ site.baseurl }}/specifications">Specifications</a></li>
+          <li><a href="{{ site.baseurl }}/about">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    {{ content }}
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; {{ site.time | date: '%Y' }} Capsium. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

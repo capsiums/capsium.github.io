@@ -1,0 +1,56 @@
+= Learn
+:navtitle: Learn
+:toc: macro
+:toclevels: 2
+
+== Learn How to Use Capsium
+
+=== Creating a Package
+
+To create a new Capsium package, use the following command:
+
+[source,bash]
+----
+$ capsium package new my_package
+----
+
+Add content, data, and metadata to your package using the following commands:
+
+[source,bash]
+----
+$ capsium package add content example.html example.css example.js
+$ capsium package add data animals.yaml
+$ capsium package add metadata name=sample_package version=0.1.0
+----
+
+=== Defining Routes and Storage
+
+Define routes and storage for your package:
+
+[source,bash]
+----
+$ capsium package add route /=example.html /index=index.html /api/v1/data/animals={type:dataset,name:animals}
+$ capsium package add storage datasets=[{name:animals,source=data/animals.yaml,format:yaml,schema=data/animals_schema.yaml}]
+----
+
+=== Packing a Package
+
+To pack an existing Capsium package directory, use the following command:
+
+[source,bash]
+----
+$ capsium package pack -f path-to-package
+----
+
+=== Running a Reactor
+
+To start a Capsium reactor on your package, use the following command:
+
+[source,bash]
+----
+$ capsium reactor serve my_package.cap
+----
+
+=== Deploying Packages
+
+Deploying Capsium packages is straightforward. You can integrate the deployment process into your existing CI/CD pipeline for automated deployment.

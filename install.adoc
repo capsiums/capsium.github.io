@@ -1,0 +1,44 @@
+= Install
+:navtitle: Install
+:toc: macro
+:toclevels: 1
+
+== Installing Capsium
+
+Capsium can be installed as a Ruby gem. Follow these steps to get started.
+
+=== Using Bundler
+
+Add Capsium to your Gemfile:
+
+[source,ruby]
+----
+gem 'capsium'
+----
+
+Run the following command to install it:
+
+[source,bash]
+----
+$ bundle install
+----
+
+=== Standalone Installation
+
+Install the Capsium gem directly using:
+
+[source,bash]
+----
+$ gem install capsium
+----
+
+== Verify Installation
+
+To verify the installation, run the following command:
+
+[source,bash]
+----
+$ capsium --version
+----
+
+You should see the installed version of Capsium.

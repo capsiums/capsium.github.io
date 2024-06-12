@@ -1,0 +1,9 @@
+title: "Capsium"
+description: "Capsium: Common architecture for portable secure information interchange and unified management."
+baseurl: ""
+url: "https://www.capsium.org"
+markdown: kramdown
+theme: minima
+
+sass:
+  sass_dir: assets/sass

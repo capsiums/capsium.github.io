@@ -1,0 +1,18 @@
+= About
+:navtitle: About
+:toc: macro
+:toclevels: 1
+
+== About Capsium
+
+Capsium is a project developed by Ribose Inc., aimed at providing a common architecture for portable, secure information interchange and unified management. It offers a structured way to handle content, data, and metadata for various applications.
+
+=== Our Mission
+
+Our mission is to make content management and deployment easy, secure, and efficient for developers, packagers, deployers, users, and organizations.
+
+=== Get Involved
+
+We welcome contributions to the Capsium project. If you would like to contribute, please fork the repository and submit a pull request on GitHub.
+
+For more information, visit our GitHub page: https://github.com/capsiums/capsium

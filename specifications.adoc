@@ -1,0 +1,32 @@
+= Specifications
+:navtitle: Specifications
+:toc: macro
+:toclevels: 2
+
+== Capsium Specifications
+
+Capsium is designed to provide a common architecture for portable, secure information interchange and unified management. Here are the detailed specifications:
+
+=== Package Structure
+
+A Capsium package typically includes:
+
+* **Content**: Static files like HTML, CSS, and JavaScript.
+* **Data**: Structured data files, such as YAML or JSON.
+* **Metadata**: Descriptive information about the package, such as its name, version, and dependencies.
+* **Routes**: Mapping of URLs to content or data endpoints.
+* **Storage**: Definitions for datasets and their sources, formats, and schemas.
+
+=== Package Configuration
+
+Capsium packages are configured using JSON files, which include metadata, routes, storage, and other configurations.
+
+=== Security Features
+
+Capsium packages can be digitally signed and encrypted to ensure content integrity and security.
+
+=== Deployment
+
+Capsium packages can be deployed using a Capsium reactor, which reads the package configuration and serves the content and data according to the defined routes.
+
+For more detailed specifications, please refer to the Capsium documentation.

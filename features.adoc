@@ -1,0 +1,43 @@
+= Features
+:navtitle: Features
+:toc: macro
+:toclevels: 1
+
+== Capsium Features
+
+Capsium offers a wide range of features that cater to different audiences, including developers, packagers, deployers, users, and organizations.
+
+=== Developer Benefits
+
+* Structured content management
+* Easy integration with existing systems
+* Robust API for package manipulation
+* Support for multiple data formats
+
+=== Packager Benefits
+
+* Simple commands to create and manage packages
+* Detailed metadata and routing configurations
+* Automated content, data, and metadata handling
+* Compatibility with various deployment environments
+
+=== Deployer Benefits
+
+* Seamless deployment of content packages
+* Secure and efficient content distribution
+* Flexible and scalable deployment options
+* Integration with existing CI/CD pipelines
+
+=== User Benefits
+
+* Access to well-structured and secure content
+* Consistent and reliable content delivery
+* Easy navigation and interaction with packaged content
+* Enhanced user experience through optimized content delivery
+
+=== Organization Benefits
+
+* Improved content management and distribution
+* Enhanced security and compliance
+* Cost-effective and scalable deployment
+* Better collaboration and content sharing
