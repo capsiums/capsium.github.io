@@ -5,7 +5,7 @@
 
 == About Capsium
 
-Capsium is a project developed by Ribose Inc., aimed at providing a common architecture for portable, secure information interchange and unified management. It offers a structured way to handle content, data, and metadata for various applications.
+Capsium is a project developed by Ribose aimed at providing a common architecture for portable, secure information interchange and unified management. It offers a structured way to handle content, data, and metadata for various applications.
 
 === Our Mission
 

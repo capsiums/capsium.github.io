@@ -4,31 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="{{ '/assets/js/script.js' | relative_url }}" defer></script>
 </head>
 <body>
   <header>
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a href="{{ site.baseurl }}/" class="navbar-brand">Capsium</a>
-        <ul class="navbar-nav">
-          <li><a href="{{ site.baseurl }}/">Home</a></li>
-          <li><a href="{{ site.baseurl }}/features">Features</a></li>
-          <li><a href="{{ site.baseurl }}/install">Install</a></li>
-          <li><a href="{{ site.baseurl }}/learn">Learn</a></li>
-          <li><a href="{{ site.baseurl }}/specifications">Specifications</a></li>
-          <li><a href="{{ site.baseurl }}/about">About</a></li>
-        </ul>
+        <a class="navbar-brand" href="{{ site.baseurl }}/">
+          <img src="{{ site.baseurl }}/assets/images/capsium-logo.png" alt="Capsium logo" class="logo">
+          <span class="brand-name">Capsium</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}/features">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}/learn">Learn</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}/install">Install</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}/specifications">Specs</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}/about">About</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
   </header>
   <main>
     {{ content }}
   </main>
-  <footer>
+  <footer class="bg-dark text-white text-center py-3 mt-auto">
     <div class="container">
-      <p>&copy; {{ site.time | date: '%Y' }} Capsium. All rights reserved.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a class="text-white" href="{{ site.baseurl }}/features">Features</a></li>
+        <li class="list-inline-item"><a class="text-white" href="{{ site.baseurl }}/learn">Learn</a></li>
+        <li class="list-inline-item"><a class="text-white" href="{{ site.baseurl }}/install">Install</a></li>
+        <li class="list-inline-item"><a class="text-white" href="{{ site.baseurl }}/specifications">Specs</a></li>
+        <li class="list-inline-item"><a class="text-white" href="{{ site.baseurl }}/about">About</a></li>
+        <li class="list-inline-item"><a class="text-white" href="{{ site.baseurl }}/privacy-policy">Privacy Policy</a></li>
+        <li class="list-inline-item"><a class="text-white" href="{{ site.baseurl }}/terms-of-service">Terms of Service</a></li>
+      </ul>
+      <p>&copy; {{ site.time | date: '%Y' }} Ribose. All rights reserved.</p>
     </div>
   </footer>
 </body>

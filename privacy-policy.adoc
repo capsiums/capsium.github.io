@@ -1,0 +1,18 @@
+= Privacy Policy
+:navtitle: Privacy Policy
+:toc: macro
+:toclevels: 1
+
+== Privacy Policy
+
+Your privacy is important to us. This privacy policy explains what personal data we collect and how we use it.
+
+=== Information Collection
+
+We collect information that you provide to us directly, such as when you create an account, update your profile, or interact with our services.
+
+=== Use of Information
+
+We use the information we collect to provide, maintain, and improve our services, to communicate with you, and to protect our users.
+
+For more details on our privacy practices, please read our full privacy policy.

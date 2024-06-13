@@ -6,13 +6,17 @@
 
 == Welcome to Capsium
 
+[.hero]
+image::/assets/images/hero-image.jpg[CENTER, 300]
+
+[role="lead"]
 Capsium: Common architecture for portable secure information interchange and unified management.
 
 A structured way to create, manage, and deploy content packages with ease.
 
-image::/assets/images/capsium-logo.png[CENTER, 300]
+[.slogan]
+== A New Era of Content Management
 
-[role="lead"]
 Capsium provides a structured way to handle content, data, and metadata for various applications, ensuring portability, security, and ease of deployment.
 
 * Learn how to create and manage Capsium packages.

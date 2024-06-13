@@ -1,0 +1,18 @@
+= Terms of Service
+:navtitle: Terms of Service
+:toc: macro
+:toclevels: 1
+
+== Terms of Service
+
+These terms of service ("Terms") apply to your access and use of our services. By accessing or using our services, you agree to be bound by these Terms.
+
+=== Use of Services
+
+You must follow any policies made available to you within the services. You may use our services only as permitted by law.
+
+=== Termination
+
+We may suspend or terminate your access to our services if you do not comply with our Terms or if we are investigating suspected misconduct.
+
+For more details on our terms, please read our full terms of service.
