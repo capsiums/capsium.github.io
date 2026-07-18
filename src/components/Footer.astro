@@ -1,0 +1,84 @@
+---
+const year = new Date().getFullYear();
+
+const groups = [
+  {
+    title: 'Learn',
+    links: [
+      { href: '/features', label: 'Features' },
+      { href: '/how-it-works', label: 'How it works' },
+      { href: '/learn', label: 'Get started' },
+      { href: '/install', label: 'Install' },
+    ],
+  },
+  {
+    title: 'Project',
+    links: [
+      { href: '/specifications', label: 'Specifications' },
+      { href: '/ecosystem', label: 'Ecosystem' },
+      { href: '/about', label: 'About' },
+      { href: 'https://github.com/capsiums/standards', label: 'CC 62001 draft', external: true },
+    ],
+  },
+];
+---
+
+<footer class="border-t border-deep/10 bg-deep text-cream dark:border-white/10 dark:bg-black/30">
+  <div class="container-site grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <div class="flex items-center gap-3">
+        <img src="/images/capsium-logo.png" alt="" width="40" height="40" class="h-10 w-10" />
+        <span class="font-display text-xl font-semibold">Capsium</span>
+      </div>
+      <p class="mt-4 max-w-sm text-sm leading-relaxed text-cream/70">
+        Common architecture for portable secure information interchange and
+        unified management. Package content once, serve it anywhere.
+      </p>
+      <a
+        href="https://github.com/capsiums"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-cream/80 transition-colors hover:text-sun"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .3.2.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+          ></path>
+        </svg>
+        github.com/capsiums
+      </a>
+    </div>
+
+    {
+      groups.map((group) => (
+        <nav aria-label={`Footer: ${group.title}`}>
+          <h2 class="text-sm font-semibold uppercase tracking-wider text-cream/50">
+            {group.title}
+          </h2>
+          <ul class="mt-4 space-y-2.5">
+            {group.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm text-cream/80 transition-colors hover:text-sun"
+                  {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))
+    }
+  </div>
+
+  <div class="border-t border-white/10">
+    <div
+      class="container-site flex flex-col items-center justify-between gap-2 py-5 text-xs text-cream/50 sm:flex-row"
+    >
+      <p>© {year} <a href="https://www.ribose.com" target="_blank" rel="noopener noreferrer" class="underline decoration-cream/30 underline-offset-2 transition-colors hover:text-sun">Ribose</a>. All rights reserved.</p>
+      <p>Open source under the MIT license.</p>
+    </div>
+  </div>
+</footer>

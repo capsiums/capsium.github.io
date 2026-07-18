@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Page not found"
+  description="The page you are looking for is not in this capsule. Head back to the Capsium homepage."
+>
+  <section class="relative overflow-hidden bg-deep py-24 text-cream lg:py-32">
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(50rem_25rem_at_70%_0%,rgba(71,154,162,0.3),transparent)]"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="container-site relative text-center">
+      <img
+        src="/images/capsium-logo.png"
+        alt=""
+        width="120"
+        height="120"
+        class="mx-auto h-28 w-28 drop-shadow-[0_0_30px_rgba(71,154,162,0.5)]"
+      />
+      <p class="mt-8 font-display text-7xl font-semibold tracking-tight text-sun sm:text-8xl">
+        404
+      </p>
+      <h1 class="mt-4 font-display text-2xl font-semibold sm:text-3xl">
+        This page is not in the capsule
+      </h1>
+      <p class="mx-auto mt-4 max-w-md text-lg text-cream/70">
+        The route you asked for is not in any package we know about. Let's get you
+        back to safety.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/" class="btn-primary">Back to homepage</a>
+        <a href="/learn" class="btn-outline">Read the walkthrough</a>
+      </div>
+    </div>
+  </section>
+</Base>
