@@ -1,0 +1,236 @@
+---
+import Base from '../layouts/Base.astro';
+
+const steps = [
+  {
+    title: 'Package',
+    description:
+      'Bundle your content, data, and metadata into a single portable .cap file — an ordinary ZIP with a rigorous, checksummed structure.',
+    icon: 'M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z M3.3 7 12 12l8.7-5 M12 22V12',
+  },
+  {
+    title: 'Reactor',
+    description:
+      'Drop the package onto any Capsium reactor — Ruby, nginx/OpenResty, a browser extension, or a service worker.',
+    icon: 'M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14Z',
+  },
+  {
+    title: 'Serve',
+    description:
+      'The reactor verifies SHA-256 checksums, mounts your routes, and serves content and data exactly as packaged — anywhere.',
+    icon: 'M2 12h20 M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z M12 2a15.3 15.3 0 0 0 0 20 15.3 15.3 0 0 0 0-20 M2 12a10 10 0 1 0 20 0 10 10 0 0 0-20 0',
+  },
+];
+
+const highlights = [
+  {
+    title: 'Portable by design',
+    description:
+      'One .cap file runs on every reactor. Package once, deploy to a server, an edge node, or straight into the browser.',
+    icon: 'M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z M9 12l2 2 4-4',
+  },
+  {
+    title: 'Integrity built in',
+    description:
+      'Every file is fingerprinted with SHA-256 checksums in security.json, with optional RSA signatures. Tampering is detected, not trusted.',
+    icon: 'M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z',
+  },
+  {
+    title: 'Static and self-contained',
+    description:
+      'No database, no runtime dependencies. A Capsium package carries everything it needs — content, data, routes, and metadata.',
+    icon: 'M12 2 2 7l10 5 10-5-10-5Z M2 17l10 5 10-5 M2 12l10 5 10-5',
+  },
+  {
+    title: 'Versioned and diffable',
+    description:
+      'Versions and dependencies are first-class metadata, so packages upgrade cleanly and layer on top of each other immutably.',
+    icon: 'M6 3v12 M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z M15 6H9 M18 9v3a3 3 0 0 1-3 3h-3',
+  },
+];
+
+const ecosystem = [
+  { name: 'capsium', kind: 'Packager', note: 'Ruby gem and CLI' },
+  { name: 'capsium-js', kind: 'Packager + Reactor', note: 'TypeScript runtime & service worker' },
+  { name: 'capsium-lua', kind: 'Reactor', note: 'nginx / OpenResty' },
+  { name: 'capsium-webextension', kind: 'Reactor', note: 'Chrome & Firefox' },
+];
+---
+
+<Base
+  title="A New Era of Content Management"
+  description="Capsium: common architecture for portable secure information interchange and unified management. A structured way to create, manage, and deploy content packages with ease."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-deep text-cream">
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(60rem_30rem_at_80%_-10%,rgba(71,154,162,0.35),transparent),radial-gradient(40rem_20rem_at_10%_110%,rgba(218,185,86,0.15),transparent)]"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="container-site relative grid items-center gap-12 py-20 lg:grid-cols-2 lg:py-28">
+      <div>
+        <img
+          src="/images/capsium-logo.png"
+          alt="Capsium logo: a translucent capsule containing a tropical beach diorama with a red bell pepper"
+          width="88"
+          height="88"
+          class="h-22 w-22 drop-shadow-[0_0_25px_rgba(71,154,162,0.45)]"
+        />
+        <p class="mt-8 text-sm font-semibold uppercase tracking-[0.25em] text-aqua">
+          A New Era of Content Management
+        </p>
+        <h1 class="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+          Capsium
+        </h1>
+        <p class="mt-4 text-xl font-medium leading-relaxed text-cream/90">
+          Common architecture for portable secure information interchange and
+          unified management.
+        </p>
+        <p class="mt-3 max-w-xl text-lg leading-relaxed text-cream/70">
+          A structured way to create, manage, and deploy content packages with ease.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/learn" class="btn-primary">Get started</a>
+          <a href="/features" class="btn-outline">Explore features</a>
+        </div>
+      </div>
+      <div class="relative">
+        <div
+          class="absolute -inset-4 rounded-3xl bg-aqua/20 blur-2xl"
+          aria-hidden="true"
+        >
+        </div>
+        <img
+          src="/images/hero-image.jpg"
+          alt="Three glowing capsules, each holding a bell pepper diorama, floating above a moonlit coast"
+          width="1024"
+          height="1024"
+          class="relative rounded-3xl border border-white/15 shadow-2xl shadow-black/50"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-20 lg:py-24">
+    <div class="container-site">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title mt-3">Package once. Serve anywhere.</h2>
+      <p class="section-lead">
+        Capsium separates packing from serving: one portable artifact, many reactors.
+      </p>
+      <ol class="mt-12 grid gap-6 md:grid-cols-3">
+        {
+          steps.map((step, i) => (
+            <li class="card relative">
+              <span class="absolute right-6 top-6 font-display text-4xl font-semibold text-primary/15 dark:text-cream/10">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-aqua/15 dark:text-aqua">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d={step.icon} />
+                </svg>
+              </div>
+              <h3 class="mt-5 font-display text-xl font-semibold text-deep dark:text-cream">
+                {step.title}
+              </h3>
+              <p class="mt-2 leading-relaxed text-ink/70 dark:text-cream/70">
+                {step.description}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+      <div class="mt-10 text-center">
+        <a href="/how-it-works" class="btn-secondary">See the full picture</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature highlights -->
+  <section class="bg-white py-20 lg:py-24 dark:bg-black/20">
+    <div class="container-site">
+      <p class="eyebrow">Why Capsium</p>
+      <h2 class="section-title mt-3">Built for trust and portability</h2>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          highlights.map((item) => (
+            <div class="card">
+              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-pepper/10 text-pepper dark:bg-pepper/20">
+                <svg class="h-5.5 w-5.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d={item.icon} />
+                </svg>
+              </div>
+              <h3 class="mt-4 font-display text-lg font-semibold text-deep dark:text-cream">
+                {item.title}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/70 dark:text-cream/70">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecosystem teaser -->
+  <section class="py-20 lg:py-24">
+    <div class="container-site">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="eyebrow">Ecosystem</p>
+          <h2 class="section-title mt-3">Packagers and reactors</h2>
+          <p class="section-lead">
+            An open-source family of tools that build Capsium packages and serve
+            them on any platform.
+          </p>
+        </div>
+        <a href="/ecosystem" class="btn-secondary">Full ecosystem</a>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          ecosystem.map((repo) => (
+            <a
+              href={`https://github.com/capsiums/${repo.name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card group block"
+            >
+              <span class="inline-block rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary dark:bg-aqua/15 dark:text-aqua">
+                {repo.kind}
+              </span>
+              <h3 class="mt-3 font-mono text-base font-semibold text-deep group-hover:text-primary dark:text-cream dark:group-hover:text-sun">
+                {repo.name}
+              </h3>
+              <p class="mt-1 text-sm text-ink/70 dark:text-cream/70">{repo.note}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative overflow-hidden bg-deep py-20 text-cream">
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(50rem_20rem_at_50%_120%,rgba(15,107,131,0.5),transparent)]"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="container-site relative text-center">
+      <h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        Ready to pack your first capsule?
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-lg text-cream/70">
+        Install the Ruby gem, pack a directory, and serve it locally in under a minute.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/install" class="btn-primary">Install Capsium</a>
+        <a href="/learn" class="btn-outline">Read the walkthrough</a>
+      </div>
+    </div>
+  </section>
+</Base>

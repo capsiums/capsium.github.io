@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+import CommandBlock from '../components/CommandBlock.astro';
+---
+
+<Base
+  title="Install"
+  description="Install Capsium as a Ruby gem — gem install capsium or bundle add capsium — then verify with capsium --version. Docker, nginx, and browser reactors also available."
+>
+  <section class="bg-deep py-16 text-cream lg:py-20">
+    <div class="container-site">
+      <p class="eyebrow text-aqua">Install</p>
+      <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+        Up and running in a minute
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-cream/70">
+        Capsium is distributed as a Ruby gem. Install it, verify it, and you are
+        ready to pack and serve your first package.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20">
+    <div class="container-site max-w-3xl space-y-14">
+      <!-- Standalone -->
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-deep dark:text-cream">
+          Standalone installation
+        </h2>
+        <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/75">
+          Install the Capsium gem directly from RubyGems:
+        </p>
+        <div class="mt-4">
+          <CommandBlock command="gem install capsium" />
+        </div>
+      </div>
+
+      <!-- Bundler -->
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-deep dark:text-cream">
+          Using Bundler
+        </h2>
+        <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/75">
+          Add Capsium to your project's Gemfile:
+        </p>
+        <div class="mt-4">
+          <CommandBlock command="bundle add capsium" />
+        </div>
+      </div>
+
+      <!-- Verify -->
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-deep dark:text-cream">
+          Verify the installation
+        </h2>
+        <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/75">
+          Check that the CLI is on your PATH and see the installed version:
+        </p>
+        <div class="mt-4">
+          <CommandBlock command="capsium --version" />
+        </div>
+        <p class="mt-3 text-sm text-ink/60 dark:text-cream/60">
+          You should see the installed version of Capsium printed to the terminal.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other reactors -->
+  <section class="bg-white py-16 lg:py-20 dark:bg-black/20">
+    <div class="container-site">
+      <p class="eyebrow">Beyond the CLI</p>
+      <h2 class="section-title mt-3">Other ways to run Capsium</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <div class="card">
+          <h3 class="font-display text-lg font-semibold text-deep dark:text-cream">
+            nginx / OpenResty reactor
+          </h3>
+          <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/75">
+            Serve Capsium packages at production scale with the Lua reactor for
+            nginx and OpenResty — Docker images included.
+          </p>
+          <a
+            href="https://github.com/capsiums/capsium-lua"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline dark:text-aqua"
+          >
+            capsiums/capsium-lua
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+        </div>
+        <div class="card">
+          <h3 class="font-display text-lg font-semibold text-deep dark:text-cream">
+            Browser extension
+          </h3>
+          <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/75">
+            Open and browse .cap packages directly in Chrome or Firefox — no server
+            required at all.
+          </p>
+          <a
+            href="https://github.com/capsiums/capsium-webextension"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline dark:text-aqua"
+          >
+            capsiums/capsium-webextension
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <a href="/learn" class="btn-primary">Next: pack your first package</a>
+      </div>
+    </div>
+  </section>
+</Base>

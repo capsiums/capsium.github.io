@@ -1,0 +1,15 @@
+---
+import CopyButton from './CopyButton.vue';
+
+interface Props {
+  command: string;
+  label?: string;
+}
+
+const { command, label } = Astro.props;
+---
+
+<div class="code-block flex items-center justify-between gap-4">
+  <code class="whitespace-nowrap"><span class="select-none text-aqua">$ </span>{command}</code>
+  <CopyButton client:visible text={command} label={label} />
+</div>

@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@import "@fontsource-variable/fraunces";
+
+/* Class-based dark mode: `.dark` on <html> toggles dark: variants */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Capsium palette — single source of truth (from the project logo) */
+@theme {
+  --color-primary: #0f6b83; /* teal — brand primary */
+  --color-deep: #12404f; /* deep dark teal */
+  --color-night: #0b2833; /* darker teal for dark-mode surfaces */
+  --color-aqua: #479aa2;
+  --color-pepper: #a1323a; /* pepper red accent */
+  --color-sand: #d5b579;
+  --color-cream: #eeebe3; /* light background */
+  --color-sun: #dab956; /* sun yellow */
+  --color-ink: #20343c; /* default body text on light */
+
+  --font-display: "Fraunces Variable", "Iowan Old Style", "Palatino Linotype",
+    Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-ink antialiased;
+}
+
+.dark body {
+  @apply bg-night text-cream/90;
+}
+
+/* Reusable component classes */
+@utility container-site {
+  @apply mx-auto w-full max-w-6xl px-6 lg:px-8;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+    text-sm font-semibold transition-all duration-200
+    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun;
+}
+
+@utility btn-primary {
+  @apply btn bg-primary text-white shadow-lg shadow-primary/30
+    hover:bg-deep hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5;
+}
+
+@utility btn-outline {
+  @apply btn border border-white/30 text-white
+    hover:border-sun hover:text-sun;
+}
+
+@utility btn-secondary {
+  @apply btn bg-white text-primary border border-primary/20 shadow-sm
+    hover:border-primary hover:shadow-md hover:-translate-y-0.5
+    dark:bg-white/10 dark:text-cream dark:border-white/15 dark:hover:border-aqua;
+}
+
+@utility card {
+  @apply rounded-2xl border border-deep/10 bg-white p-6 shadow-sm
+    transition-shadow duration-200 hover:shadow-lg
+    dark:border-white/10 dark:bg-white/5;
+}
+
+@utility eyebrow {
+  @apply text-xs font-bold uppercase tracking-[0.2em] text-primary dark:text-aqua;
+}
+
+@utility section-title {
+  @apply font-display text-3xl font-semibold tracking-tight text-deep
+    sm:text-4xl dark:text-cream;
+}
+
+@utility section-lead {
+  @apply mt-4 max-w-2xl text-lg leading-relaxed text-ink/70 dark:text-cream/70;
+}
+
+@utility code-block {
+  @apply overflow-x-auto rounded-xl bg-deep px-5 py-4 font-mono text-sm
+    leading-relaxed text-cream shadow-inner dark:bg-black/40;
+}
+
+@utility nav-link {
+  @apply rounded-lg px-3 py-2 text-sm font-medium text-ink/70 transition-colors
+    hover:bg-primary/10 hover:text-primary
+    dark:text-cream/70 dark:hover:bg-white/10 dark:hover:text-cream;
+}
+
+@utility nav-link-active {
+  @apply text-primary dark:text-sun;
+}

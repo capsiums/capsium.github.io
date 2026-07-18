@@ -1,0 +1,199 @@
+---
+import Base from '../layouts/Base.astro';
+
+const structure = [
+  {
+    name: 'Content',
+    description: 'Static files like HTML, CSS, and JavaScript — the payload a reactor serves.',
+  },
+  {
+    name: 'Data',
+    description: 'Structured data files, such as YAML or JSON, exposed as datasets.',
+  },
+  {
+    name: 'Metadata',
+    description: 'Descriptive information about the package: name, version, and dependencies.',
+  },
+  {
+    name: 'Routes',
+    description: 'Mapping of URLs to content or data endpoints.',
+  },
+  {
+    name: 'Storage',
+    description: 'Definitions for datasets and their sources, formats, and schemas.',
+  },
+];
+
+const metadataExample = `{
+  "name": "my-site",
+  "version": "0.1.0",
+  "description": "A sample Capsium package",
+  "guid": "com.example.my-site",
+  "uuid": "3f6b0d2a-9c4e-4b1a-8e7d-2c5f9a1b0e3d",
+  "license": "MIT",
+  "repository": "https://github.com/example/my-site",
+  "dependencies": {
+    "com.example.shared-assets": "^1.2.0"
+  },
+  "readOnly": true
+}`;
+---
+
+<Base
+  title="Specifications"
+  description="The Capsium package specification: structure, configuration files, SHA-256 security, the .cap extension, and the application/vnd.capsium.package MIME type."
+>
+  <section class="bg-deep py-16 text-cream lg:py-20">
+    <div class="container-site">
+      <p class="eyebrow text-aqua">Specifications</p>
+      <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+        The Capsium package format
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-cream/70">
+        Capsium provides a common architecture for portable, secure information
+        interchange and unified management. These are the core specifications.
+      </p>
+    </div>
+  </section>
+
+  <!-- Package structure -->
+  <section class="py-16 lg:py-20">
+    <div class="container-site">
+      <p class="eyebrow">Structure</p>
+      <h2 class="section-title mt-3">What a package contains</h2>
+      <p class="section-lead">A Capsium package typically includes five parts:</p>
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {
+          structure.map((item) => (
+            <div class="card">
+              <h3 class="font-display text-lg font-semibold text-primary dark:text-sun">
+                {item.name}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/70 dark:text-cream/70">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Configuration -->
+  <section class="bg-white py-16 lg:py-20 dark:bg-black/20">
+    <div class="container-site grid items-start gap-10 lg:grid-cols-2">
+      <div>
+        <p class="eyebrow">Configuration</p>
+        <h2 class="section-title mt-3">Configured with JSON</h2>
+        <p class="section-lead">
+          Capsium packages are configured using JSON files covering metadata, routes,
+          storage, and security. You author
+          <code class="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary dark:bg-white/10 dark:text-sun">metadata.json</code>;
+          the packager generates the rest.
+        </p>
+        <ul class="mt-6 space-y-3">
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/80">
+            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
+            <span><strong class="text-deep dark:text-cream">Identity</strong> — name, version, description, guid, and uuid pin down exactly what the package is.</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/80">
+            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
+            <span><strong class="text-deep dark:text-cream">Provenance</strong> — license and repository record where the package comes from.</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/80">
+            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
+            <span><strong class="text-deep dark:text-cream">Dependencies</strong> — declared with version constraints, resolved by reactors.</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/80">
+            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
+            <span><strong class="text-deep dark:text-cream">readOnly</strong> — marks the package as immutable once packed.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="code-block">
+        <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-aqua">metadata.json</p>
+        <pre class="text-[13px]">{metadataExample}</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security + file format -->
+  <section class="py-16 lg:py-20">
+    <div class="container-site grid gap-6 md:grid-cols-2">
+      <div class="card">
+        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-pepper/10 text-pepper">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z M9 12l2 2 4-4" />
+          </svg>
+        </div>
+        <h2 class="mt-4 font-display text-xl font-semibold text-deep dark:text-cream">
+          Security
+        </h2>
+        <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/75">
+          Every file in a package is fingerprinted with a SHA-256 checksum recorded
+          in <code class="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary dark:bg-white/10 dark:text-sun">security.json</code>.
+          Packages can additionally carry RSA digital signatures, so reactors can
+          verify both integrity and origin before serving anything.
+        </p>
+      </div>
+      <div class="card">
+        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-aqua/15 dark:text-aqua">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+            <path d="M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8" />
+          </svg>
+        </div>
+        <h2 class="mt-4 font-display text-xl font-semibold text-deep dark:text-cream">
+          File format
+        </h2>
+        <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/75">
+          A Capsium package is a ZIP archive with the
+          <code class="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary dark:bg-white/10 dark:text-sun">.cap</code>
+          extension and the registered MIME type
+          <code class="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary dark:bg-white/10 dark:text-sun">application/vnd.capsium.package</code>.
+          Any standards-compliant ZIP tool can inspect one.
+        </p>
+      </div>
+    </div>
+
+    <!-- Deployment note -->
+    <div class="container-site mt-6">
+      <div class="card">
+        <h2 class="font-display text-xl font-semibold text-deep dark:text-cream">
+          Deployment
+        </h2>
+        <p class="mt-2 max-w-3xl leading-relaxed text-ink/75 dark:text-cream/75">
+          Capsium packages are deployed using a Capsium reactor, which reads the
+          package configuration and serves the content and data according to the
+          defined routes — verify first, then mount.
+        </p>
+      </div>
+    </div>
+
+    <!-- Standard link -->
+    <div class="container-site mt-12">
+      <div class="rounded-2xl bg-deep p-8 text-cream sm:p-10">
+        <div class="flex flex-wrap items-center justify-between gap-6">
+          <div class="max-w-xl">
+            <h2 class="font-display text-2xl font-semibold">The full standard</h2>
+            <p class="mt-2 leading-relaxed text-cream/70">
+              These pages summarize the format. The normative text lives in the CC
+              62001 draft standard, developed in the open.
+            </p>
+          </div>
+          <a
+            href="https://github.com/capsiums/standards"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-outline"
+          >
+            capsiums/standards
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
