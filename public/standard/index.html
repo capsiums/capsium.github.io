@@ -1423,7 +1423,7 @@ pre.sourcecode .nt {
   
   1.  Scope
 </a></li>
-<li class="h1"><a href="#_8cbf4380-2801-457a-abdd-e99fbdd55ac6">      2.  Normative references</a></li>
+<li class="h1"><a href="#_ecacecbf-a9f3-4638-8b12-65aee7b8547d">      2.  Normative references</a></li>
 <li class="h1"><a href="#_5896b400-c462-c853-00e4-a618ade27d1c">      
   
   3.  Terms and definitions
@@ -1680,20 +1680,20 @@ pre.sourcecode .nt {
 
 
 
-</div><br /><br /><div id="_84d00b0a-26fe-7ee9-aaa7-2be7a5274238"><h1 class="AbstractTitle" id="_c19e8c5c-4f1b-4ce5-a26f-c547ab791cd0"><a class="anchor" href="#_84d00b0a-26fe-7ee9-aaa7-2be7a5274238"></a><a class="header" href="#_84d00b0a-26fe-7ee9-aaa7-2be7a5274238">Abstract</a></h1><p id="_641ecae2-c05a-35cc-ca51-411031aed6b1">Capsium is a modular framework designed to efficiently and securely interchange multi-format information in interoperable portable packages, as well as platform-independent deployment of these packages to serve information consumers.</p><p id="_2265c60a-2de3-490f-2aa1-80220accd727">This document specifies requirements of the Capsium framework and its components:</p><div class="ul_wrap"><ul id="_5910d9c8-eb7f-9b09-8087-fac8b56b6161"><li id="_cf364a8d-3a2c-2edd-3a1e-95296bb19869"><p id="_287a62b8-2501-16ec-8554-f85597c32915">Capsium packages: standardized unit of information interchange in the Capsium framework.</p>
+</div><br /><br /><div id="_84d00b0a-26fe-7ee9-aaa7-2be7a5274238"><h1 class="AbstractTitle" id="_772e5b7f-2bd0-4ce1-86e5-fb55639bfefc"><a class="anchor" href="#_84d00b0a-26fe-7ee9-aaa7-2be7a5274238"></a><a class="header" href="#_84d00b0a-26fe-7ee9-aaa7-2be7a5274238">Abstract</a></h1><p id="_641ecae2-c05a-35cc-ca51-411031aed6b1">Capsium is a modular framework designed to efficiently and securely interchange multi-format information in interoperable portable packages, as well as platform-independent deployment of these packages to serve information consumers.</p><p id="_2265c60a-2de3-490f-2aa1-80220accd727">This document specifies requirements of the Capsium framework and its components:</p><div class="ul_wrap"><ul id="_5910d9c8-eb7f-9b09-8087-fac8b56b6161"><li id="_cf364a8d-3a2c-2edd-3a1e-95296bb19869"><p id="_287a62b8-2501-16ec-8554-f85597c32915">Capsium packages: standardized unit of information interchange in the Capsium framework.</p>
 </li>
 <li id="_27ba63c7-e5c3-7a25-d4ef-bcbb552a8615"><p id="_8338955b-1d02-59b3-abc5-af721d55a3d8">Capsium reactors: server-side or user-side software that allows deployment of a Capsium package.</p>
 </li>
 <li id="_988c2bfc-3245-76a6-75e4-8ba223161282"><p id="_cfeded90-c2c3-133b-af27-8585af81774e">Capsium HTTP API: user-facing HTTP API implemented by a Capsium reactor.</p>
 </li>
-</ul></div></div><br /><div class="Section3" id="_a716ccc0-7107-f8ee-8f27-7139f70cf883"><h1 class="IntroTitle" id="_fc294742-3964-4c2f-808c-40e7dd536e59"><a class="anchor" href="#_a716ccc0-7107-f8ee-8f27-7139f70cf883"></a><a class="header" href="#_a716ccc0-7107-f8ee-8f27-7139f70cf883">Introduction</a></h1><div id="_f4b9feec-76a0-1752-dcd9-39c545fc3b3d"><h2 id="_2a692936-57d8-4b72-b247-ef21d2db6d54"><a class="anchor" href="#_f4b9feec-76a0-1752-dcd9-39c545fc3b3d"></a><a class="header" href="#_f4b9feec-76a0-1752-dcd9-39c545fc3b3d">General</a></h2>
+</ul></div></div><br /><div class="Section3" id="_a716ccc0-7107-f8ee-8f27-7139f70cf883"><h1 class="IntroTitle" id="_2423304c-d06e-450a-98d8-a5b201f28be6"><a class="anchor" href="#_a716ccc0-7107-f8ee-8f27-7139f70cf883"></a><a class="header" href="#_a716ccc0-7107-f8ee-8f27-7139f70cf883">Introduction</a></h1><div id="_f4b9feec-76a0-1752-dcd9-39c545fc3b3d"><h2 id="_8ef0b7a7-9b4a-4bc5-ae9d-b25a635ed346"><a class="anchor" href="#_f4b9feec-76a0-1752-dcd9-39c545fc3b3d"></a><a class="header" href="#_f4b9feec-76a0-1752-dcd9-39c545fc3b3d">General</a></h2>
 
 <p id="_066a2985-1700-7f15-7612-7a92c4429e49">The digital era demands advanced, secure, and efficient methods for deploying and exchanging information. As organizations contend with multi-format data across diverse platforms, the limitations of traditional web packaging solutions become increasingly apparent.</p>
 
 <p id="_f0f05845-1e53-2dce-36b9-6067652a430c">Capsium answers this need with a modular framework designed for the efficient and secure interchange of multi-format information within interoperable and portable packages.</p>
 
 <p id="_ee4e713b-017e-f308-6b3f-a36cfbe9369d">Capsium uniquely supports the packaging and deployment of “non-application websites” or “non-server-side application websites” by delegating those functions to the Capsium reactor, which does not depend on a web server and can be directly implemented by the browser, mimicking the file-serving capabilities of a web server.</p>
-</div><div id="_851ac1e2-9094-3cde-6cda-3bc403cd8cd6"><h2 id="_e29c4f36-0a38-448f-aa54-2f918b570fe1"><a class="anchor" href="#_851ac1e2-9094-3cde-6cda-3bc403cd8cd6"></a><a class="header" href="#_851ac1e2-9094-3cde-6cda-3bc403cd8cd6">Features</a></h2>
+</div><div id="_851ac1e2-9094-3cde-6cda-3bc403cd8cd6"><h2 id="_36640a16-5534-4eb1-bb19-894b7fa33e93"><a class="anchor" href="#_851ac1e2-9094-3cde-6cda-3bc403cd8cd6"></a><a class="header" href="#_851ac1e2-9094-3cde-6cda-3bc403cd8cd6">Features</a></h2>
 
 <p id="_4b30f7b0-ce2c-6a5c-e1c3-9d565d7efcce">Today’s complex digital landscape highlight the necessity for Capsium.</p>
 
@@ -1708,7 +1708,7 @@ pre.sourcecode .nt {
 <li id="_6bf131f3-5d34-e8b1-ec6d-1fd3809c0ecf"><p id="_c78d91f4-a805-e202-f4c7-bc53cf75a82c">Capsium Reactors: To meet varied deployment needs, Capsium introduces reactors that can be installed on user machines or servers, managing and deploying Capsium packages with flexibility and scalability, without the need for a traditional web server.</p>
 </li>
 </ul></div>
-</div><div id="_91879033-abf1-7e96-791b-30e07027cd39"><h2 id="_ee6f3624-3c56-4012-b3e0-08011d4c7431"><a class="anchor" href="#_91879033-abf1-7e96-791b-30e07027cd39"></a><a class="header" href="#_91879033-abf1-7e96-791b-30e07027cd39">Comparison with existing solutions</a></h2>
+</div><div id="_91879033-abf1-7e96-791b-30e07027cd39"><h2 id="_896d7aac-598a-4d34-b1b8-c5d1ae0d16f7"><a class="anchor" href="#_91879033-abf1-7e96-791b-30e07027cd39"></a><a class="header" href="#_91879033-abf1-7e96-791b-30e07027cd39">Comparison with existing solutions</a></h2>
 
 <p id="_b9208a35-afef-d4bf-dca4-167ff1c14031">Capsium’s unique approach addresses the deficiencies of existing packaging solutions for non-application websites and web applications, which are all unsuitable for the use case.</p>
 
@@ -1760,7 +1760,7 @@ pre.sourcecode .nt {
 </ul></div>
 </li>
 </ul></div>
-</div><div id="_2ceb7311-47f9-0a6f-bd7a-eb4392d37156"><h2 id="_48ca58da-5a85-4ae7-9fc9-312d06ed78c9"><a class="anchor" href="#_2ceb7311-47f9-0a6f-bd7a-eb4392d37156"></a><a class="header" href="#_2ceb7311-47f9-0a6f-bd7a-eb4392d37156">Benefits</a></h2>
+</div><div id="_2ceb7311-47f9-0a6f-bd7a-eb4392d37156"><h2 id="_743ccd17-706b-42e1-870f-dccee7a89bee"><a class="anchor" href="#_2ceb7311-47f9-0a6f-bd7a-eb4392d37156"></a><a class="header" href="#_2ceb7311-47f9-0a6f-bd7a-eb4392d37156">Benefits</a></h2>
 
 <p id="_035651a0-bf8f-ae4f-14e7-bffe5210146e">Capsium addresses the shortcomings of previous solutions and offers unique benefits:</p>
 
@@ -1777,7 +1777,7 @@ pre.sourcecode .nt {
 <li id="_3c1392ad-fd77-b627-81ea-f34aa7616826"><p id="_afc49cc7-2c20-f295-9129-7d35bb969aee">Capsium reactors: Provide flexible and scalable package management and deployment solutions, eliminating the need for traditional server infrastructure.</p>
 </li>
 </ul></div>
-</div><div id="_541446c6-a96e-22ab-87e9-b0895a3c9273"><h2 id="_723a1cc4-6be4-45ec-a3a5-ae5641933c87"><a class="anchor" href="#_541446c6-a96e-22ab-87e9-b0895a3c9273"></a><a class="header" href="#_541446c6-a96e-22ab-87e9-b0895a3c9273">Data management impact</a></h2>
+</div><div id="_541446c6-a96e-22ab-87e9-b0895a3c9273"><h2 id="_126f5e8d-d308-4e89-8c55-669572a55ed4"><a class="anchor" href="#_541446c6-a96e-22ab-87e9-b0895a3c9273"></a><a class="header" href="#_541446c6-a96e-22ab-87e9-b0895a3c9273">Data management impact</a></h2>
 
 <p id="_3630279d-d7f6-11c2-031b-b8ed41eb681f">Capsium modernizes and transforms data management practices in several key ways:</p>
 
@@ -1792,10 +1792,10 @@ pre.sourcecode .nt {
 <li id="_53260bb5-d8fc-1eca-ec5d-3af816685a9e"><p id="_2e34b5b3-80d4-7545-5bff-1eb25c08872a">Compliance and Auditing: Facilitates adherence to regulatory requirements by ensuring data integrity and providing robust tracking of data access and modifications.</p>
 </li>
 </ul></div>
-</div><div id="_109a1d24-1c7e-e30d-ca63-6b9160ddfa80"><h2 id="_6ffd9721-fece-453c-ad51-ef0ca34fff8a"><a class="anchor" href="#_109a1d24-1c7e-e30d-ca63-6b9160ddfa80"></a><a class="header" href="#_109a1d24-1c7e-e30d-ca63-6b9160ddfa80">Summary</a></h2>
+</div><div id="_109a1d24-1c7e-e30d-ca63-6b9160ddfa80"><h2 id="_04c2b60f-1d16-4fdc-820d-e61c80ee2eb4"><a class="anchor" href="#_109a1d24-1c7e-e30d-ca63-6b9160ddfa80"></a><a class="header" href="#_109a1d24-1c7e-e30d-ca63-6b9160ddfa80">Summary</a></h2>
 
 <p id="_cc24736c-9b2d-83a0-9d64-7ecb3085d017">Capsium represents a significant advancement in the realm of data management, addressing critical needs for security, interoperability, portability, efficiency, and compliance. Its innovative approach transforms how organizations handle data, making it a vital tool in the modern digital landscape.</p>
-</div></div><p class="zzSTDTitle1">Common architecture for portable secure information interchange and unified management (Capsium)</p><div id="_1ec2a22a-0f9b-af2f-97b8-646c3265b3aa"><h1 id="_9ce40004-e1d2-4c70-8517-1886bb7d6865"><a class="anchor" href="#_1ec2a22a-0f9b-af2f-97b8-646c3265b3aa"></a><a class="header" href="#_1ec2a22a-0f9b-af2f-97b8-646c3265b3aa">1.  Scope</a></h1><p id="_2413dcf6-baec-fa2f-7230-a94c7c42d6dc">This document describes Capsium, a modular framework for the secure and efficient interchange of multi-format information within interoperable and portable packages.</p><p id="_3bf23d33-1500-9571-d06f-65c53f855d7e">This document specifies requirements of the Capsium framework and its components:</p><div class="ul_wrap"><ul id="_1631e454-3bcd-6b73-1183-2137f801b22e"><li id="_407d1b68-a5c0-774b-04fb-d3aa5edb0ff4"><p id="_3ae4d93d-d802-29ac-5934-237b691426da">Capsium packages: standardized unit of information interchange in the Capsium framework.</p>
+</div></div><p class="zzSTDTitle1">Common architecture for portable secure information interchange and unified management (Capsium)</p><div id="_1ec2a22a-0f9b-af2f-97b8-646c3265b3aa"><h1 id="_258d029f-7b01-4f1a-a3e0-045e2e53d67d"><a class="anchor" href="#_1ec2a22a-0f9b-af2f-97b8-646c3265b3aa"></a><a class="header" href="#_1ec2a22a-0f9b-af2f-97b8-646c3265b3aa">1.  Scope</a></h1><p id="_2413dcf6-baec-fa2f-7230-a94c7c42d6dc">This document describes Capsium, a modular framework for the secure and efficient interchange of multi-format information within interoperable and portable packages.</p><p id="_3bf23d33-1500-9571-d06f-65c53f855d7e">This document specifies requirements of the Capsium framework and its components:</p><div class="ul_wrap"><ul id="_1631e454-3bcd-6b73-1183-2137f801b22e"><li id="_407d1b68-a5c0-774b-04fb-d3aa5edb0ff4"><p id="_3ae4d93d-d802-29ac-5934-237b691426da">Capsium packages: standardized unit of information interchange in the Capsium framework.</p>
 </li>
 <li id="_1c577a7e-ab25-2ded-ce88-a51e7caa32d0"><p id="_ac132cd5-6b4a-ff0b-3afa-fdba38776b0e">Capsium reactors: server-side or user-side software that allows deployment of a Capsium package.</p>
 </li>
@@ -1805,9 +1805,9 @@ pre.sourcecode .nt {
 </li>
 <li id="_2947e259-b7f0-b092-da69-24ac14e1996e"><p id="_913823cb-f8a8-314b-adae-7f881426390c">Examples for implementing components of the Capsium framework.</p>
 </li>
-</ul></div></div><div><h1 id="_8cbf4380-2801-457a-abdd-e99fbdd55ac6">2.  Normative references</h1>
+</ul></div></div><div><h1 id="_ecacecbf-a9f3-4638-8b12-65aee7b8547d">2.  Normative references</h1>
 <p id="_cf4fafa1-7328-7d25-f309-bb194339feef">There are no normative references in this document.</p>
-</div><div id="_5896b400-c462-c853-00e4-a618ade27d1c"><h1 id="_625050c2-e90d-44d2-a26f-b6e05cef1495"><a class="anchor" href="#_5896b400-c462-c853-00e4-a618ade27d1c"></a><a class="header" href="#_5896b400-c462-c853-00e4-a618ade27d1c">3.  Terms and definitions</a></h1>
+</div><div id="_5896b400-c462-c853-00e4-a618ade27d1c"><h1 id="_47912de3-a474-46fb-abc4-a77d0bdf439e"><a class="anchor" href="#_5896b400-c462-c853-00e4-a618ade27d1c"></a><a class="header" href="#_5896b400-c462-c853-00e4-a618ade27d1c">3.  Terms and definitions</a></h1>
 <p id="_1fbc7bf1-a8de-c3eb-ee88-3b4cf950e61b">For the purposes of this document, the following terms and definitions apply.</p>
 <p class="Terms" style="text-align:left;" id="term-Capsium-package"><strong>3.1.</strong> <b><dfn>Capsium package</dfn></b></p>
 <p id="_5d2ad830-9691-92f1-abc9-5a69f58548e0">A structured bundle of multi-format data and resources that can be securely and efficiently interchanged and deployed across different platforms. Capsium packages are designed to be portable and interoperable, ensuring seamless data transfer and application deployment.</p>
@@ -2059,12 +2059,12 @@ pre.sourcecode .nt {
 <p class="Terms" style="text-align:left;" id="term-Data-lifecycle-management"><strong>3.63.</strong> <b><dfn>Data lifecycle management</dfn></b></p>
 <p id="_72966896-5703-f20c-5307-6c1a6857d705">The process of managing data from its creation to its eventual disposal. Capsium includes features for data lifecycle management, ensuring that data within its packages is properly handled, maintained, and disposed of according to best practices and regulatory requirements.</p>
 
-</div><div id="_2ee2ba4c-5447-5e57-57e5-49eb0abd5208"><h1 id="_97deecde-b02b-4f1f-a8d0-b6b99d79b529"><a class="anchor" href="#_2ee2ba4c-5447-5e57-57e5-49eb0abd5208"></a><a class="header" href="#_2ee2ba4c-5447-5e57-57e5-49eb0abd5208">4.  Capsium framework</a></h1><p id="_cca3ce73-a13d-0f7a-647c-9bcf77c35cdd">The Capsium framework provides a comprehensive set of principles, features, and use cases that define its architecture and functionality. This clause outlines the essential components and concepts that make up the framework, ensuring a clear understanding of its capabilities and applications.</p><div id="_4f192af1-494f-772b-43c3-de1e2d7aafdc"><h2 id="_05df90d0-8a78-49f4-801f-349d2b42c7e7"><a class="anchor" href="#_4f192af1-494f-772b-43c3-de1e2d7aafdc"></a><a class="header" href="#_4f192af1-494f-772b-43c3-de1e2d7aafdc">4.1.  General</a></h2>
+</div><div id="_2ee2ba4c-5447-5e57-57e5-49eb0abd5208"><h1 id="_40d15c04-5b09-4d1e-8683-20c1200be9ca"><a class="anchor" href="#_2ee2ba4c-5447-5e57-57e5-49eb0abd5208"></a><a class="header" href="#_2ee2ba4c-5447-5e57-57e5-49eb0abd5208">4.  Capsium framework</a></h1><p id="_cca3ce73-a13d-0f7a-647c-9bcf77c35cdd">The Capsium framework provides a comprehensive set of principles, features, and use cases that define its architecture and functionality. This clause outlines the essential components and concepts that make up the framework, ensuring a clear understanding of its capabilities and applications.</p><div id="_4f192af1-494f-772b-43c3-de1e2d7aafdc"><h2 id="_c7e6dc94-16da-4196-9bbf-a102ac8fe711"><a class="anchor" href="#_4f192af1-494f-772b-43c3-de1e2d7aafdc"></a><a class="header" href="#_4f192af1-494f-772b-43c3-de1e2d7aafdc">4.1.  General</a></h2>
 
 <p id="_fadb41a5-fed3-7a78-3860-d28da0fec312">Capsium (Common architecture for portable secure information interchange and unified management) is an innovative technology framework designed to facilitate the interoperable and portable deployment of lightweight, web-compatible, interactive data packages. The framework supports the packaging and deployment of static websites, which can be hosted by any cloud file hosting service with minimal web serving functionality, such as AWS S3 or GitHub Pages.</p>
 
 <p id="_2eeed15a-2dfc-2e15-9059-10e436982d01">The core concept of Capsium is to enable the packaging of static websites into deployable objects, called Capsium packages. These packages are self-contained, size-efficient, and secure, providing all necessary resources and metadata to be served by a simple web server.</p>
-</div><div id="_268eaf50-c8f3-40f5-8a6f-30ad200d7947"><h2 id="_854379a2-c9ec-4a42-88a0-9fa70e9939c3"><a class="anchor" href="#_268eaf50-c8f3-40f5-8a6f-30ad200d7947"></a><a class="header" href="#_268eaf50-c8f3-40f5-8a6f-30ad200d7947">4.2.  Principles of the framework</a></h2>
+</div><div id="_268eaf50-c8f3-40f5-8a6f-30ad200d7947"><h2 id="_c895932b-d15f-4289-9ff6-96938efaf22f"><a class="anchor" href="#_268eaf50-c8f3-40f5-8a6f-30ad200d7947"></a><a class="header" href="#_268eaf50-c8f3-40f5-8a6f-30ad200d7947">4.2.  Principles of the framework</a></h2>
 
 <p id="_72b99259-7a69-b2d4-e617-8138f0664ece">The Capsium framework is based on several key principles that ensure its effectiveness and reliability:</p>
 
@@ -2080,7 +2080,7 @@ pre.sourcecode .nt {
 </dd><dt><p>Deployment API compatibility</p></dt><dd id="_5b6e7f1e-2d19-291c-a211-a7889424b06e"><p id="_79881187-e2a8-c43c-e137-6debb9e0765d">The deployment API can be easily implemented by common web servers such as Apache and nginx.</p>
 </dd><dt><p>Compliance</p></dt><dd id="_6e033e80-a9e2-e514-a301-5e728b9103fb"><p id="_53091eec-7a9b-0db9-60a4-29c64c851caa">The deployment API complies with common expectations and supports fetching of metadata and other introspection features.</p>
 </dd></dl></div>
-</div><div id="_f55d9680-20f0-7667-04d0-e3e5ffbfaf78"><h2 id="_8658e5df-94ef-4911-812b-5e746ef171b3"><a class="anchor" href="#_f55d9680-20f0-7667-04d0-e3e5ffbfaf78"></a><a class="header" href="#_f55d9680-20f0-7667-04d0-e3e5ffbfaf78">4.3.  Key features of the framework</a></h2>
+</div><div id="_f55d9680-20f0-7667-04d0-e3e5ffbfaf78"><h2 id="_d558686b-64b2-4fec-b9cc-1e53930ee051"><a class="anchor" href="#_f55d9680-20f0-7667-04d0-e3e5ffbfaf78"></a><a class="header" href="#_f55d9680-20f0-7667-04d0-e3e5ffbfaf78">4.3.  Key features of the framework</a></h2>
 
 <p id="_7f57961c-ec35-acbe-594c-22b8c6891d04">The Capsium framework includes several key features that enhance its functionality and usability:</p>
 
@@ -2091,7 +2091,7 @@ pre.sourcecode .nt {
 </dd></dl></div>
 
 <p id="_2bc2701c-6d9a-6289-b49a-353ff4664ed6">These features enable the efficient creation, deployment, and management of web-compatible, interactive data packages.</p>
-</div><div id="_00352421-9d3e-924b-d838-56cbec8cf5f0"><h2 id="_f727f44c-2fb2-4e79-9ba3-ea56b2985355"><a class="anchor" href="#_00352421-9d3e-924b-d838-56cbec8cf5f0"></a><a class="header" href="#_00352421-9d3e-924b-d838-56cbec8cf5f0">4.4.  Use cases of the framework</a></h2>
+</div><div id="_00352421-9d3e-924b-d838-56cbec8cf5f0"><h2 id="_01476b40-b71a-4104-a2d1-ccd628f08ca9"><a class="anchor" href="#_00352421-9d3e-924b-d838-56cbec8cf5f0"></a><a class="header" href="#_00352421-9d3e-924b-d838-56cbec8cf5f0">4.4.  Use cases of the framework</a></h2>
 
 <p id="_fe5631f5-dc83-8e7a-b443-ea02d8e72eb1">The Capsium framework supports a variety of use cases, demonstrating its versatility and practicality:</p>
 
@@ -2103,7 +2103,7 @@ pre.sourcecode .nt {
 </dd></dl></div>
 
 <p id="_62926fe1-8ca0-b156-be70-0fcad5df6d45">These use cases highlight the practical applications of the Capsium framework in various scenarios, emphasizing its ability to enhance the deployment and management of web-compatible data packages.</p>
-</div></div><div id="_33db1859-b243-39b8-3a37-7b8231e662d1"><h1 id="_d84d4689-6c8f-4bf1-bf89-133788e1b347"><a class="anchor" href="#_33db1859-b243-39b8-3a37-7b8231e662d1"></a><a class="header" href="#_33db1859-b243-39b8-3a37-7b8231e662d1">5.  Capsium package</a></h1><p id="_5628fa12-42dc-3cf9-c5fd-a030b5e94d94">The Capsium package is the fundamental unit of deployment within the Capsium framework. This clause details the structure, contents, and specifications of a Capsium package, ensuring a comprehensive understanding of its components and functionality.</p><div id="_7d448338-ca6e-ec3d-eae4-21df9af7df94"><h2 id="_3c9cd43a-69a2-4ea1-847f-8874b7f9198b"><a class="anchor" href="#_7d448338-ca6e-ec3d-eae4-21df9af7df94"></a><a class="header" href="#_7d448338-ca6e-ec3d-eae4-21df9af7df94">5.1.  General</a></h2>
+</div></div><div id="_33db1859-b243-39b8-3a37-7b8231e662d1"><h1 id="_6f64273a-57f8-41fc-8376-937013a88d2e"><a class="anchor" href="#_33db1859-b243-39b8-3a37-7b8231e662d1"></a><a class="header" href="#_33db1859-b243-39b8-3a37-7b8231e662d1">5.  Capsium package</a></h1><p id="_5628fa12-42dc-3cf9-c5fd-a030b5e94d94">The Capsium package is the fundamental unit of deployment within the Capsium framework. This clause details the structure, contents, and specifications of a Capsium package, ensuring a comprehensive understanding of its components and functionality.</p><div id="_7d448338-ca6e-ec3d-eae4-21df9af7df94"><h2 id="_0ca69734-a646-4b7b-84b0-cd9d7317cca9"><a class="anchor" href="#_7d448338-ca6e-ec3d-eae4-21df9af7df94"></a><a class="header" href="#_7d448338-ca6e-ec3d-eae4-21df9af7df94">5.1.  General</a></h2>
 
 <p id="_cd595e7c-5953-332f-f1ad-4d7cd7308335">A Capsium package is a compressed, single-file deployable object that contains all the necessary files for a static site. It is designed to be easily built, inspected, extracted, and deployed across various platforms. The package ensures that all resources, metadata, and configurations required for site deployment are self-contained within it.</p>
 
@@ -2111,7 +2111,7 @@ pre.sourcecode .nt {
 </dd><dt><p>MIME type</p></dt><dd id="_6711cf35-0f3b-67ac-5538-6f8073c2b623"><p id="_1eaaecf7-4620-6cee-c063-c739e1a86c6f">The MIME type for a Capsium package is <tt>application/vnd.capsium.package</tt>.</p>
 </dd><dt><p>File extension</p></dt><dd id="_c0a9094b-9cd4-2bf6-f638-eedc90ebd400"><p id="_422b34c5-9de2-42b1-5596-869ea5618534">The standard file extension for a Capsium package is <tt>.cap</tt>.</p>
 </dd></dl></div>
-</div><div id="_41a9a3d8-f9ae-014f-afa9-da161743d028"><h2 id="_c05ca98a-e81e-40e2-a71d-0428ffbb16f9"><a class="anchor" href="#_41a9a3d8-f9ae-014f-afa9-da161743d028"></a><a class="header" href="#_41a9a3d8-f9ae-014f-afa9-da161743d028">5.2.  Structure</a></h2>
+</div><div id="_41a9a3d8-f9ae-014f-afa9-da161743d028"><h2 id="_d62f63b2-987b-412b-96b7-682a3895a66a"><a class="anchor" href="#_41a9a3d8-f9ae-014f-afa9-da161743d028"></a><a class="header" href="#_41a9a3d8-f9ae-014f-afa9-da161743d028">5.2.  Structure</a></h2>
 
 <div id="_2faec32c-e6df-354c-e8a5-8532e6910a79"><h3><a class="anchor" href="#_2faec32c-e6df-354c-e8a5-8532e6910a79"></a><a class="header" href="#_2faec32c-e6df-354c-e8a5-8532e6910a79">5.2.1.  General</a></h3>
 
@@ -2130,7 +2130,7 @@ pre.sourcecode .nt {
 <figure id="_3832b71a-e845-ae75-beed-b25b4cef0b10" class="sourcecode" spellcheck="false" translation="no"><pre>example-capsium-package/<br />├── index.html<br />├── styles.css<br />├── app.js<br />├── manifest.json<br />├── routes.json<br />├── http-api.json<br />├── storage.json<br />├── security.json<br />├── authentication.json<br />├── logging-monitoring.json<br />├── validation.json<br />├── LICENSE.spdx<br />└── README.md</pre><figcaption class="SourceTitle">Figure 1</figcaption></figure>
 
 </div>
-</div><div id="_885de607-7e5b-42da-b1cd-4ccefa13d8f9"><h2 id="_c502cf71-510e-4b60-8d75-fb1673437f0d"><a class="anchor" href="#_885de607-7e5b-42da-b1cd-4ccefa13d8f9"></a><a class="header" href="#_885de607-7e5b-42da-b1cd-4ccefa13d8f9">5.3.  Metadata file</a></h2>
+</div><div id="_885de607-7e5b-42da-b1cd-4ccefa13d8f9"><h2 id="_379ae5d7-57b4-43dc-b1b8-fed6d07e6d9a"><a class="anchor" href="#_885de607-7e5b-42da-b1cd-4ccefa13d8f9"></a><a class="header" href="#_885de607-7e5b-42da-b1cd-4ccefa13d8f9">5.3.  Metadata file</a></h2>
 
 <div id="_e72dbddb-877b-e894-0449-fdb1cafa2bed"><h3><a class="anchor" href="#_e72dbddb-877b-e894-0449-fdb1cafa2bed"></a><a class="header" href="#_e72dbddb-877b-e894-0449-fdb1cafa2bed">5.3.1.  General</a></h3>
 
@@ -2697,7 +2697,7 @@ pre.sourcecode .nt {
 
 <p id="_62d8f8d3-1e92-5d75-afa4-23e77b481034">This section details the requirements, specifications, and use cases for configuring a package as read-only, including value requirements and enumerations for attributes. The read-only attribute is package-wide and set inside <tt>metadata.json</tt>.</p>
 </div>
-</div><div id="_d0274c2a-12d0-3675-f86c-0baaf3d70b27"><h2 id="_7022a15e-2c13-46a2-b58e-92729db04832"><a class="anchor" href="#_d0274c2a-12d0-3675-f86c-0baaf3d70b27"></a><a class="header" href="#_d0274c2a-12d0-3675-f86c-0baaf3d70b27">5.4.  Manifest file</a></h2>
+</div><div id="_d0274c2a-12d0-3675-f86c-0baaf3d70b27"><h2 id="_b0d4fc24-f223-41b3-845a-aad6ceaee17a"><a class="anchor" href="#_d0274c2a-12d0-3675-f86c-0baaf3d70b27"></a><a class="header" href="#_d0274c2a-12d0-3675-f86c-0baaf3d70b27">5.4.  Manifest file</a></h2>
 
 <div id="_7d5972df-8f92-c6d3-ba69-802828faee2d"><h3><a class="anchor" href="#_7d5972df-8f92-c6d3-ba69-802828faee2d"></a><a class="header" href="#_7d5972df-8f92-c6d3-ba69-802828faee2d">5.4.1.  General</a></h3>
 
@@ -2769,7 +2769,7 @@ pre.sourcecode .nt {
 
 <p id="_ba0eeccd-66be-583d-6d4e-328aa31b152c">By clearly defining and adhering to these visibility rules, the Capsium package ensures that resource bundling is both flexible and secure, allowing for effective re-use of assets while protecting private resources.</p>
 </div>
-</div><div id="_ca030278-7e13-7bb6-8b9e-ec773174751d"><h2 id="_61f74f1f-ffa9-41c3-8d0f-121777aa4de0"><a class="anchor" href="#_ca030278-7e13-7bb6-8b9e-ec773174751d"></a><a class="header" href="#_ca030278-7e13-7bb6-8b9e-ec773174751d">5.5.  Root file</a></h2>
+</div><div id="_ca030278-7e13-7bb6-8b9e-ec773174751d"><h2 id="_c000d9f9-daeb-4884-91e2-5b3934e8d6ac"><a class="anchor" href="#_ca030278-7e13-7bb6-8b9e-ec773174751d"></a><a class="header" href="#_ca030278-7e13-7bb6-8b9e-ec773174751d">5.5.  Root file</a></h2>
 
 <p id="_1ea3e53a-fe7d-1c47-2e9f-972a7c8e8851">The root file of a Capsium package serves as the main entry point and must be an HTML file. This file is crucial as it defines the primary structure and content that the system should load or render.</p>
 
@@ -2867,7 +2867,7 @@ pre.sourcecode .nt {
 <figure id="_bc2fd286-0311-5860-7217-e1e77650224e" class="sourcecode" spellcheck="false" translation="no"><pre><span class="cp">&#x3c;!DOCTYPE html&#x3e;</span><br /><span class="nt">&#x3c;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&#x3e;</span><br /><span class="nt">&#x3c;head&#x3e;</span><br />    <span class="nt">&#x3c;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&#x3e;</span><br />    <span class="nt">&#x3c;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&#x3e;</span><br />    <span class="nt">&#x3c;title&#x3e;</span>Capsium Package<span class="nt">&#x3c;/title&#x3e;</span><br />    <span class="nt">&#x3c;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"styles.css"</span><span class="nt">&#x3e;</span><br /><span class="nt">&#x3c;/head&#x3e;</span><br /><span class="nt">&#x3c;body&#x3e;</span><br />    <span class="nt">&#x3c;h1&#x3e;</span>Welcome to the Capsium Package<span class="nt">&#x3c;/h1&#x3e;</span><br />    <span class="nt">&#x3c;script </span><span class="na">src=</span><span class="s">"app.js"</span><span class="nt">&#x3e;&#x3c;/script&#x3e;</span><br /><span class="nt">&#x3c;/body&#x3e;</span><br /><span class="nt">&#x3c;/html&#x3e;</span></pre><figcaption class="SourceTitle">Figure 34</figcaption></figure>
 
 </div>
-</div><div id="_f4779639-1c72-4511-afa4-d6baa38599f5"><h2 id="_9330a7b3-eacc-4628-9d0f-0b9c102e5309"><a class="anchor" href="#_f4779639-1c72-4511-afa4-d6baa38599f5"></a><a class="header" href="#_f4779639-1c72-4511-afa4-d6baa38599f5">5.6.  Resource bundling</a></h2>
+</div><div id="_f4779639-1c72-4511-afa4-d6baa38599f5"><h2 id="_87a3bbe7-4452-437f-9e1e-ed0fe73eca47"><a class="anchor" href="#_f4779639-1c72-4511-afa4-d6baa38599f5"></a><a class="header" href="#_f4779639-1c72-4511-afa4-d6baa38599f5">5.6.  Resource bundling</a></h2>
 
 <div id="_54641c6e-a5be-7a2e-075b-a1f73834f6fc"><h3><a class="anchor" href="#_54641c6e-a5be-7a2e-075b-a1f73834f6fc"></a><a class="header" href="#_54641c6e-a5be-7a2e-075b-a1f73834f6fc">5.6.1.  General</a></h3>
 
@@ -2956,7 +2956,7 @@ pre.sourcecode .nt {
 
 </dd></dl></div>
 </div>
-</div><div id="_b90be80a-fdf3-aca6-2370-1d7bf1a55e0f"><h2 id="_57e80b44-0804-4819-8d65-9a47fb51ddcb"><a class="anchor" href="#_b90be80a-fdf3-aca6-2370-1d7bf1a55e0f"></a><a class="header" href="#_b90be80a-fdf3-aca6-2370-1d7bf1a55e0f">5.7.  Resource routing</a></h2>
+</div><div id="_b90be80a-fdf3-aca6-2370-1d7bf1a55e0f"><h2 id="_16262e11-f469-459b-a77c-a1bd2365a00a"><a class="anchor" href="#_b90be80a-fdf3-aca6-2370-1d7bf1a55e0f"></a><a class="header" href="#_b90be80a-fdf3-aca6-2370-1d7bf1a55e0f">5.7.  Resource routing</a></h2>
 
 <div id="_92722491-63ff-ddbe-c73f-e800fe2ad22b"><h3><a class="anchor" href="#_92722491-63ff-ddbe-c73f-e800fe2ad22b"></a><a class="header" href="#_92722491-63ff-ddbe-c73f-e800fe2ad22b">5.7.1.  General</a></h3>
 
@@ -3151,7 +3151,7 @@ pre.sourcecode .nt {
 
 <p id="_97af4ad9-ab05-ba17-e3e0-b21cbb3a0f39">Inheriting and processing routes from dependency packages is an optional capability defined by the composite packages module (<a href="#module-composite">Clause 12.8</a>).</p>
 </div>
-</div><div id="_f5d44dd2-90bf-01ad-4ff4-d4e52d66c064"><h2 id="_de15e328-719f-435b-8eac-46a38711710d"><a class="anchor" href="#_f5d44dd2-90bf-01ad-4ff4-d4e52d66c064"></a><a class="header" href="#_f5d44dd2-90bf-01ad-4ff4-d4e52d66c064">5.8.  Storage</a></h2>
+</div><div id="_f5d44dd2-90bf-01ad-4ff4-d4e52d66c064"><h2 id="_a243e6a7-84ff-4aec-b9c8-a83ce71a006a"><a class="anchor" href="#_f5d44dd2-90bf-01ad-4ff4-d4e52d66c064"></a><a class="header" href="#_f5d44dd2-90bf-01ad-4ff4-d4e52d66c064">5.8.  Storage</a></h2>
 
 <p id="_4f0101b5-5c08-0a82-cf3d-8886a8282ebb">The Capsium package includes a comprehensive storage system that supports static data files, databases, and — through the optional layered storage capability (<a href="#module-layered-storage">Clause 12.7</a>) — a unified merged filesystem view. This section outlines the requirements and specifications for each storage type.</p>
 
@@ -3432,10 +3432,10 @@ pre.sourcecode .nt {
 <p id="_4510e6cc-e449-546c-d683-435451c92d4c">Example process: <tt>`</tt>shell # Collect action patches cp /path/to/action-history/* /new-package/action-history/</p>
 </div>
 </div>
-</div></div><div id="_614fb021-9a25-2a40-abc4-02cc18f448f9"><h1 id="_3113df82-cbd6-482e-a5bc-b68255431a44"><a class="anchor" href="#_614fb021-9a25-2a40-abc4-02cc18f448f9"></a><a class="header" href="#_614fb021-9a25-2a40-abc4-02cc18f448f9">6.  Create new package structure</a></h1><p id="_1ebb1402-a153-a13e-73af-78a38312d6d3">mkdir /new-package cp -r /original-package/* /new-package/</p></div><div id="_65a5cce4-415b-17b9-1311-14c59779050b"><h1 id="_41246430-7dc3-40b7-ba05-3505c421a223"><a class="anchor" href="#_65a5cce4-415b-17b9-1311-14c59779050b"></a><a class="header" href="#_65a5cce4-415b-17b9-1311-14c59779050b">7.  Update metadata</a></h1><p id="_8a4f8ee3-ade5-a6b8-5b00-4eaaf6005bab">jq ’.packages += [{”id”: “capsiumPkg2”, “actionHistoryLocation”: “/new-package/action-history”}]’ /new-package/storage.json &#x3e; /new-package/storage_tmp.json mv /new-package/storage_tmp.json /new-package/storage.json</p></div><div id="_06d440bf-e179-37bc-429e-c8ef00ea0ed3"><h1 id="_328a7a22-2a72-4c3f-ac26-253a5f01f23e"><a class="anchor" href="#_06d440bf-e179-37bc-429e-c8ef00ea0ed3"></a><a class="header" href="#_06d440bf-e179-37bc-429e-c8ef00ea0ed3">8.  Validate package</a></h1><p id="_49017d4a-f7b6-9cc0-32d7-961c0a4b66a4">capsium-validate /new-package <tt>`</tt></p><p id="_5256c422-5505-17ef-4d93-e91c62193f47">Additional considerations for creating a new external Capsium package:</p><div class="figdl"><dl id="_112f5e10-9fbf-d48e-c5f8-97b053147be7"><dt><p>Integrity Checks</p></dt><dd id="_e018d4e9-1dda-ae7f-84d5-30d528ff9d76"><p id="_2ce17231-2cd1-e265-7ccd-67fb414204df">Perform integrity checks to ensure that all data items and action patches are correctly included and no data corruption has occurred.</p>
+</div></div><div id="_614fb021-9a25-2a40-abc4-02cc18f448f9"><h1 id="_53a2608c-7177-461b-8949-ef7b9a6a2f6a"><a class="anchor" href="#_614fb021-9a25-2a40-abc4-02cc18f448f9"></a><a class="header" href="#_614fb021-9a25-2a40-abc4-02cc18f448f9">6.  Create new package structure</a></h1><p id="_1ebb1402-a153-a13e-73af-78a38312d6d3">mkdir /new-package cp -r /original-package/* /new-package/</p></div><div id="_65a5cce4-415b-17b9-1311-14c59779050b"><h1 id="_6494ad6c-348f-4a0f-9dc5-af2af8335531"><a class="anchor" href="#_65a5cce4-415b-17b9-1311-14c59779050b"></a><a class="header" href="#_65a5cce4-415b-17b9-1311-14c59779050b">7.  Update metadata</a></h1><p id="_8a4f8ee3-ade5-a6b8-5b00-4eaaf6005bab">jq ’.packages += [{”id”: “capsiumPkg2”, “actionHistoryLocation”: “/new-package/action-history”}]’ /new-package/storage.json &#x3e; /new-package/storage_tmp.json mv /new-package/storage_tmp.json /new-package/storage.json</p></div><div id="_06d440bf-e179-37bc-429e-c8ef00ea0ed3"><h1 id="_5117bf96-c337-461c-bc73-1143a3b5e727"><a class="anchor" href="#_06d440bf-e179-37bc-429e-c8ef00ea0ed3"></a><a class="header" href="#_06d440bf-e179-37bc-429e-c8ef00ea0ed3">8.  Validate package</a></h1><p id="_49017d4a-f7b6-9cc0-32d7-961c0a4b66a4">capsium-validate /new-package <tt>`</tt></p><p id="_5256c422-5505-17ef-4d93-e91c62193f47">Additional considerations for creating a new external Capsium package:</p><div class="figdl"><dl id="_112f5e10-9fbf-d48e-c5f8-97b053147be7"><dt><p>Integrity Checks</p></dt><dd id="_e018d4e9-1dda-ae7f-84d5-30d528ff9d76"><p id="_2ce17231-2cd1-e265-7ccd-67fb414204df">Perform integrity checks to ensure that all data items and action patches are correctly included and no data corruption has occurred.</p>
 </dd><dt><p>Documentation</p></dt><dd id="_aabe2908-74b8-260d-5b00-71b783b26be5"><p id="_5aa64838-13ff-49fd-73cc-f92364904187">Update the package documentation to reflect the changes and new version information.</p>
 </dd><dt><p>Notification</p></dt><dd id="_ea4712ee-3a66-2a05-e820-14e775dc63f8"><p id="_c0d55626-f3b1-ee1f-d3d2-53e6fccd1eb9">Notify users or systems that depend on the package about the update to the new package.</p>
-</dd></dl></div><p id="_b03e33cd-a992-f5cf-37cd-2be0d7e0a9f2">Example of integrity check: <tt>`</tt>shell capsium-check-integrity /new-package <tt>`</tt></p><p id="_f8a9b90e-c25f-eee9-9366-84fbbf11fdb6">Example of updating documentation: <tt>`</tt>markdown # Capsium Package Documentation</p><div id="_41cf3900-8a45-7b99-0f4a-eda8ed8a5643"><h2 id="_bcfcbc83-b0e5-4079-aad5-8715c9ba3883"><a class="anchor" href="#_41cf3900-8a45-7b99-0f4a-eda8ed8a5643"></a><a class="header" href="#_41cf3900-8a45-7b99-0f4a-eda8ed8a5643">8.1.  Package ID: capsiumPkg2</a></h2>
+</dd></dl></div><p id="_b03e33cd-a992-f5cf-37cd-2be0d7e0a9f2">Example of integrity check: <tt>`</tt>shell capsium-check-integrity /new-package <tt>`</tt></p><p id="_f8a9b90e-c25f-eee9-9366-84fbbf11fdb6">Example of updating documentation: <tt>`</tt>markdown # Capsium Package Documentation</p><div id="_41cf3900-8a45-7b99-0f4a-eda8ed8a5643"><h2 id="_1f7a9158-d06a-4832-a8f5-ea683c6ed906"><a class="anchor" href="#_41cf3900-8a45-7b99-0f4a-eda8ed8a5643"></a><a class="header" href="#_41cf3900-8a45-7b99-0f4a-eda8ed8a5643">8.1.  Package ID: capsiumPkg2</a></h2>
 
 <div class="figdl"><dl id="_124b2d19-322e-158e-8aa7-1fb81aeb744a"><dt><p>Description</p></dt><dd id="_798cb7ac-dbd7-338c-bca2-4f73eb881421"><p id="_1065a2bf-5fab-dc5c-0c3b-bbad308b089a">This package includes updated datasets from capsiumPkg1 with action patches applied.</p>
 </dd><dt><p>Version</p></dt><dd id="_d99cdc7b-cc30-f7d7-2e08-8ae594387333"><p id="_c9de4aec-1a8f-2aac-4fbd-2d75dea34d97">2.0</p>
@@ -3471,10 +3471,10 @@ pre.sourcecode .nt {
 
 <p id="_77a2023b-68a6-8146-3c51-e45841c50cf4">Example process: <tt>`</tt>shell # Collect action patches cp /path/to/action-history/* /composite-package/internal/action-history/</p>
 </div>
-</div></div><div id="_cfdd65f2-f067-9f57-52f5-0fc7c0aaefb7"><h1 id="_08ef7780-4758-443c-978e-32596a25752f"><a class="anchor" href="#_cfdd65f2-f067-9f57-52f5-0fc7c0aaefb7"></a><a class="header" href="#_cfdd65f2-f067-9f57-52f5-0fc7c0aaefb7">9.  Create composite package structure</a></h1><p id="_689a93b7-15a2-2acf-9ab0-37e7cb32be93">mkdir /composite-package/internal cp -r /original-package/* /composite-package/internal/</p></div><div id="_4f0b2728-312f-cf16-247d-fdf2ec557b3d"><h1 id="_581ddc73-73b0-49ec-9129-cc0bd946ca3f"><a class="anchor" href="#_4f0b2728-312f-cf16-247d-fdf2ec557b3d"></a><a class="header" href="#_4f0b2728-312f-cf16-247d-fdf2ec557b3d">10.  Update metadata</a></h1><p id="_b0587f97-c1c6-aa8e-8979-541e1602ad84">jq ’.packages += [{”id”: “compositeCapsiumPkg1”, “internalActionHistoryPath”: “internal/action-history”}]’ /composite-package/storage.json &#x3e; /composite-package/storage_tmp.json mv /composite-package/storage_tmp.json /composite-package/storage.json</p></div><div id="_3112c15c-32db-68b7-7ab5-f2259287ae3c"><h1 id="_48a9a1a1-1055-4701-844d-eae50beb2579"><a class="anchor" href="#_3112c15c-32db-68b7-7ab5-f2259287ae3c"></a><a class="header" href="#_3112c15c-32db-68b7-7ab5-f2259287ae3c">11.  Validate package</a></h1><p id="_2ce44674-6dc8-f3fa-7035-5a1c514aedb1">capsium-validate /composite-package <tt>`</tt></p><p id="_19d56051-0049-ed45-2fc7-61781f1c28df">Additional considerations for creating a composite Capsium package:</p><div class="figdl"><dl id="_175bd390-7411-a58a-9331-4817401cdb26"><dt><p>Dependency Management</p></dt><dd id="_d0678f49-3bd5-da11-685d-c67b804dbdfd"><p id="_7953a7b7-7bc4-82e7-92a0-08c0ceaed085">Ensure that the composite package correctly references the current package and any other dependencies.</p>
+</div></div><div id="_cfdd65f2-f067-9f57-52f5-0fc7c0aaefb7"><h1 id="_2005ad65-d450-4a27-b012-11519c4611b3"><a class="anchor" href="#_cfdd65f2-f067-9f57-52f5-0fc7c0aaefb7"></a><a class="header" href="#_cfdd65f2-f067-9f57-52f5-0fc7c0aaefb7">9.  Create composite package structure</a></h1><p id="_689a93b7-15a2-2acf-9ab0-37e7cb32be93">mkdir /composite-package/internal cp -r /original-package/* /composite-package/internal/</p></div><div id="_4f0b2728-312f-cf16-247d-fdf2ec557b3d"><h1 id="_da387e92-3dac-4750-885c-373f2f1f5bb5"><a class="anchor" href="#_4f0b2728-312f-cf16-247d-fdf2ec557b3d"></a><a class="header" href="#_4f0b2728-312f-cf16-247d-fdf2ec557b3d">10.  Update metadata</a></h1><p id="_b0587f97-c1c6-aa8e-8979-541e1602ad84">jq ’.packages += [{”id”: “compositeCapsiumPkg1”, “internalActionHistoryPath”: “internal/action-history”}]’ /composite-package/storage.json &#x3e; /composite-package/storage_tmp.json mv /composite-package/storage_tmp.json /composite-package/storage.json</p></div><div id="_3112c15c-32db-68b7-7ab5-f2259287ae3c"><h1 id="_ca375ee0-f8d1-4d2b-81dd-5d379f62cd5a"><a class="anchor" href="#_3112c15c-32db-68b7-7ab5-f2259287ae3c"></a><a class="header" href="#_3112c15c-32db-68b7-7ab5-f2259287ae3c">11.  Validate package</a></h1><p id="_2ce44674-6dc8-f3fa-7035-5a1c514aedb1">capsium-validate /composite-package <tt>`</tt></p><p id="_19d56051-0049-ed45-2fc7-61781f1c28df">Additional considerations for creating a composite Capsium package:</p><div class="figdl"><dl id="_175bd390-7411-a58a-9331-4817401cdb26"><dt><p>Dependency Management</p></dt><dd id="_d0678f49-3bd5-da11-685d-c67b804dbdfd"><p id="_7953a7b7-7bc4-82e7-92a0-08c0ceaed085">Ensure that the composite package correctly references the current package and any other dependencies.</p>
 </dd><dt><p>Namespace Handling</p></dt><dd id="_98cdb846-3d37-2249-0cb3-80e1be0fce1c"><p id="_676ab725-fecb-b067-9109-a7772590c279">Manage namespaces to avoid conflicts between datasets from different packages.</p>
 </dd><dt><p>Testing</p></dt><dd id="_3e3fdfd4-8494-b983-4eaf-b570322824d7"><p id="_f7ad961e-c17b-d50d-14e7-6710f658dc57">Thoroughly test the composite package to ensure that the data changes are correctly applied and all functionalities work as expected.</p>
-</dd></dl></div><p id="_1c2359d2-1e75-1875-4f5b-5ed6a0deea99">Example of dependency management: <tt>`</tt>json {   “compositePackageId”: “compositeCapsiumPkg1”,   “dependencies”: [     {       “packageId”: “capsiumPkg1”,       “version”: “1.0”     }   ],   “internalActionHistoryPath”: “internal/action-history” } <tt>`</tt></p><p id="_ce7b5418-b3be-569c-fe32-9eab3bd28387">Example of namespace handling: <tt>`</tt>json {   “datasetNamespaces”: {     “capsiumPkg1”: “namespace1”,     “compositeCapsiumPkg1”: “namespace2”   } } <tt>`</tt></p><p id="_c7c59b86-a8cf-c0bc-c794-36d1780558d4">Example of testing script: <tt>`</tt>shell # Test script for composite package capsium-test /composite-package</p></div><div id="_26ac812e-08f9-5e1f-5ecb-ab915bdb3766"><h1 id="_6f222032-2ebf-4ef1-9f4a-5f361b8c2336"><a class="anchor" href="#_26ac812e-08f9-5e1f-5ecb-ab915bdb3766"></a><a class="header" href="#_26ac812e-08f9-5e1f-5ecb-ab915bdb3766">12.  Validate composite package</a></h1><p id="_52b2bc9b-b7d6-8283-075a-abb03a3318d9">capsium-validate /composite-package <tt>`</tt></p><div id="_bf2caa5d-9863-f559-2589-418383945f8d"><h2 id="_ebf1228a-7fec-4d74-886e-f5dab311e945"><a class="anchor" href="#_bf2caa5d-9863-f559-2589-418383945f8d"></a><a class="header" href="#_bf2caa5d-9863-f559-2589-418383945f8d">12.1.  Security</a></h2>
+</dd></dl></div><p id="_1c2359d2-1e75-1875-4f5b-5ed6a0deea99">Example of dependency management: <tt>`</tt>json {   “compositePackageId”: “compositeCapsiumPkg1”,   “dependencies”: [     {       “packageId”: “capsiumPkg1”,       “version”: “1.0”     }   ],   “internalActionHistoryPath”: “internal/action-history” } <tt>`</tt></p><p id="_ce7b5418-b3be-569c-fe32-9eab3bd28387">Example of namespace handling: <tt>`</tt>json {   “datasetNamespaces”: {     “capsiumPkg1”: “namespace1”,     “compositeCapsiumPkg1”: “namespace2”   } } <tt>`</tt></p><p id="_c7c59b86-a8cf-c0bc-c794-36d1780558d4">Example of testing script: <tt>`</tt>shell # Test script for composite package capsium-test /composite-package</p></div><div id="_26ac812e-08f9-5e1f-5ecb-ab915bdb3766"><h1 id="_1ab69d7c-46cb-4c75-bd11-98182db0db7d"><a class="anchor" href="#_26ac812e-08f9-5e1f-5ecb-ab915bdb3766"></a><a class="header" href="#_26ac812e-08f9-5e1f-5ecb-ab915bdb3766">12.  Validate composite package</a></h1><p id="_52b2bc9b-b7d6-8283-075a-abb03a3318d9">capsium-validate /composite-package <tt>`</tt></p><div id="_bf2caa5d-9863-f559-2589-418383945f8d"><h2 id="_eb4aeab9-980f-4579-9329-d18a524a5cd3"><a class="anchor" href="#_bf2caa5d-9863-f559-2589-418383945f8d"></a><a class="header" href="#_bf2caa5d-9863-f559-2589-418383945f8d">12.1.  Security</a></h2>
 
 <div id="_f676c601-de3b-ec7d-ae57-12f4e05983eb"><h3><a class="anchor" href="#_f676c601-de3b-ec7d-ae57-12f4e05983eb"></a><a class="header" href="#_f676c601-de3b-ec7d-ae57-12f4e05983eb">12.1.1.  General</a></h3>
 
@@ -3626,7 +3626,7 @@ pre.sourcecode .nt {
 
 <p id="_50481c62-2ff9-4a91-8df1-c65a5412dd0b">Encrypted content is an optional capability defined by the encryption module (<a href="#module-encryption">Clause 12.6</a>).</p>
 </div>
-</div><div id="_dbdd547e-1263-f38a-2077-ee14aa6b3944"><h2 id="_b0365f6f-2146-413c-bd12-0b749692c9f8"><a class="anchor" href="#_dbdd547e-1263-f38a-2077-ee14aa6b3944"></a><a class="header" href="#_dbdd547e-1263-f38a-2077-ee14aa6b3944">12.2.  Validation</a></h2>
+</div><div id="_dbdd547e-1263-f38a-2077-ee14aa6b3944"><h2 id="_89366760-0260-48c1-b02e-c40f79ebf550"><a class="anchor" href="#_dbdd547e-1263-f38a-2077-ee14aa6b3944"></a><a class="header" href="#_dbdd547e-1263-f38a-2077-ee14aa6b3944">12.2.  Validation</a></h2>
 
 <div id="_d8f1f0be-cf18-b5e4-fc72-bb775b83a3eb"><h3><a class="anchor" href="#_d8f1f0be-cf18-b5e4-fc72-bb775b83a3eb"></a><a class="header" href="#_d8f1f0be-cf18-b5e4-fc72-bb775b83a3eb">12.2.1.  General</a></h3>
 
@@ -3698,7 +3698,7 @@ pre.sourcecode .nt {
 
 <p id="_2bf663f7-aa44-a972-64c8-195249f1f4f3">By configuring these attributes, Capsium packages can be thoroughly validated to ensure they meet both quality and correctness standards. This structured approach helps maintain high standards and reliability for Capsium packages.</p>
 </div>
-</div><div id="_3ab5d045-e580-2d06-6718-4aec9c0e22da"><h2 id="_eef14c9e-bc27-4e30-95dc-71213e5af9a1"><a class="anchor" href="#_3ab5d045-e580-2d06-6718-4aec9c0e22da"></a><a class="header" href="#_3ab5d045-e580-2d06-6718-4aec9c0e22da">12.3.  Packaging options</a></h2>
+</div><div id="_3ab5d045-e580-2d06-6718-4aec9c0e22da"><h2 id="_248afa8d-259e-429e-850d-defe49cd07ca"><a class="anchor" href="#_3ab5d045-e580-2d06-6718-4aec9c0e22da"></a><a class="header" href="#_3ab5d045-e580-2d06-6718-4aec9c0e22da">12.3.  Packaging options</a></h2>
 
 <div id="_72bae577-3e71-7727-4d20-25e7a3a51649"><h3><a class="anchor" href="#_72bae577-3e71-7727-4d20-25e7a3a51649"></a><a class="header" href="#_72bae577-3e71-7727-4d20-25e7a3a51649">12.3.1.  General</a></h3>
 
@@ -3792,7 +3792,7 @@ pre.sourcecode .nt {
 <p id="_17b3c26f-4e43-0506-6dce-97f7d7901abe">By implementing these optimization techniques, Capsium packages can deliver content more efficiently, providing a faster and smoother user experience. This structured approach ensures that content is not only high-quality and correct but also optimized for performance and delivery.</p>
 </div>
 </div>
-</div><div id="modules"><h2 id="_670bbba6-e695-404d-9cd3-6a9699221d9e"><a class="anchor" href="#modules"></a><a class="header" href="#modules">12.4.  Capsium modules</a></h2>
+</div><div id="modules"><h2 id="_866dfcef-23ee-4569-98cd-00468876e05c"><a class="anchor" href="#modules"></a><a class="header" href="#modules">12.4.  Capsium modules</a></h2>
 
 <div id="_0489c4ef-623d-3d36-956b-469efcf1c80a"><h3><a class="anchor" href="#_0489c4ef-623d-3d36-956b-469efcf1c80a"></a><a class="header" href="#_0489c4ef-623d-3d36-956b-469efcf1c80a">12.4.1.  General</a></h3>
 
@@ -3817,7 +3817,7 @@ pre.sourcecode .nt {
 <figure id="_a9aee873-4d75-9500-fad4-64660e711251" class="sourcecode" spellcheck="false" translation="no"><pre><span class="p">{</span><span class="w"><br />    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-capsium-package"</span><span class="p">,</span><span class="w"><br />    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w"><br />    </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"signatures"</span><span class="p">,</span><span class="w"> </span><span class="s2">"layered-storage"</span><span class="p">]</span><span class="w"><br /></span><span class="p">}</span></pre><figcaption class="SourceTitle">Figure 80</figcaption></figure>
 
 </div>
-</div><div id="module-signatures"><h2 id="_aecb139e-1cf1-471f-801e-f6a65a20996b"><a class="anchor" href="#module-signatures"></a><a class="header" href="#module-signatures">12.5.  Module: Digital signatures</a></h2>
+</div><div id="module-signatures"><h2 id="_215398cc-db95-4263-891a-083fb37e8101"><a class="anchor" href="#module-signatures"></a><a class="header" href="#module-signatures">12.5.  Module: Digital signatures</a></h2>
 
 <p id="_95855640-f6ca-b0fd-6103-44dae56de846">The signatures module gives a Capsium package authenticity and tamper evidence on top of the integrity checks of the core package. A signed package carries a digital signature that a recipient can verify with the publisher’s public key, confirming both the identity of the signer and that the package has not been altered since it was signed.</p>
 
@@ -3912,7 +3912,7 @@ pre.sourcecode .nt {
 
 <p id="_abf0fcd3-cf51-c3ad-464d-a0e500b14011">A Capsium package / packager / reactor conforming to class <tt>signatures</tt> SHALL satisfy requirements signatures-1 to signatures-6 of this clause. The conformance class is defined in  <a href="#conformance-signatures">Clause 12.14.5</a>.</p>
 </div>
-</div><div id="module-encryption"><h2 id="_1cb06159-ca7e-4f0c-ba94-aa874f8e7753"><a class="anchor" href="#module-encryption"></a><a class="header" href="#module-encryption">12.6.  Module: Encryption</a></h2>
+</div><div id="module-encryption"><h2 id="_961aefe6-73d2-4ede-b733-2f22200a4a37"><a class="anchor" href="#module-encryption"></a><a class="header" href="#module-encryption">12.6.  Module: Encryption</a></h2>
 
 <p id="_fa8a99b9-f3d9-34ff-a6c3-2296f15f2600">The encryption module protects the content of a Capsium package from unauthorized access, ensuring that only intended recipients can decrypt and access the data. A Capsium package can contain both encrypted and cleartext content; encryption uses public/private keys and data encryption keys (DEK), or OpenPGP, and the whole package payload can be encrypted with AES-256 in GCM mode.</p>
 
@@ -4293,7 +4293,7 @@ pre.sourcecode .nt {
 
 <p id="_73e21d46-fb2e-159e-a0af-3c152de2bb15">A Capsium package / packager / reactor conforming to class <tt>encryption</tt> SHALL satisfy requirements encryption-1 to encryption-6 of this clause. The conformance class is defined in  <a href="#conformance-encryption">Clause 12.14.6</a>.</p>
 </div>
-</div><div id="module-layered-storage"><h2 id="_99d2d40c-bab5-434e-9e0b-28d2967e0e24"><a class="anchor" href="#module-layered-storage"></a><a class="header" href="#module-layered-storage">12.7.  Module: Layered storage</a></h2>
+</div><div id="module-layered-storage"><h2 id="_4487a177-f858-4cd0-bb7e-01ba9a1ec0a7"><a class="anchor" href="#module-layered-storage"></a><a class="header" href="#module-layered-storage">12.7.  Module: Layered storage</a></h2>
 
 <p id="_a9460708-eec9-8455-4066-2900793ffd20">The layered storage module combines multiple storage layers into a single, unified filesystem view, similar to the functionality of “overlay FS”. This approach ensures that changes can be made in a non-destructive manner while preserving the original data of a package.</p>
 
@@ -4361,7 +4361,7 @@ pre.sourcecode .nt {
 
 <p id="_9b4c55b9-2344-24e4-7984-98644bfa6753">A Capsium package / packager / reactor conforming to class <tt>layered-storage</tt> SHALL satisfy requirements layered-storage-1 to layered-storage-5 of this clause. The conformance class is defined in <a href="#conformance-layered-storage">Clause 12.14.7</a>.</p>
 </div>
-</div><div id="module-composite"><h2 id="_a3d38fe3-4071-445d-a195-4decda7ea3a2"><a class="anchor" href="#module-composite"></a><a class="header" href="#module-composite">12.8.  Module: Composite packages</a></h2>
+</div><div id="module-composite"><h2 id="_4a4b84a0-67a1-4bbb-b738-b040e2a9106b"><a class="anchor" href="#module-composite"></a><a class="header" href="#module-composite">12.8.  Module: Composite packages</a></h2>
 
 <p id="_f89237db-cb96-9c06-3a50-ee22470e2a2a">The composite packages module bundles multiple Capsium packages into a single, cohesive unit. This provides an organized and efficient way to manage dependencies, resources, and configurations: a composite package collects individual packages under one manifest, remaps their routes to avoid conflicts, selectively activates their storage layers, and lets a dependent package inherit and process routes exported by its dependencies.</p>
 
@@ -4528,7 +4528,7 @@ pre.sourcecode .nt {
 
 <p id="_afa9a2fe-2cf6-88e5-cb9a-377a51483487">A Capsium package / packager / reactor conforming to class <tt>composite</tt> SHALL satisfy requirements composite-1 to composite-7 of this clause. The conformance class is defined in  <a href="#conformance-composite">Clause 12.14.8</a>.</p>
 </div>
-</div><div id="module-authentication"><h2 id="_5b4a285e-b4a5-40eb-9b07-09cf2007a4fb"><a class="anchor" href="#module-authentication"></a><a class="header" href="#module-authentication">12.9.  Module: User authentication</a></h2>
+</div><div id="module-authentication"><h2 id="_46c30d64-7d7b-4cc8-a8d3-722343da91a2"><a class="anchor" href="#module-authentication"></a><a class="header" href="#module-authentication">12.9.  Module: User authentication</a></h2>
 
 <p id="_9ac20c9a-72a7-6a31-ecd6-c306d2ad8361">The authentication module secures access to the resources and datasets of an activated Capsium package. It covers user authentication methods — Apache <tt>passwd</tt> (<tt>.htpasswd</tt>) basic authentication and external OAuth — and the per-route access control declarations that restrict dataset routes to authenticated users with the required roles.</p>
 
@@ -4691,7 +4691,7 @@ pre.sourcecode .nt {
 
 <p id="_7d813ded-b68d-9399-4c80-3d17f6611a05">A Capsium package / packager / reactor conforming to class <tt>authentication</tt> SHALL satisfy requirements authentication-1 to authentication-6 of this clause. The conformance class is defined in  <a href="#conformance-authentication">Clause 12.14.9</a>.</p>
 </div>
-</div><div id="module-handler-routes"><h2 id="_a7b8a621-ad0e-4597-9f10-27c36fb810eb"><a class="anchor" href="#module-handler-routes"></a><a class="header" href="#module-handler-routes">12.10.  Module: Handler routes</a></h2>
+</div><div id="module-handler-routes"><h2 id="_7fd7e5b9-f3b2-4998-ac8d-a778175f152b"><a class="anchor" href="#module-handler-routes"></a><a class="header" href="#module-handler-routes">12.10.  Module: Handler routes</a></h2>
 
 <p id="_2f733e2b-aa5f-052c-8a64-6a9868416894">The handler routes module extends resource routing with dynamic HTTP API routes: routes that map a URL path and an HTTP method to an executable handler file contained in the package. Where the core package serves only static resources and datasets, a package claiming this module can ship API endpoints whose responses are produced by code.</p>
 
@@ -4732,7 +4732,7 @@ pre.sourcecode .nt {
 
 <p id="_6970c93b-0c8a-33f8-a227-039540d39219">A Capsium package / packager / reactor conforming to class <tt>handler-routes</tt> SHALL satisfy requirements handler-routes-1 to handler-routes-6 of this clause. The conformance class is defined in  <a href="#conformance-handler-routes">Clause 12.14.10</a>.</p>
 </div>
-</div><div id="module-testing"><h2 id="_db40ee3d-e078-4036-bd15-28234460a204"><a class="anchor" href="#module-testing"></a><a class="header" href="#module-testing">12.11.  Module: Testing</a></h2>
+</div><div id="module-testing"><h2 id="_3322f7c3-c334-48ee-86ca-d826e35606d4"><a class="anchor" href="#module-testing"></a><a class="header" href="#module-testing">12.11.  Module: Testing</a></h2>
 
 <p id="_375f7929-1578-1ad7-ba8c-3ca6319a6813">The testing module defines a YAML-based domain-specific language (DSL) for describing tests to be executed against Capsium packages. The DSL is designed to be programming language-independent, allowing for implementations in various languages, and covers HTTP routes, file existence, data validation, and configuration testing.</p>
 
@@ -4874,7 +4874,7 @@ pre.sourcecode .nt {
 
 <p id="_47faa449-5127-f4d3-a0b6-837a5b9f565e">A Capsium package / packager / test runner conforming to class <tt>testing</tt> SHALL satisfy requirements testing-1 to testing-6 of this clause. The conformance class is defined in  <a href="#conformance-testing">Clause 12.14.11</a>.</p>
 </div>
-</div><div id="reactor-clause"><h2 id="_a932b3e9-5b05-48dd-91d2-c7c0c34762f8"><a class="anchor" href="#reactor-clause"></a><a class="header" href="#reactor-clause">12.12.  Capsium Reactor</a></h2>
+</div><div id="reactor-clause"><h2 id="_dbc1141b-1cdc-46dd-9b68-4e84d5eb4d72"><a class="anchor" href="#reactor-clause"></a><a class="header" href="#reactor-clause">12.12.  Capsium Reactor</a></h2>
 
 <p id="_0eefb549-0418-5564-3154-a2c4be4fccfa">The Capsium reactor is the execution environment responsible for running Capsium packages. It supports various deployment environments, provides APIs for introspection, manages user authentication and data security, and ensures reliable and trusted execution of packages.</p>
 
@@ -5269,7 +5269,7 @@ pre.sourcecode .nt {
 <p id="_758e761f-a691-53af-afaa-753a7ecbedb7">The Capsium reactor will read the <tt>deploy.json</tt> file and apply the specified configurations, ensuring that the package operates according to the defined settings.</p>
 </div>
 </div>
-</div><div id="management-clause"><h2 id="_19370c66-d8a6-4794-b6ef-73a4956e8297"><a class="anchor" href="#management-clause"></a><a class="header" href="#management-clause">12.13.  Management of Capsium packages</a></h2>
+</div><div id="management-clause"><h2 id="_01e76ab9-a700-4b25-8db4-64d85902f6f5"><a class="anchor" href="#management-clause"></a><a class="header" href="#management-clause">12.13.  Management of Capsium packages</a></h2>
 
 <p id="_270c8532-469a-1a19-1fc9-771f69dbdf11">A Capsium package passes through a well-defined lifecycle: it is built from a package directory, inspected, validated, deployed and activated on a Capsium reactor, monitored while serving, and eventually updated or rolled back. This clause specifies the management operations that apply at each stage of that lifecycle and the behavior expected of the tools that perform them.</p>
 
@@ -5437,7 +5437,7 @@ pre.sourcecode .nt {
 
 <p id="_300b9b2b-633a-133b-797a-de2a76110b9d">Management tooling should detect unresolvable dependencies — a missing GUID or a version range no available artifact satisfies — and report them before activation rather than serving a partially functional package.</p>
 </div>
-</div><div id="compliance"><h2 id="_b07ca0d0-5d73-4dc2-955e-79c2c34d6094"><a class="anchor" href="#compliance"></a><a class="header" href="#compliance">12.14.  Compliance</a></h2>
+</div><div id="compliance"><h2 id="_daf01159-fa38-4db1-8580-3fa467252d2f"><a class="anchor" href="#compliance"></a><a class="header" href="#compliance">12.14.  Compliance</a></h2>
 
 <p id="_2fb60e85-88d5-c8da-034d-d0f3735c2512">This clause defines the conformance classes of the Capsium framework and the requirements that an artifact or implementation shall satisfy to claim conformance to each class. Requirements are expressed as numbered, testable statements and reference the clauses in which the underlying specifications are given.</p>
 
@@ -6224,7 +6224,7 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
   capsium-nginx&#x3c;/fmt-sourcecode&#x3e;&#x3c;/sourcecode&#x3e;
 
 &#x3c;/clause&#x3e;
-&#x3c;/annex&#x3e;</b></para></div><br /><div id="_a48d145c-90c0-5bb2-b21c-dbf433949add" class="Section3"><h1 class="Annex" id="_b833b0b9-c168-4f45-bc87-280bb060c038"><a class="anchor" href="#_a48d145c-90c0-5bb2-b21c-dbf433949add"></a><a class="header" href="#_a48d145c-90c0-5bb2-b21c-dbf433949add"><b>Appendix A</b><br />(informative)<br /><b>Ruby packager</b></a></h1><p style="display:none;" class="variant-title-toc">Appendix A  Ruby packager</p><p id="_c9230965-589f-3143-c9d8-6b040ced0d41">The <tt>capsium</tt> Ruby gem (version 0.2.0, MIT licensed, copyright Ribose) is the reference packager and reactor for Capsium packages. It packages a directory into a  <tt>.cap</tt> file, unpacks, inspects and validates packages, and includes the WEBrick-based reactor described in Annex B. This annex describes the packager side of the gem; it requires Ruby 3.2 or later.</p><div id="_c78669fb-79a4-352b-334a-a3950f985d97"><h2 id="_c6d00532-7075-48c9-b6b4-19c6a877be52"><a class="anchor" href="#_c78669fb-79a4-352b-334a-a3950f985d97"></a><a class="header" href="#_c78669fb-79a4-352b-334a-a3950f985d97">A.1.  Architecture</a></h2>
+&#x3c;/annex&#x3e;</b></para></div><br /><div id="_a48d145c-90c0-5bb2-b21c-dbf433949add" class="Section3"><h1 class="Annex" id="_046e2f17-0c2c-466a-8e1f-987784aaba12"><a class="anchor" href="#_a48d145c-90c0-5bb2-b21c-dbf433949add"></a><a class="header" href="#_a48d145c-90c0-5bb2-b21c-dbf433949add"><b>Appendix A</b><br />(informative)<br /><b>Ruby packager</b></a></h1><p style="display:none;" class="variant-title-toc">Appendix A  Ruby packager</p><p id="_c9230965-589f-3143-c9d8-6b040ced0d41">The <tt>capsium</tt> Ruby gem (version 0.2.0, MIT licensed, copyright Ribose) is the reference packager and reactor for Capsium packages. It packages a directory into a  <tt>.cap</tt> file, unpacks, inspects and validates packages, and includes the WEBrick-based reactor described in Annex B. This annex describes the packager side of the gem; it requires Ruby 3.2 or later.</p><div id="_c78669fb-79a4-352b-334a-a3950f985d97"><h2 id="_838e4c30-c61a-4e4d-8d4c-1a0008b2b8e7"><a class="anchor" href="#_c78669fb-79a4-352b-334a-a3950f985d97"></a><a class="header" href="#_c78669fb-79a4-352b-334a-a3950f985d97">A.1.  Architecture</a></h2>
 
 <p id="_9597aef2-a04f-0a4d-b1a2-02f78b4efbb9">The gem is organized under <tt>lib/capsium</tt> with autoload-only loading: the top level  <tt>Capsium</tt> module declares <tt>autoload</tt> for every component (<tt>Package</tt>, <tt>Packager</tt>, <tt>Reactor</tt>, <tt>Cli</tt>, <tt>Converters</tt>, <tt>ThorExt</tt>, <tt>VERSION</tt>), so no implementation file is loaded until the corresponding constant is first referenced.</p>
 
@@ -6247,11 +6247,11 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 <p id="_e3ce0878-da2b-c4b2-f872-299407b0dd6e">The command-line interface is built on Thor. <tt>Capsium::Cli</tt> exposes three subcommands —  <tt>package</tt>, <tt>reactor</tt>, and <tt>convert</tt> — implemented as Thor subcommand classes under  <tt>lib/capsium/cli</tt>.</p>
 
 <p id="_f3b16179-4772-9a5c-c1fc-f1ada6d65a2c">Notable dependencies: <tt>lutaml-model</tt> (domain models), <tt>thor</tt> (CLI), <tt>rubyzip</tt> (<tt>.cap</tt> compression and extraction), <tt>marcel</tt> (MIME type detection when generating manifests),  <tt>json-schema</tt> (dataset schema validation), <tt>sqlite3</tt> (SQLite datasets),  <tt>listen</tt> and <tt>webrick</tt> (reactor, Annex B).</p>
-</div><div id="_6453b501-e48d-14b5-6891-f4763ed02e76"><h2 id="_405458e1-6742-427f-aad3-769fa90c9061"><a class="anchor" href="#_6453b501-e48d-14b5-6891-f4763ed02e76"></a><a class="header" href="#_6453b501-e48d-14b5-6891-f4763ed02e76">A.2.  Installation</a></h2>
+</div><div id="_6453b501-e48d-14b5-6891-f4763ed02e76"><h2 id="_637effa8-d0ec-4523-b19a-fcfa23a212d1"><a class="anchor" href="#_6453b501-e48d-14b5-6891-f4763ed02e76"></a><a class="header" href="#_6453b501-e48d-14b5-6891-f4763ed02e76">A.2.  Installation</a></h2>
 
 <figure id="_58cf852c-7a4e-4cbf-39ed-e8d2332147f1" class="sourcecode" spellcheck="false" translation="no"><pre>gem <span class="nb">install </span>capsium</pre><figcaption class="SourceTitle">Figure A.1</figcaption></figure>
 
-</div><div id="_f16c29de-6f98-474f-9440-073d05e35ec0"><h2 id="_ed716643-eb09-4279-9d09-c6c7700ffefc"><a class="anchor" href="#_f16c29de-6f98-474f-9440-073d05e35ec0"></a><a class="header" href="#_f16c29de-6f98-474f-9440-073d05e35ec0">A.3.  Usage</a></h2>
+</div><div id="_f16c29de-6f98-474f-9440-073d05e35ec0"><h2 id="_c22f2d3d-d092-497b-8ef6-d6fd6f3e9ad9"><a class="anchor" href="#_f16c29de-6f98-474f-9440-073d05e35ec0"></a><a class="header" href="#_f16c29de-6f98-474f-9440-073d05e35ec0">A.3.  Usage</a></h2>
 
 <div id="_3d728523-37a5-310d-a2e7-c7f237ed0d3e"><h3><a class="anchor" href="#_3d728523-37a5-310d-a2e7-c7f237ed0d3e"></a><a class="header" href="#_3d728523-37a5-310d-a2e7-c7f237ed0d3e">A.3.1.  Packing a package</a></h3>
 
@@ -6304,10 +6304,10 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 
 <p id="_bae2fc72-8dd3-9d7d-e077-d048888dd4cc"><tt>info</tt> prints the package path, routes, and manifest; the other commands pretty-print the corresponding configuration as JSON.</p>
 </div>
-</div><div id="_38b733d6-a007-aa89-4589-5eba54ba27ae"><h2 id="_3f9806e5-5391-4335-83f1-356e4ea09484"><a class="anchor" href="#_38b733d6-a007-aa89-4589-5eba54ba27ae"></a><a class="header" href="#_38b733d6-a007-aa89-4589-5eba54ba27ae">A.4.  Canonical and legacy schema support</a></h2>
+</div><div id="_38b733d6-a007-aa89-4589-5eba54ba27ae"><h2 id="_354f49b6-366a-4da3-a8c9-5625fe5c4aa7"><a class="anchor" href="#_38b733d6-a007-aa89-4589-5eba54ba27ae"></a><a class="header" href="#_38b733d6-a007-aa89-4589-5eba54ba27ae">A.4.  Canonical and legacy schema support</a></h2>
 
 <p id="_6010b9cf-5415-af45-f0d4-990a37508fea">The gem reads both the canonical configuration forms of Clause 5 and the legacy (pre-0.2) gem forms, normalizing the legacy forms on read; writers emit only the canonical forms. For example, a legacy  <tt>dependencies</tt> array of <tt>{name, version}</tt> objects in <tt>metadata.json</tt> is accepted and normalized to the canonical object form mapping each dependency GUID to its version range.</p>
-</div><div id="_5ecae2ce-8142-05c5-87bf-26f7a302769a"><h2 id="_f2fae29b-12e5-4547-a1e1-eca1614647f1"><a class="anchor" href="#_5ecae2ce-8142-05c5-87bf-26f7a302769a"></a><a class="header" href="#_5ecae2ce-8142-05c5-87bf-26f7a302769a">A.5.  security.json generation</a></h2>
+</div><div id="_5ecae2ce-8142-05c5-87bf-26f7a302769a"><h2 id="_e7bd8351-1bd5-451b-9d8e-02fa6a810070"><a class="anchor" href="#_5ecae2ce-8142-05c5-87bf-26f7a302769a"></a><a class="header" href="#_5ecae2ce-8142-05c5-87bf-26f7a302769a">A.5.  security.json generation</a></h2>
 
 <p id="_440f0887-ea3d-60f2-20b1-5037a710e413">At pack time the gem generates <tt>security.json</tt> (Clause 5, Security) with <tt>checksumAlgorithm</tt> <tt>SHA-256</tt> and a <tt>checksums</tt> object holding the SHA-256 hex digest of every file in the package except  <tt>security.json</tt> itself:</p>
 
@@ -6315,19 +6315,19 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 
 
 <p id="_b6cf5e95-f8fd-5a35-e44f-6db385cd3c83">When <tt>security.json</tt> is present, loading a package verifies it and raises <tt>Capsium::Package::Security::IntegrityError</tt> on mismatch.</p>
-</div><div id="_2f104144-371c-94cd-b02d-3ab7587c6958"><h2 id="_c5059a37-5ed0-4057-81fe-e816402a71e3"><a class="anchor" href="#_2f104144-371c-94cd-b02d-3ab7587c6958"></a><a class="header" href="#_2f104144-371c-94cd-b02d-3ab7587c6958">A.6.  Programmatic usage</a></h2>
+</div><div id="_2f104144-371c-94cd-b02d-3ab7587c6958"><h2 id="_c6011279-c2a5-4540-aaff-93c1316a6aaf"><a class="anchor" href="#_2f104144-371c-94cd-b02d-3ab7587c6958"></a><a class="header" href="#_2f104144-371c-94cd-b02d-3ab7587c6958">A.6.  Programmatic usage</a></h2>
 
 <figure id="_390a066e-513b-0edb-acc5-90c2af19449d" class="sourcecode" spellcheck="false" translation="no"><pre><span class="nb">require</span> <span class="s1">'capsium'</span><br /><br /><span class="n">package</span> <span class="o">=</span> <span class="no">Capsium</span><span class="o">::</span><span class="no">Package</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'example-package-1.0.0.cap'</span><span class="p">)</span><br /><span class="nb">puts</span> <span class="n">package</span><span class="p">.</span><span class="nf">metadata</span><span class="p">.</span><span class="nf">name</span><br /><span class="n">errors</span> <span class="o">=</span> <span class="n">package</span><span class="p">.</span><span class="nf">verify_integrity</span> <span class="c1"># typed errors, empty when valid</span><br /><br /><span class="n">packager</span> <span class="o">=</span> <span class="no">Capsium</span><span class="o">::</span><span class="no">Packager</span><span class="p">.</span><span class="nf">new</span><br /><span class="n">cap_file</span> <span class="o">=</span> <span class="n">packager</span><span class="p">.</span><span class="nf">pack</span><span class="p">(</span><span class="n">package</span><span class="p">,</span> <span class="ss">force: </span><span class="kp">true</span><span class="p">)</span><br /><span class="n">packager</span><span class="p">.</span><span class="nf">unpack</span><span class="p">(</span><span class="n">cap_file</span><span class="p">,</span> <span class="s1">'output-directory'</span><span class="p">)</span></pre><figcaption class="SourceTitle">Figure A.7</figcaption></figure>
 
 
 <p id="_13220c2f-7e1d-2143-a207-501bf51bcf87">The public API ships with RBS signatures in <tt>sig/</tt>.</p>
-</div></div><br /><div id="_88d4336d-5fc4-208b-0ff1-0e1f95eb1021" class="Section3"><h1 class="Annex" id="_bbfa6fff-1bff-43ef-8927-d216622e19e0"><a class="anchor" href="#_88d4336d-5fc4-208b-0ff1-0e1f95eb1021"></a><a class="header" href="#_88d4336d-5fc4-208b-0ff1-0e1f95eb1021"><b>Appendix B</b><br />(informative)<br /><b>Ruby reactor</b></a></h1><p style="display:none;" class="variant-title-toc">Appendix B  Ruby reactor</p><p id="_8c485818-9352-3564-d994-64c3cd135184">The <tt>capsium</tt> Ruby gem (Annex A) ships a built-in reactor, <tt>Capsium::Reactor</tt>, implemented on WEBrick. It activates a single package from a local  <tt>.cap</tt> file or package directory and serves its routes over HTTP, together with the Monitoring HTTP API of  <a href="#reactor-clause">Clause 12.12</a>. Serving directly from a URL is not supported.</p><div id="_163ccaa4-7178-bf3a-b54b-20f071852b87"><h2 id="_ef7381e4-611d-4368-9ad7-bbc889f0200d"><a class="anchor" href="#_163ccaa4-7178-bf3a-b54b-20f071852b87"></a><a class="header" href="#_163ccaa4-7178-bf3a-b54b-20f071852b87">B.1.  Starting the reactor</a></h2>
+</div></div><br /><div id="_88d4336d-5fc4-208b-0ff1-0e1f95eb1021" class="Section3"><h1 class="Annex" id="_75a07f24-9b20-4c31-8b35-25ff2a4ef296"><a class="anchor" href="#_88d4336d-5fc4-208b-0ff1-0e1f95eb1021"></a><a class="header" href="#_88d4336d-5fc4-208b-0ff1-0e1f95eb1021"><b>Appendix B</b><br />(informative)<br /><b>Ruby reactor</b></a></h1><p style="display:none;" class="variant-title-toc">Appendix B  Ruby reactor</p><p id="_8c485818-9352-3564-d994-64c3cd135184">The <tt>capsium</tt> Ruby gem (Annex A) ships a built-in reactor, <tt>Capsium::Reactor</tt>, implemented on WEBrick. It activates a single package from a local  <tt>.cap</tt> file or package directory and serves its routes over HTTP, together with the Monitoring HTTP API of  <a href="#reactor-clause">Clause 12.12</a>. Serving directly from a URL is not supported.</p><div id="_163ccaa4-7178-bf3a-b54b-20f071852b87"><h2 id="_1e811996-ac39-449f-bb42-28ef214357ab"><a class="anchor" href="#_163ccaa4-7178-bf3a-b54b-20f071852b87"></a><a class="header" href="#_163ccaa4-7178-bf3a-b54b-20f071852b87">B.1.  Starting the reactor</a></h2>
 
 <figure id="_d1445e8a-1a74-3962-1ff9-273a568df2bf" class="sourcecode" spellcheck="false" translation="no"><pre>capsium reactor serve my_package.cap <span class="o">[</span><span class="nt">--port</span> 8864] <span class="o">[</span><span class="nt">--do_not_listen</span><span class="o">]</span></pre><figcaption class="SourceTitle">Figure B.1</figcaption></figure>
 
 
 <p id="_7cc5cb05-f02c-db66-5db3-426dd7296687">The default port is <tt>8864</tt>. While serving, the reactor watches the package directory with the  <tt>listen</tt> gem and restarts the server when files change, so edits to a package directory are picked up without manual restarts.</p>
-</div><div id="_c9b28a73-9fe0-ea27-a2cd-b39a78cb7b5c"><h2 id="_ecba0afd-fdd2-4e23-b2c7-0f53858ab2ea"><a class="anchor" href="#_c9b28a73-9fe0-ea27-a2cd-b39a78cb7b5c"></a><a class="header" href="#_c9b28a73-9fe0-ea27-a2cd-b39a78cb7b5c">B.2.  Route serving</a></h2>
+</div><div id="_c9b28a73-9fe0-ea27-a2cd-b39a78cb7b5c"><h2 id="_8d8a77ba-e91c-46e0-b427-5ff2b0f6bb7b"><a class="anchor" href="#_c9b28a73-9fe0-ea27-a2cd-b39a78cb7b5c"></a><a class="header" href="#_c9b28a73-9fe0-ea27-a2cd-b39a78cb7b5c">B.2.  Route serving</a></h2>
 
 <p id="_2100237f-12c6-9bf5-9a8f-a7b8ee793819">On startup the reactor mounts every route declared by the package’s <tt>routes.json</tt>, plus the introspection paths, as WEBrick mount procs, and resolves each incoming request path against the package routes:</p>
 
@@ -6342,10 +6342,10 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 </ul></div>
 
 <p id="_d85cffc6-9e91-40c2-577e-e269897899ef">Unless a route declares its own headers, resource responses carry <tt>Cache-Control: public, max-age=31536000</tt> (one year), the reactor’s configurable default.</p>
-</div><div id="_1dd487bf-4453-cabf-3cb5-0816eb201024"><h2 id="_66e854d1-8aa6-431e-8bff-9a9aace3bbe9"><a class="anchor" href="#_1dd487bf-4453-cabf-3cb5-0816eb201024"></a><a class="header" href="#_1dd487bf-4453-cabf-3cb5-0816eb201024">B.3.  Integrity verification on load</a></h2>
+</div><div id="_1dd487bf-4453-cabf-3cb5-0816eb201024"><h2 id="_4f7bf81b-a435-4292-a9a3-eae76243f798"><a class="anchor" href="#_1dd487bf-4453-cabf-3cb5-0816eb201024"></a><a class="header" href="#_1dd487bf-4453-cabf-3cb5-0816eb201024">B.3.  Integrity verification on load</a></h2>
 
 <p id="_459699cc-f291-2434-8dcc-6865206c565d">Loading a package that contains <tt>security.json</tt> verifies every listed SHA-256 checksum before anything is served; a mismatch raises <tt>Capsium::Package::Security::IntegrityError</tt> and the package is rejected (Clause 5, Security).</p>
-</div><div id="_b4ca0923-2e6a-b1a4-f08f-6f060e78ba2e"><h2 id="_67034675-21f6-4a2b-b222-1ff5cecb6252"><a class="anchor" href="#_b4ca0923-2e6a-b1a4-f08f-6f060e78ba2e"></a><a class="header" href="#_b4ca0923-2e6a-b1a4-f08f-6f060e78ba2e">B.4.  Introspection endpoints</a></h2>
+</div><div id="_b4ca0923-2e6a-b1a4-f08f-6f060e78ba2e"><h2 id="_76db1100-5627-441d-9595-0b07e98d2b3e"><a class="anchor" href="#_b4ca0923-2e6a-b1a4-f08f-6f060e78ba2e"></a><a class="header" href="#_b4ca0923-2e6a-b1a4-f08f-6f060e78ba2e">B.4.  Introspection endpoints</a></h2>
 
 <p id="_a2caeef9-c730-4702-9bdc-d805c92acebc">While serving, the reactor answers the Monitoring HTTP API (<a href="#reactor-clause">Clause 12.12</a>) as <tt>application/json</tt>. The endpoints are GET-only; other methods are answered <tt>405 Method Not Allowed</tt>.</p>
 
@@ -6362,7 +6362,7 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 
 <figure id="_cf0f8589-3176-dbfa-a032-1ac7eec3f678" class="sourcecode" spellcheck="false" translation="no"><pre><span class="p">{</span><span class="w"><br />  </span><span class="nl">"contentValidity"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"><br />    </span><span class="p">{</span><span class="w"><br />      </span><span class="nl">"package"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-package"</span><span class="p">,</span><span class="w"><br />      </span><span class="nl">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"><br />      </span><span class="nl">"lastChecked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-28T12:34:56Z"</span><span class="w"><br />    </span><span class="p">}</span><span class="w"><br />  </span><span class="p">]</span><span class="w"><br /></span><span class="p">}</span></pre><figcaption class="SourceTitle">Figure B.3</figcaption></figure>
 
-</div></div><br /><div id="_92e37b5f-0a3f-628b-1984-4e0bbfde0fd2" class="Section3"><h1 class="Annex" id="_7514d1b6-d29a-48f8-a2e3-eb7a52ff115c"><a class="anchor" href="#_92e37b5f-0a3f-628b-1984-4e0bbfde0fd2"></a><a class="header" href="#_92e37b5f-0a3f-628b-1984-4e0bbfde0fd2"><b>Appendix C</b><br />(informative)<br /><b>Apache httpd reactor</b></a></h1><p style="display:none;" class="variant-title-toc">Appendix C  Apache httpd reactor</p><p id="_6de3132e-a179-ffb8-1eab-8c8128d12dd8">No Apache httpd implementation of a Capsium reactor exists at the time of writing. This annex provides guidance for realizing one, mapping the reactor responsibilities of  <a href="#reactor-clause">Clause 12.12</a> onto standard Apache httpd modules. Because a Capsium package is static by design (Clause 4), most of the serving behavior can be expressed in declarative httpd configuration; only integrity verification and the Monitoring HTTP API require external tooling or a dynamic backend.</p><div id="_2a293863-a4f7-27c5-1531-4483b447c095"><h2 id="_2299bd95-a66c-4cf5-a774-58fbd675ba41"><a class="anchor" href="#_2a293863-a4f7-27c5-1531-4483b447c095"></a><a class="header" href="#_2a293863-a4f7-27c5-1531-4483b447c095">C.1.  Extracting the package to a docroot</a></h2>
+</div></div><br /><div id="_92e37b5f-0a3f-628b-1984-4e0bbfde0fd2" class="Section3"><h1 class="Annex" id="_b7189a8b-7c80-4c25-897f-46b169428a7b"><a class="anchor" href="#_92e37b5f-0a3f-628b-1984-4e0bbfde0fd2"></a><a class="header" href="#_92e37b5f-0a3f-628b-1984-4e0bbfde0fd2"><b>Appendix C</b><br />(informative)<br /><b>Apache httpd reactor</b></a></h1><p style="display:none;" class="variant-title-toc">Appendix C  Apache httpd reactor</p><p id="_6de3132e-a179-ffb8-1eab-8c8128d12dd8">No Apache httpd implementation of a Capsium reactor exists at the time of writing. This annex provides guidance for realizing one, mapping the reactor responsibilities of  <a href="#reactor-clause">Clause 12.12</a> onto standard Apache httpd modules. Because a Capsium package is static by design (Clause 4), most of the serving behavior can be expressed in declarative httpd configuration; only integrity verification and the Monitoring HTTP API require external tooling or a dynamic backend.</p><div id="_2a293863-a4f7-27c5-1531-4483b447c095"><h2 id="_f1c89acd-af17-4f37-9660-d765b7261c35"><a class="anchor" href="#_2a293863-a4f7-27c5-1531-4483b447c095"></a><a class="header" href="#_2a293863-a4f7-27c5-1531-4483b447c095">C.1.  Extracting the package to a docroot</a></h2>
 
 <p id="_8cd1326b-eae7-a7a2-dafc-79e465fed4a9">A <tt>.cap</tt> file is a ZIP archive (Clause 5, Packaging options). Deployment starts by extracting it into a directory that becomes (part of) the Apache document root:</p>
 
@@ -6370,10 +6370,10 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 
 
 <p id="_69983a50-d352-5013-8fae-54035bd9bcc8">Extraction should reject archive entries whose paths would escape the destination directory (absolute paths,  <tt>..</tt> segments), as required of packagers in  <a href="#management-clause">Clause 12.13</a>. After extraction, the served content tree is available at the docroot and the configuration files (<tt>metadata.json</tt>, <tt>manifest.json</tt>, <tt>routes.json</tt>, <tt>security.json</tt>) are available for deriving the site configuration.</p>
-</div><div id="_30a668bb-3df3-e88d-5543-c6bfde163663"><h2 id="_7bafafa9-6a42-456f-9d17-b1392a963a9a"><a class="anchor" href="#_30a668bb-3df3-e88d-5543-c6bfde163663"></a><a class="header" href="#_30a668bb-3df3-e88d-5543-c6bfde163663">C.2.  Integrity pre-verification at deploy time</a></h2>
+</div><div id="_30a668bb-3df3-e88d-5543-c6bfde163663"><h2 id="_83fa2b57-6e88-4572-9fd3-8b275b94f531"><a class="anchor" href="#_30a668bb-3df3-e88d-5543-c6bfde163663"></a><a class="header" href="#_30a668bb-3df3-e88d-5543-c6bfde163663">C.2.  Integrity pre-verification at deploy time</a></h2>
 
 <p id="_b477fd12-346f-52cd-a2cf-46d19ffd70bd">Apache httpd itself does not verify <tt>security.json</tt>. Integrity verification (Clause 5, Security) should therefore be performed at deploy time by external tooling, before the extracted directory is published: recalculate the SHA-256 of every extracted file and compare it against <tt>security.integrityChecks.checksums</tt>; refuse to publish the docroot on any mismatch. The  <tt>capsium package validate</tt> command (Annex A) performs exactly this check, as does a short script in any language with a SHA-256 library.</p>
-</div><div id="_17470cea-2673-7e3e-61ad-384099032cfd"><h2 id="_ef38854d-655e-4238-997f-b1de1508dd58"><a class="anchor" href="#_17470cea-2673-7e3e-61ad-384099032cfd"></a><a class="header" href="#_17470cea-2673-7e3e-61ad-384099032cfd">C.3.  Mapping routes.json to Alias and mod_rewrite</a></h2>
+</div><div id="_17470cea-2673-7e3e-61ad-384099032cfd"><h2 id="_a6b7ed1c-95f6-4e73-a4ec-505c3b2c6ea1"><a class="anchor" href="#_17470cea-2673-7e3e-61ad-384099032cfd"></a><a class="header" href="#_17470cea-2673-7e3e-61ad-384099032cfd">C.3.  Mapping routes.json to Alias and mod_rewrite</a></h2>
 
 <p id="_cf412f1e-8619-65a2-54eb-43830a60f070">Each resource route in <tt>routes.json</tt> maps a URL path to a package-relative file. Static mappings translate directly into  <tt>Alias</tt> directives or, for rule shapes such as the dual HTML routes of Clause 5 (base name and full file name), into  <tt>mod_rewrite</tt> rules:</p>
 
@@ -6381,13 +6381,13 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 
 
 <p id="_aa8e7748-8433-769e-bc7e-da692fb48629">The index route of <tt>routes.json</tt> maps to <tt>DirectoryIndex</tt>. Dataset routes under  <tt>/api/v1/data/</tt> (Clause 5, Dataset routes) map to the JSON rendering of the dataset: for file-backed datasets this can again be an  <tt>Alias</tt> to a pre-generated JSON file; database-backed datasets require a small dynamic backend (see the introspection paragraph below).</p>
-</div><div id="_889d8107-0791-6a91-7480-1072e8c83131"><h2 id="_04279de5-b681-4223-956b-d9bf061e4418"><a class="anchor" href="#_889d8107-0791-6a91-7480-1072e8c83131"></a><a class="header" href="#_889d8107-0791-6a91-7480-1072e8c83131">C.4.  Serving manifest-derived MIME types</a></h2>
+</div><div id="_889d8107-0791-6a91-7480-1072e8c83131"><h2 id="_518e19e3-a8b6-4d37-9b74-74b1d455c21a"><a class="anchor" href="#_889d8107-0791-6a91-7480-1072e8c83131"></a><a class="header" href="#_889d8107-0791-6a91-7480-1072e8c83131">C.4.  Serving manifest-derived MIME types</a></h2>
 
 <p id="_b078b53a-3675-19cf-3cb0-1e5b5e42c963"><tt>manifest.json</tt> records the MIME type of every resource (Clause 5, Manifest file). httpd’s own  <tt>mime.types</tt> covers the common types; package-specific or unusual types recorded in the manifest can be added with  <tt>mod_mime</tt>:</p>
 
 <figure id="_20e48bb5-111b-d4a7-d404-f75d4ea580a5" class="sourcecode" spellcheck="false" translation="no"><pre><span class="nc">AddType</span> application/vnd.capsium.package .cap<br /><span class="nc">AddType</span> text/javascript .js</pre><figcaption class="SourceTitle">Figure C.3</figcaption></figure>
 
-</div><div id="_bbd030b9-5f3d-6776-d80c-927675fe2f3c"><h2 id="_e1a758bb-9406-4941-9adf-72d36bcc6d60"><a class="anchor" href="#_bbd030b9-5f3d-6776-d80c-927675fe2f3c"></a><a class="header" href="#_bbd030b9-5f3d-6776-d80c-927675fe2f3c">C.5.  Cache-Control via mod_headers</a></h2>
+</div><div id="_bbd030b9-5f3d-6776-d80c-927675fe2f3c"><h2 id="_79225d9b-6b4e-4484-9bfb-0a48eb42dd96"><a class="anchor" href="#_bbd030b9-5f3d-6776-d80c-927675fe2f3c"></a><a class="header" href="#_bbd030b9-5f3d-6776-d80c-927675fe2f3c">C.5.  Cache-Control via mod_headers</a></h2>
 
 <p id="_cbe190f2-558e-daa9-f8c9-13d298a6e6a3">Reactors conforming to <a href="#reactor-clause">Clause 12.12</a> serve static resources with a long-lived <tt>Cache-Control</tt> policy by default. With <tt>mod_headers</tt>:</p>
 
@@ -6395,7 +6395,7 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 
 
 <p id="_b7fadd4c-e46c-840b-6979-816a88487518">Per-route header declarations in <tt>routes.json</tt> (Clause 5, Header responses) translate into more specific  <tt>Header</tt> directives scoped by <tt>&#x3c;Location&#x3e;</tt>.</p>
-</div><div id="_fa352e7f-80a0-f361-bcf9-6c287499ac91"><h2 id="_b7fb8ef0-a210-4950-8820-c1458952dc6a"><a class="anchor" href="#_fa352e7f-80a0-f361-bcf9-6c287499ac91"></a><a class="header" href="#_fa352e7f-80a0-f361-bcf9-6c287499ac91">C.6.  Basic authentication</a></h2>
+</div><div id="_fa352e7f-80a0-f361-bcf9-6c287499ac91"><h2 id="_e986471f-4986-4ab3-ba5a-c8ca55a846b0"><a class="anchor" href="#_fa352e7f-80a0-f361-bcf9-6c287499ac91"></a><a class="header" href="#_fa352e7f-80a0-f361-bcf9-6c287499ac91">C.6.  Basic authentication</a></h2>
 
 <p id="_7258f092-01e5-6040-3e53-50e7470fefc9">The Apache <tt>passwd</tt> authentication defined for packages (<a href="#module-authentication">Clause 12.9</a>) is native httpd functionality. A package that declares <tt>.htpasswd</tt> basic authentication maps to:</p>
 
@@ -6403,7 +6403,7 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 
 
 <p id="_516a243e-ff93-44b0-9bee-2f3483adbb5d">The <tt>.htpasswd</tt> file is managed with the <tt>htpasswd</tt> utility, must be stored outside the served docroot, and passwords should be hashed with bcrypt (<a href="#module-authentication">Clause 12.9</a>). OAuth authentication defined by a package requires a dynamic backend or a module such as  <tt>mod_auth_openidc</tt>, with the client secret kept outside the package as specified in  <a href="#module-authentication">Clause 12.9</a>.</p>
-</div><div id="_9d53fd92-ce74-eafa-a8be-4b27010a52df"><h2 id="_f9b40d0f-0752-45e3-89d4-5679034c6fb5"><a class="anchor" href="#_9d53fd92-ce74-eafa-a8be-4b27010a52df"></a><a class="header" href="#_9d53fd92-ce74-eafa-a8be-4b27010a52df">C.7.  Exposing the introspection API</a></h2>
+</div><div id="_9d53fd92-ce74-eafa-a8be-4b27010a52df"><h2 id="_828adb8f-f024-46f3-abf5-9adde5725290"><a class="anchor" href="#_9d53fd92-ce74-eafa-a8be-4b27010a52df"></a><a class="header" href="#_9d53fd92-ce74-eafa-a8be-4b27010a52df">C.7.  Exposing the introspection API</a></h2>
 
 <p id="_0b9b3798-dc91-7c4c-2c9c-c8f309253879">The Monitoring HTTP API (<a href="#reactor-clause">Clause 12.12</a>) is dynamic and cannot be served from static files alone, because  <tt>content-validity</tt> re-verifies the package at request time. Options for exposing it behind httpd include:</p>
 
@@ -6417,7 +6417,7 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 
 
 <p id="_b112f26a-5b08-a8d7-6827-a104aa6ff248">Whichever backend is chosen, the four endpoints of <a href="#reactor-clause">Clause 12.12</a> — <tt>/api/v1/introspect/metadata</tt>, <tt>/routes</tt>, <tt>/content-hashes</tt>, and <tt>/content-validity</tt> — should answer GET requests with the JSON shapes defined there, and reject other methods with  <tt>405</tt>.</p>
-</div></div><br /><div id="_23122fc4-5f44-d258-7842-f8a236dbc270" class="Section3"><h1 class="Annex" id="_e912b34b-9d7b-4162-b37e-fd8db1ab5e97"><a class="anchor" href="#_23122fc4-5f44-d258-7842-f8a236dbc270"></a><a class="header" href="#_23122fc4-5f44-d258-7842-f8a236dbc270"><b>Appendix D</b><br />(informative)<br /><b>nginx (OpenResty) reactor</b></a></h1><p style="display:none;" class="variant-title-toc">Appendix D  nginx (OpenResty) reactor</p><p id="_d5fba18f-31e1-f2e1-4eeb-aa17e9b30e1a">The <tt>capsium-lua</tt> project (version 0.2.0, MIT licensed) is a Capsium reactor built on OpenResty, the Lua-enabled nginx distribution. It serves Capsium packages (<tt>.cap</tt> files) directly through nginx with Lua: a <tt>.cap</tt> file dropped into the packages directory is extracted on demand, verified against <tt>security.json</tt>, and routed, with optional per-mount configuration for paths, domains, headers, caching, and CORS.</p><div id="_e0f3f5c0-bd4c-71ac-9601-432e98686a28"><h2 id="_e5bae37d-fc79-470a-b475-5ffe64911a1c"><a class="anchor" href="#_e0f3f5c0-bd4c-71ac-9601-432e98686a28"></a><a class="header" href="#_e0f3f5c0-bd4c-71ac-9601-432e98686a28">D.1.  Architecture</a></h2>
+</div></div><br /><div id="_23122fc4-5f44-d258-7842-f8a236dbc270" class="Section3"><h1 class="Annex" id="_7ad7e5b0-3280-4e95-a73a-86ccb1548e04"><a class="anchor" href="#_23122fc4-5f44-d258-7842-f8a236dbc270"></a><a class="header" href="#_23122fc4-5f44-d258-7842-f8a236dbc270"><b>Appendix D</b><br />(informative)<br /><b>nginx (OpenResty) reactor</b></a></h1><p style="display:none;" class="variant-title-toc">Appendix D  nginx (OpenResty) reactor</p><p id="_d5fba18f-31e1-f2e1-4eeb-aa17e9b30e1a">The <tt>capsium-lua</tt> project (version 0.2.0, MIT licensed) is a Capsium reactor built on OpenResty, the Lua-enabled nginx distribution. It serves Capsium packages (<tt>.cap</tt> files) directly through nginx with Lua: a <tt>.cap</tt> file dropped into the packages directory is extracted on demand, verified against <tt>security.json</tt>, and routed, with optional per-mount configuration for paths, domains, headers, caching, and CORS.</p><div id="_e0f3f5c0-bd4c-71ac-9601-432e98686a28"><h2 id="_29d4545e-5991-40ec-adfa-8b35fea90b57"><a class="anchor" href="#_e0f3f5c0-bd4c-71ac-9601-432e98686a28"></a><a class="header" href="#_e0f3f5c0-bd4c-71ac-9601-432e98686a28">D.1.  Architecture</a></h2>
 
 <p id="_b2a1524a-1d61-5a91-dc0b-ae18307f7ed0">The implementation keeps a single framework-agnostic core and a thin nginx glue layer, with no duplicated logic:</p>
 
@@ -6425,7 +6425,7 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 
 
 <p id="_117369e9-2f47-1ef7-b9c9-b8b786d9ac6b">The core never references <tt>ngx</tt>; the glue never implements domain logic. Other platforms can plug in their own filesystem, zip, and hash adapters.</p>
-</div><div id="_78a23a7b-fcfe-cb64-8178-a2cd0422e64a"><h2 id="_0aa6d0d1-7213-450c-bdd2-c5a429d4224b"><a class="anchor" href="#_78a23a7b-fcfe-cb64-8178-a2cd0422e64a"></a><a class="header" href="#_78a23a7b-fcfe-cb64-8178-a2cd0422e64a">D.2.  Configuration</a></h2>
+</div><div id="_78a23a7b-fcfe-cb64-8178-a2cd0422e64a"><h2 id="_303ac009-e9c8-4cf2-b8ec-938acf521018"><a class="anchor" href="#_78a23a7b-fcfe-cb64-8178-a2cd0422e64a"></a><a class="header" href="#_78a23a7b-fcfe-cb64-8178-a2cd0422e64a">D.2.  Configuration</a></h2>
 
 <p id="_4244de9f-7a8b-62aa-fbf2-728e8a2def8b">Configuration is read from <tt>$CAPSIUM_CONFIG_PATH</tt>, else the first existing of <tt>/etc/capsium/config.json</tt>, <tt>/etc/capsium/nginx/config.json</tt>, <tt>/var/lib/capsium/config.json</tt>, <tt>./config.json</tt>. Top-level keys:</p>
 
@@ -6453,10 +6453,10 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 </dd></dl></div>
 
 <p id="_0afec295-1030-1c93-4e11-e821ffa43318">Every package in <tt>package_dir</tt> is always also available at <tt>/capsium/&#x3c;package-name&#x3e;</tt> without configuration; <tt>/api/v1/introspect</tt> is reserved.</p>
-</div><div id="_30f2d6eb-e619-3925-3090-123ccd504ef8"><h2 id="_2b99fb11-e96c-4645-833f-cceb24bb7f0e"><a class="anchor" href="#_30f2d6eb-e619-3925-3090-123ccd504ef8"></a><a class="header" href="#_30f2d6eb-e619-3925-3090-123ccd504ef8">D.3.  Extraction and integrity verification</a></h2>
+</div><div id="_30f2d6eb-e619-3925-3090-123ccd504ef8"><h2 id="_f9d0d1d8-1885-4a2a-9f90-bd3ce0353479"><a class="anchor" href="#_30f2d6eb-e619-3925-3090-123ccd504ef8"></a><a class="header" href="#_30f2d6eb-e619-3925-3090-123ccd504ef8">D.3.  Extraction and integrity verification</a></h2>
 
 <p id="_e4ada155-f810-cc1d-88cb-45a465f8a3b0">Packages are extracted lazily, on first request. Extraction is atomic: the archive unpacks into a temporary directory that is renamed into place only after  <tt>metadata.json</tt> parses and, when <tt>security.json</tt> is present, every listed file’s SHA-256 verifies (Clause 5, Security). A package that fails verification is rejected with a 5xx response carrying the reason, and nothing is left at the final extraction path. Archive entries containing  <tt>..</tt> path segments are refused (zip-slip protection). Re-extraction happens automatically when the  <tt>.cap</tt> file is newer than the extracted tree.</p>
-</div><div id="_2cef2430-935b-b0ca-f687-5ba98f8f60cc"><h2 id="_c992295e-510f-46fe-8c64-9d04fae9f4cb"><a class="anchor" href="#_2cef2430-935b-b0ca-f687-5ba98f8f60cc"></a><a class="header" href="#_2cef2430-935b-b0ca-f687-5ba98f8f60cc">D.4.  Manifest-driven routing</a></h2>
+</div><div id="_2cef2430-935b-b0ca-f687-5ba98f8f60cc"><h2 id="_d9f8d8a4-4d1a-4b37-a811-41b3ae60ff06"><a class="anchor" href="#_2cef2430-935b-b0ca-f687-5ba98f8f60cc"></a><a class="header" href="#_2cef2430-935b-b0ca-f687-5ba98f8f60cc">D.4.  Manifest-driven routing</a></h2>
 
 <p id="_4f928f20-4e64-0ec2-3bee-aab0f9acb1fc">Both the canonical configuration forms of Clause 5 and the legacy gem forms are accepted and normalized on read. When  <tt>routes.json</tt> is absent, routes are auto-generated from  <tt>manifest.json</tt> per the routing rules of Clause 5:</p>
 
@@ -6471,7 +6471,7 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 </ul></div>
 
 <p id="_7b435824-6c2b-bcc4-d28c-42d86d8ac414">Package routes are GET-only: other methods receive <tt>405</tt> with <tt>Allow: GET, HEAD</tt>; HEAD is served like GET without a body. Dynamic <tt>handler</tt> routes (<a href="#module-handler-routes">Clause 12.10</a>) are accepted by the parser but answered with <tt>501 Not Implemented</tt>. Dataset sources are served as JSON —  <tt>.json</tt> served as-is, <tt>.csv</tt> converted to JSON objects; YAML and SQLite datasets are not supported by this reactor.</p>
-</div><div id="_c87ecef4-da63-8da7-5c19-227cd0efa7a6"><h2 id="_22deef23-a1c8-4f83-9b01-8b56c623222d"><a class="anchor" href="#_c87ecef4-da63-8da7-5c19-227cd0efa7a6"></a><a class="header" href="#_c87ecef4-da63-8da7-5c19-227cd0efa7a6">D.5.  Introspection API</a></h2>
+</div><div id="_c87ecef4-da63-8da7-5c19-227cd0efa7a6"><h2 id="_0d4a33d8-73e0-4b7e-b13a-34fb178cb10d"><a class="anchor" href="#_c87ecef4-da63-8da7-5c19-227cd0efa7a6"></a><a class="header" href="#_c87ecef4-da63-8da7-5c19-227cd0efa7a6">D.5.  Introspection API</a></h2>
 
 <p id="_ac5a95c3-118e-bc23-fc49-145bf52bd2e6">The reactor answers the Monitoring HTTP API (<a href="#reactor-clause">Clause 12.12</a>), GET only:</p>
 
@@ -6482,7 +6482,7 @@ docker run &#x3c;span class="nt"&#x3e;-d&#x3c;/span&#x3e; &#x3c;span class="nt"&
 </dd></dl></div>
 
 <p id="_3d541c9a-b59c-9815-1bc3-d83465ae9cec">All introspection endpoints lazily extract and load packages on demand, so a freshly started reactor reports every  <tt>.cap</tt> in <tt>package_dir</tt> (cold-start introspection). Responses are cached in the  <tt>capsium_cache</tt> shared dict with the configured  <tt>cache_ttl</tt>.</p>
-</div><div id="_3d1bb679-8d86-65e9-ade8-f132eb766be2"><h2 id="_0db96264-f97a-4d13-8f31-0dd9f262e991"><a class="anchor" href="#_3d1bb679-8d86-65e9-ade8-f132eb766be2"></a><a class="header" href="#_3d1bb679-8d86-65e9-ade8-f132eb766be2">D.6.  Docker deployment</a></h2>
+</div><div id="_3d1bb679-8d86-65e9-ade8-f132eb766be2"><h2 id="_bae725c1-9d9f-44f9-a3b5-8d61b856e8f4"><a class="anchor" href="#_3d1bb679-8d86-65e9-ade8-f132eb766be2"></a><a class="header" href="#_3d1bb679-8d86-65e9-ade8-f132eb766be2">D.6.  Docker deployment</a></h2>
 
 <p id="_58015b2f-947c-2a81-3ff5-eb76cc110756">The project ships a Dockerfile whose base image is pinned: <tt>openresty/openresty:1.27.1.2-12-alpine-fat</tt> (the <tt>BASE_IMAGE</tt> build arg). A typical deployment mounts the packages and configuration directories into the container:</p>
 
