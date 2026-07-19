@@ -2,53 +2,25 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import CapInspector from '../components/CapInspector.vue';
+import CapLiveServing from '../components/CapLiveServing.vue';
 ---
 
 <Base
   title="Playground"
-  description="Inspect a Capsium .cap package entirely in your browser: read its metadata, count routes and datasets, and verify SHA-256 integrity — live serving via service worker is coming soon."
+  description="Inspect a Capsium .cap package entirely in your browser — metadata, routes, SHA-256 integrity — then serve it live from a service worker and browse it in a real preview, no server involved."
 >
   <PageHero
     eyebrow="Playground"
     title="Open a capsule in your browser"
-    lead="Drop any .cap package below. It is unzipped and inspected entirely on your device — nothing is uploaded — using the same contract files every reactor reads."
+    lead="Drop any .cap package below. It is unzipped and inspected entirely on your device — nothing is uploaded — using the same contract files every reactor reads. Then serve it live: a service worker answers its routes right here."
   />
 
   <section class="py-16 lg:py-20">
     <div class="container-site max-w-4xl">
       <CapInspector client:load />
 
-      <!-- Coming soon: live serving -->
-      <div
-        class="relative mt-10 overflow-hidden rounded-2xl border border-primary/25 bg-gradient-to-br from-primary/10 to-transparent p-6 sm:p-8 dark:border-glow/25 dark:from-glow/10"
-      >
-        <div class="flex flex-wrap items-start gap-5">
-          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary dark:bg-glow/15 dark:text-glow">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14Z" />
-            </svg>
-          </span>
-          <div class="min-w-0 flex-1">
-            <div class="flex flex-wrap items-center gap-3">
-              <h2 class="font-display text-xl font-semibold tracking-tight text-ink dark:text-white">
-                Live serving via service worker
-              </h2>
-              <span class="chip">Coming soon</span>
-            </div>
-            <p class="mt-2 max-w-2xl leading-relaxed text-ink/70 dark:text-cream/65">
-              The next step for this playground: a service-worker reactor that
-              activates your dropped package and serves its routes right here —
-              no server, no install. The inspector above already speaks the
-              contract; activation is on the way.
-            </p>
-            <p class="mt-3 text-sm text-ink/60 dark:text-cream/55">
-              Until then, serve packages locally with the{' '}
-              <a href="/install" class="font-semibold text-primary hover:underline dark:text-glow">Capsium CLI</a>{' '}
-              or browse them with the{' '}
-              <a href="https://github.com/capsiums/capsium-webextension" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:underline dark:text-glow">browser extension</a>.
-            </p>
-          </div>
-        </div>
+      <div class="mt-10">
+        <CapLiveServing client:load />
       </div>
     </div>
   </section>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>capsium-demo — served live by a service worker</title>
+<meta name="description" content="This page is served out of a .cap package by the Capsium swsws service-worker reactor — no server involved.">
+<link rel="icon" href="assets/capsule.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="art"><img src="assets/capsule.svg" alt="The capsium-demo capsule" width="144" height="144"></div>
+    <div class="copy">
+      <span class="badge"><span class="dot"></span>Served live — no server</span>
+      <h1>This capsule is running <span class="grad">in your browser</span>.</h1>
+      <p class="lead">
+        You are reading an HTML page unzipped from a <code>.cap</code> package and
+        served by a <strong>service worker</strong> — the Capsium
+        <code>swsws</code> reactor. Every byte was verified against
+        <code>security.json</code> (SHA-256) before this route answered.
+      </p>
+      <div class="row">
+        <a class="btn primary" href="about">About this capsule</a>
+        <a class="btn ghost" href="api/v1/data/demo">Raw dataset JSON</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Live dataset — /api/v1/data/demo</h2>
+    <p>Fetched by this page from the package&rsquo;s <code>storage.json</code> dataset,
+       straight out of the service worker:</p>
+    <ul class="facts" id="facts">
+      <li><strong>Loading…</strong><span>asking the reactor for the demo dataset</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Reactor introspection — §7</h2>
+    <p>The reactor describes itself at these endpoints (open in a new tab):</p>
+    <div class="row">
+      <a class="btn ghost" href="api/v1/introspect/metadata" target="_blank" rel="noopener">metadata</a>
+      <a class="btn ghost" href="api/v1/introspect/routes" target="_blank" rel="noopener">routes</a>
+      <a class="btn ghost" href="api/v1/introspect/content-hashes" target="_blank" rel="noopener">content-hashes</a>
+      <a class="btn ghost" href="api/v1/introspect/content-validity" target="_blank" rel="noopener">content-validity</a>
+    </div>
+    <pre id="introspect" aria-live="polite">introspection pending…</pre>
+  </div>
+
+  <div class="status" id="status" role="alert"></div>
+
+  <footer>
+    <p>
+      capsium-demo 0.1.0 · packed with the Capsium 0.3.0 gem · MIT · Ribose<br>
+      Served at <span class="mono" id="base">…</span> — package source ships in the site repository under <code>samples/capsium-demo/</code>.
+    </p>
+  </footer>
+</div>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

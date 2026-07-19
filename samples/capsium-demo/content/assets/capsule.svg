@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Capsium capsule">
+  <defs>
+    <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4fd1e5"/>
+      <stop offset="1" stop-color="#22b8d4"/>
+    </linearGradient>
+    <linearGradient id="shellDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12404f"/>
+      <stop offset="1" stop-color="#0f2833"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#22b8d4" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#22b8d4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="120" cy="120" r="118" fill="url(#halo)"/>
+  <g transform="rotate(-30 120 120)">
+    <!-- capsule body: two half-shells -->
+    <path d="M120 52 h34 a30 30 0 0 1 30 30 v38 h-64 z" fill="url(#shell)"/>
+    <path d="M120 188 h-34 a30 30 0 0 1 -30 -30 v-38 h64 z" fill="url(#shellDark)" stroke="#22b8d4" stroke-width="2"/>
+    <!-- seam -->
+    <rect x="56" y="117" width="128" height="6" rx="3" fill="#07161d"/>
+    <!-- glint -->
+    <path d="M132 66 h18 a16 16 0 0 1 12 6 l-22 18 h-8 z" fill="#ffffff" opacity="0.35"/>
+  </g>
+</svg>

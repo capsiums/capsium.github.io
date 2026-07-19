@@ -1,0 +1,21 @@
+{
+  "dataset": "demo",
+  "servedBy": "swsws service-worker reactor",
+  "facts": [
+    {
+      "id": 1,
+      "title": "No server involved",
+      "detail": "This JSON travelled from a .cap zip, through the Cache API, out of a service worker fetch handler."
+    },
+    {
+      "id": 2,
+      "title": "Verified before serving",
+      "detail": "Every byte of this package matched its SHA-256 checksum in security.json before the reactor would serve a single route."
+    },
+    {
+      "id": 3,
+      "title": "Contract, not framework",
+      "detail": "routes.json and storage.json are the whole API contract — any Capsium reactor (Ruby, Lua, JS) serves this dataset identically."
+    }
+  ]
+}

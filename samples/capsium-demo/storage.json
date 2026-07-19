@@ -1,0 +1,9 @@
+{
+  "storage": {
+    "dataSets": {
+      "demo": {
+        "source": "data/demo.json"
+      }
+    }
+  }
+}
