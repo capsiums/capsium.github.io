@@ -9,6 +9,7 @@ const groups = [
       { href: '/how-it-works', label: 'How it works' },
       { href: '/learn', label: 'Get started' },
       { href: '/install', label: 'Install' },
+      { href: '/playground', label: 'Playground' },
     ],
   },
   {
@@ -23,22 +24,22 @@ const groups = [
 ];
 ---
 
-<footer class="border-t border-deep/10 bg-deep text-cream dark:border-white/10 dark:bg-black/30">
+<footer class="border-t border-ink/10 bg-night text-cream dark:border-white/5">
   <div class="container-site grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
     <div>
       <div class="flex items-center gap-3">
         <img src="/images/capsium-logo.png" alt="" width="40" height="40" class="h-10 w-10" />
-        <span class="font-display text-xl font-semibold">Capsium</span>
+        <span class="font-display text-xl font-semibold tracking-tight">Capsium</span>
       </div>
-      <p class="mt-4 max-w-sm text-sm leading-relaxed text-cream/70">
-        Common architecture for portable secure information interchange and
-        unified management. Package content once, serve it anywhere.
+      <p class="mt-4 max-w-sm text-sm leading-relaxed text-cream/60">
+        The elemental unit of web deployment — one whole capsule for an entire
+        website or webservice. Package once. Serve anywhere.
       </p>
       <a
         href="https://github.com/capsiums"
         target="_blank"
         rel="noopener noreferrer"
-        class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-cream/80 transition-colors hover:text-sun"
+        class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-cream/75 transition-colors hover:text-glow"
       >
         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path
@@ -52,7 +53,7 @@ const groups = [
     {
       groups.map((group) => (
         <nav aria-label={`Footer: ${group.title}`}>
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-cream/50">
+          <h2 class="font-display text-sm font-semibold uppercase tracking-wider text-cream/45">
             {group.title}
           </h2>
           <ul class="mt-4 space-y-2.5">
@@ -60,7 +61,7 @@ const groups = [
               <li>
                 <a
                   href={link.href}
-                  class="text-sm text-cream/80 transition-colors hover:text-sun"
+                  class="text-sm text-cream/75 transition-colors hover:text-glow"
                   {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 >
                   {link.label}
@@ -75,9 +76,9 @@ const groups = [
 
   <div class="border-t border-white/10">
     <div
-      class="container-site flex flex-col items-center justify-between gap-2 py-5 text-xs text-cream/50 sm:flex-row"
+      class="container-site flex flex-col items-center justify-between gap-2 py-5 text-xs text-cream/45 sm:flex-row"
     >
-      <p>© {year} <a href="https://www.ribose.com" target="_blank" rel="noopener noreferrer" class="underline decoration-cream/30 underline-offset-2 transition-colors hover:text-sun">Ribose</a>. All rights reserved.</p>
+      <p>© {year} <a href="https://www.ribose.com" target="_blank" rel="noopener noreferrer" class="underline decoration-cream/30 underline-offset-2 transition-colors hover:text-glow">Ribose</a>. All rights reserved.</p>
       <p>Open source under the MIT license.</p>
     </div>
   </div>

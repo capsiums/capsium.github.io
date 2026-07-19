@@ -30,7 +30,7 @@ async function copy() {
 <template>
   <button
     type="button"
-    class="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-2.5 py-1.5 text-xs font-medium text-cream transition-colors hover:bg-white/20"
+    class="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-2.5 py-1.5 text-xs font-medium text-cream transition-colors hover:border-glow/40 hover:text-glow"
     :aria-label="`Copy command: ${text}`"
     @click="copy"
   >
@@ -38,7 +38,7 @@ async function copy() {
       <rect x="9" y="9" width="13" height="13" rx="2" />
       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
     </svg>
-    <svg v-else class="h-3.5 w-3.5 text-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <svg v-else class="h-3.5 w-3.5 text-glow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M20 6 9 17l-5-5" />
     </svg>
     <span aria-live="polite">{{ copied ? 'Copied!' : (label ?? 'Copy') }}</span>

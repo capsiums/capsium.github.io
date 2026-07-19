@@ -7,6 +7,7 @@ const links = [
   { href: '/how-it-works', label: 'How it works' },
   { href: '/learn', label: 'Learn' },
   { href: '/install', label: 'Install' },
+  { href: '/playground', label: 'Playground' },
   { href: '/specifications', label: 'Specifications' },
   { href: '/ecosystem', label: 'Ecosystem' },
   { href: '/about', label: 'About' },
@@ -16,23 +17,23 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <header
-  class="sticky top-0 z-40 border-b border-deep/10 bg-cream/80 backdrop-blur-md dark:border-white/10 dark:bg-night/80"
+  class="sticky top-0 z-40 border-b border-ink/10 bg-cream/75 backdrop-blur-xl dark:border-white/5 dark:bg-abyss/75"
 >
   <div class="container-site flex h-16 items-center justify-between gap-4">
-    <a href="/" class="flex items-center gap-3" aria-label="Capsium home">
+    <a href="/" class="group flex items-center gap-2.5" aria-label="Capsium home">
       <img
         src="/images/capsium-logo.png"
         alt=""
         width="36"
         height="36"
-        class="h-9 w-9"
+        class="h-9 w-9 transition-transform duration-300 group-hover:scale-105"
       />
-      <span class="font-display text-xl font-semibold tracking-tight text-deep dark:text-cream">
+      <span class="font-display text-lg font-semibold tracking-tight text-ink dark:text-white">
         Capsium
       </span>
     </a>
 
-    <nav class="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+    <nav class="hidden items-center gap-0.5 lg:flex" aria-label="Main navigation">
       {
         links.map((link) => (
           <a
@@ -46,12 +47,12 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
       }
     </nav>
 
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-1.5">
       <a
         href="https://github.com/capsiums"
         target="_blank"
         rel="noopener noreferrer"
-        class="hidden rounded-lg p-2 text-ink/70 transition-colors hover:bg-primary/10 hover:text-primary sm:block dark:text-cream/70 dark:hover:bg-white/10 dark:hover:text-cream"
+        class="hidden rounded-lg p-2 text-ink/65 transition-colors hover:bg-primary/10 hover:text-primary sm:block dark:text-cream/65 dark:hover:bg-white/5 dark:hover:text-white"
         aria-label="Capsium on GitHub"
       >
         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

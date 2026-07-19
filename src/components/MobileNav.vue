@@ -22,7 +22,7 @@ function close() {
   <div class="lg:hidden">
     <button
       type="button"
-      class="rounded-lg p-2 text-ink/70 transition-colors hover:bg-primary/10 hover:text-primary dark:text-cream/70 dark:hover:bg-white/10 dark:hover:text-cream"
+      class="rounded-lg p-2 text-ink/65 transition-colors hover:bg-primary/10 hover:text-primary dark:text-cream/65 dark:hover:bg-white/5 dark:hover:text-white"
       :aria-expanded="open"
       aria-controls="mobile-menu"
       aria-label="Toggle navigation menu"
@@ -47,7 +47,7 @@ function close() {
       <div
         v-if="open"
         id="mobile-menu"
-        class="absolute inset-x-0 top-16 border-b border-deep/10 bg-cream shadow-xl dark:border-white/10 dark:bg-night"
+        class="absolute inset-x-0 top-16 border-b border-ink/10 bg-cream shadow-xl dark:border-white/10 dark:bg-deep"
       >
         <nav class="container-site flex flex-col gap-1 py-4" aria-label="Mobile navigation">
           <a

@@ -47,14 +47,15 @@ const ogImage = new URL('/og-image.jpg', Astro.site);
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Set theme before paint to avoid flash -->
+    <!-- Set theme before paint to avoid flash. Dark is the default; a stored
+         "light" choice opts out. -->
     <script is:inline>
       (() => {
         const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (stored === 'dark' || (!stored && prefersDark)) {
+        if (stored !== 'light') {
           document.documentElement.classList.add('dark');
         }
+        document.documentElement.classList.add('reveal-ready');
       })();
     </script>
   </head>
@@ -64,5 +65,29 @@ const ogImage = new URL('/og-image.jpg', Astro.site);
       <slot />
     </main>
     <Footer />
+
+    <!-- Scroll reveal: progressive enhancement, honors reduced motion -->
+    <script is:inline>
+      (() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const targets = document.querySelectorAll('[data-reveal]');
+        if (!targets.length || !('IntersectionObserver' in window)) {
+          targets.forEach((el) => el.classList.add('is-revealed'));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+        );
+        targets.forEach((el) => io.observe(el));
+      })();
+    </script>
   </body>
 </html>

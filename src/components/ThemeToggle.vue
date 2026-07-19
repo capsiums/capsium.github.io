@@ -17,7 +17,7 @@ onMounted(() => {
 <template>
   <button
     type="button"
-    class="rounded-lg p-2 text-ink/70 transition-colors hover:bg-primary/10 hover:text-primary dark:text-cream/70 dark:hover:bg-white/10 dark:hover:text-cream"
+    class="rounded-lg p-2 text-ink/65 transition-colors hover:bg-primary/10 hover:text-primary dark:text-cream/65 dark:hover:bg-white/5 dark:hover:text-white"
     :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
     :aria-pressed="isDark"
     @click="apply(!isDark)"

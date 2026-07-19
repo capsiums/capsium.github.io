@@ -86,7 +86,7 @@ const current = computed(() => nodes[selected.value]);
   <div class="grid gap-6 md:grid-cols-2">
     <!-- Tree -->
     <div class="code-block" role="list" aria-label="Capsium package file tree">
-      <div class="mb-2 flex items-center gap-2 font-semibold text-sun" role="listitem">
+      <div class="mb-2 flex items-center gap-2 font-semibold text-glow" role="listitem">
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="m12 2 8.5 4.9v9.8L12 21.6l-8.5-4.9V6.9L12 2Z" />
         </svg>
@@ -99,7 +99,7 @@ const current = computed(() => nodes[selected.value]);
         role="listitem"
         class="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left font-mono text-sm transition-colors"
         :class="[
-          selected === i ? 'bg-aqua/25 text-white' : 'text-cream/75 hover:bg-white/10',
+          selected === i ? 'bg-primary/25 text-white' : 'text-cream/75 hover:bg-white/10',
         ]"
         :style="{ paddingLeft: `${0.5 + node.depth * 1.25}rem` }"
         :aria-pressed="selected === i"
@@ -108,7 +108,7 @@ const current = computed(() => nodes[selected.value]);
         <svg v-if="node.kind === 'dir'" class="h-4 w-4 shrink-0 text-sand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
         </svg>
-        <svg v-else class="h-4 w-4 shrink-0 text-aqua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg v-else class="h-4 w-4 shrink-0 text-glow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
           <path d="M14 2v4a2 2 0 0 0 2 2h4" />
         </svg>
@@ -116,7 +116,7 @@ const current = computed(() => nodes[selected.value]);
         <span
           v-if="node.badge"
           class="ml-auto rounded-full px-2 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-wide"
-          :class="node.badge === 'generated' ? 'bg-aqua/20 text-aqua' : 'bg-sun/20 text-sun'"
+          :class="node.badge === 'generated' ? 'bg-primary/20 text-glow' : 'bg-sun/20 text-sun'"
         >
           {{ node.badge === 'generated' ? 'generated' : 'handwritten' }}
         </span>
@@ -125,7 +125,7 @@ const current = computed(() => nodes[selected.value]);
 
     <!-- Detail panel -->
     <div class="card flex flex-col justify-center" aria-live="polite">
-      <p class="font-mono text-sm font-semibold text-primary dark:text-sun">
+      <p class="font-mono text-sm font-semibold text-primary dark:text-glow">
         {{ current.name }}
       </p>
       <p class="mt-3 leading-relaxed text-ink/80 dark:text-cream/80">
