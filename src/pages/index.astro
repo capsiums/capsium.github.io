@@ -7,7 +7,7 @@ const pillars = [
   {
     title: 'A whole site in one capsule',
     description:
-      'Content, data, routes, and metadata sealed in a single .cap file — self-contained, immutable, versionable.',
+      'Content, data, routes, and metadata encapsulated in a single .cap file — self-contained, immutable, tamper-evident to the last byte.',
     icon: 'M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z M3.3 7 12 12l8.7-5 M12 22V12',
   },
   {
@@ -46,7 +46,7 @@ const ecosystem = [
 
 <Base
   title="The elemental unit of web deployment"
-  description="Capsium packs an entire website or webservice into one self-contained, self-verifying capsule — the standardized contract between those who package and those who deploy. Package once. Serve anywhere."
+  description="Capsium packs an entire website or webservice into one self-contained, tamper-evident capsule — the standardized contract between those who package and those who deploy. Package once. Serve anywhere."
 >
   <!-- Hero -->
   <section class="relative overflow-hidden">
@@ -74,7 +74,8 @@ const ecosystem = [
           style="--reveal-delay: 160ms"
         >
           One whole capsule for an entire website or webservice — self-contained,
-          self-verifying, immutable. Capsium is the standardized contract between
+          immutable, untampered: every byte integrity-checked before a single
+          route is served. Capsium is the standardized contract between
           those who package and those who deploy. Package once. Serve anywhere.
         </p>
         <div class="mt-9 flex flex-wrap items-center gap-4" data-reveal style="--reveal-delay: 240ms">
@@ -151,8 +152,12 @@ const ecosystem = [
     <div class="container-site">
       <p class="eyebrow" data-reveal>Why Capsium</p>
       <h2 class="section-title mt-4" data-reveal style="--reveal-delay: 60ms">
-        Wholeness, sealed in
+        Whole, and provably untampered.
       </h2>
+      <p class="mt-4 max-w-2xl text-ink/70 dark:text-cream/65" data-reveal style="--reveal-delay: 120ms">
+        A capsule arrives exactly as it was packed. Every file is SHA-256-checksummed
+        at pack time — a reactor that detects a single mismatch refuses to serve it.
+      </p>
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {
           pillars.map((pillar, i) => (
