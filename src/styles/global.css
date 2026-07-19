@@ -1,94 +1,157 @@
 @import "tailwindcss";
-@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
 
-/* Class-based dark mode: `.dark` on <html> toggles dark: variants */
+/* Class-based theming: `.dark` on <html> toggles dark: variants.
+   Dark ("midnight capsule") is the default experience; light mode is the
+   cream/sand side. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Capsium palette — single source of truth (from the project logo) */
+/* Capsium palette — single source of truth.
+   Derived from the logo, brightened for screens. */
 @theme {
-  --color-primary: #0f6b83; /* teal — brand primary */
-  --color-deep: #12404f; /* deep dark teal */
-  --color-night: #0b2833; /* darker teal for dark-mode surfaces */
-  --color-aqua: #479aa2;
-  --color-pepper: #a1323a; /* pepper red accent */
-  --color-sand: #d5b579;
-  --color-cream: #eeebe3; /* light background */
-  --color-sun: #dab956; /* sun yellow */
-  --color-ink: #20343c; /* default body text on light */
+  /* Dark-side surfaces (near-black deep teal) */
+  --color-night: #07161d; /* deepest background (footer, terminals) */
+  --color-abyss: #0a1c24; /* page background in dark mode */
+  --color-deep: #0f2833; /* elevated surfaces */
+  --color-surface: #12404f; /* cards, borders base */
 
-  --font-display: "Fraunces Variable", "Iowan Old Style", "Palatino Linotype",
-    Georgia, serif;
+  /* Brand accents */
+  --color-primary: #22b8d4; /* electric teal — primary action */
+  --color-glow: #4fd1e5; /* bright cyan — glow accents */
+  --color-pepper: #e85d64; /* pepper red, brightened */
+  --color-sun: #dab956; /* sun yellow */
+  --color-sand: #d5b579; /* warm sand */
+
+  /* Light side */
+  --color-cream: #eeebe3; /* page background in light mode */
+  --color-ink: #14333f; /* body text on light */
+
+  /* Typography — two sans faces (display + body) and a mono for code */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", "Inter Variable", ui-sans-serif,
+    system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo,
+    monospace;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
-  @apply bg-cream text-ink antialiased;
+  @apply bg-cream font-sans text-ink antialiased;
 }
 
 .dark body {
-  @apply bg-night text-cream/90;
+  @apply bg-abyss text-cream/90;
+}
+
+/* Selection */
+::selection {
+  @apply bg-primary/30 text-ink dark:text-white;
+}
+
+/* Scroll-reveal: hidden only when the inline script flagged JS as ready;
+   respects reduced motion by never hiding in the first place. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal-ready [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Reusable component classes */
 @utility container-site {
-  @apply mx-auto w-full max-w-6xl px-6 lg:px-8;
+  @apply mx-auto w-full max-w-7xl px-6 lg:px-8;
 }
 
 @utility btn {
   @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
-    text-sm font-semibold transition-all duration-200
-    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun;
+    text-sm font-semibold tracking-tight transition-all duration-200
+    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
 }
 
 @utility btn-primary {
-  @apply btn bg-primary text-white shadow-lg shadow-primary/30
-    hover:bg-deep hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5;
+  @apply btn bg-primary text-night shadow-lg shadow-primary/25
+    hover:bg-glow hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5;
 }
 
 @utility btn-outline {
-  @apply btn border border-white/30 text-white
-    hover:border-sun hover:text-sun;
+  @apply btn border border-white/20 text-white
+    hover:border-glow hover:text-glow hover:shadow-lg hover:shadow-primary/20;
 }
 
 @utility btn-secondary {
-  @apply btn bg-white text-primary border border-primary/20 shadow-sm
-    hover:border-primary hover:shadow-md hover:-translate-y-0.5
-    dark:bg-white/10 dark:text-cream dark:border-white/15 dark:hover:border-aqua;
+  @apply btn border border-ink/15 bg-white text-ink shadow-sm
+    hover:border-primary/60 hover:text-primary hover:shadow-md hover:-translate-y-0.5
+    dark:border-white/15 dark:bg-white/5 dark:text-cream dark:hover:border-glow/60 dark:hover:text-glow;
 }
 
 @utility card {
-  @apply rounded-2xl border border-deep/10 bg-white p-6 shadow-sm
-    transition-shadow duration-200 hover:shadow-lg
-    dark:border-white/10 dark:bg-white/5;
+  @apply rounded-2xl border border-ink/10 bg-white p-6 shadow-sm
+    transition-all duration-200 hover:shadow-lg hover:shadow-primary/5
+    dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none
+    dark:hover:border-primary/30 dark:hover:bg-white/[0.06];
 }
 
 @utility eyebrow {
-  @apply text-xs font-bold uppercase tracking-[0.2em] text-primary dark:text-aqua;
+  @apply font-display text-xs font-semibold uppercase tracking-[0.22em] text-primary;
 }
 
 @utility section-title {
-  @apply font-display text-3xl font-semibold tracking-tight text-deep
-    sm:text-4xl dark:text-cream;
+  @apply font-display text-3xl font-semibold tracking-tight text-ink
+    sm:text-4xl dark:text-white;
 }
 
 @utility section-lead {
-  @apply mt-4 max-w-2xl text-lg leading-relaxed text-ink/70 dark:text-cream/70;
+  @apply mt-4 max-w-2xl text-lg leading-relaxed text-ink/70 dark:text-cream/65;
 }
 
 @utility code-block {
-  @apply overflow-x-auto rounded-xl bg-deep px-5 py-4 font-mono text-sm
-    leading-relaxed text-cream shadow-inner dark:bg-black/40;
+  @apply overflow-x-auto rounded-xl border border-white/10 bg-night px-5 py-4
+    font-mono text-sm leading-relaxed text-cream shadow-inner;
 }
 
 @utility nav-link {
-  @apply rounded-lg px-3 py-2 text-sm font-medium text-ink/70 transition-colors
+  @apply rounded-lg px-3 py-2 text-sm font-medium text-ink/65 transition-colors
     hover:bg-primary/10 hover:text-primary
-    dark:text-cream/70 dark:hover:bg-white/10 dark:hover:text-cream;
+    dark:text-cream/65 dark:hover:bg-white/5 dark:hover:text-white;
 }
 
 @utility nav-link-active {
-  @apply text-primary dark:text-sun;
+  @apply text-primary dark:text-glow;
+}
+
+@utility chip {
+  @apply inline-block rounded-full border border-primary/25 bg-primary/10 px-2.5
+    py-1 text-[11px] font-semibold uppercase tracking-wide text-primary
+    dark:border-glow/25 dark:bg-glow/10 dark:text-glow;
+}
+
+@utility text-gradient {
+  @apply bg-gradient-to-r from-primary via-glow to-primary bg-clip-text
+    text-transparent;
+}
+
+/* Gradient hairline divider */
+@utility hairline {
+  @apply h-px w-full border-0 bg-gradient-to-r from-transparent
+    via-primary/40 to-transparent;
 }

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
 
 const structure = [
   {
@@ -37,39 +38,34 @@ const metadataExample = `{
   },
   "readOnly": true
 }`;
+
+const inlineCode = 'rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary dark:bg-glow/10 dark:text-glow';
 ---
 
 <Base
   title="Specifications"
-  description="The Capsium package specification: structure, configuration files, SHA-256 security, the .cap extension, and the application/vnd.capsium.package MIME type."
+  description="The Capsium package specification: the contract files (metadata, manifest, routes, storage, security), SHA-256 integrity, the .cap extension, and the application/vnd.capsium.package MIME type."
 >
-  <section class="bg-deep py-16 text-cream lg:py-20">
-    <div class="container-site">
-      <p class="eyebrow text-aqua">Specifications</p>
-      <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-        The Capsium package format
-      </h1>
-      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-cream/70">
-        Capsium provides a common architecture for portable, secure information
-        interchange and unified management. These are the core specifications.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Specifications"
+    title="The Capsium package format"
+    lead="Capsium provides a common architecture for portable, secure information interchange and unified management. These are the core specifications."
+  />
 
   <!-- Package structure -->
   <section class="py-16 lg:py-20">
     <div class="container-site">
-      <p class="eyebrow">Structure</p>
-      <h2 class="section-title mt-3">What a package contains</h2>
-      <p class="section-lead">A Capsium package typically includes five parts:</p>
+      <p class="eyebrow" data-reveal>Structure</p>
+      <h2 class="section-title mt-4" data-reveal style="--reveal-delay: 60ms">What a package contains</h2>
+      <p class="section-lead" data-reveal style="--reveal-delay: 120ms">A Capsium package typically includes five parts:</p>
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {
-          structure.map((item) => (
-            <div class="card">
-              <h3 class="font-display text-lg font-semibold text-primary dark:text-sun">
+          structure.map((item, i) => (
+            <div class="card" data-reveal style={`--reveal-delay: ${i * 50}ms`}>
+              <h3 class="font-display text-lg font-semibold tracking-tight text-primary dark:text-glow">
                 {item.name}
               </h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink/70 dark:text-cream/70">
+              <p class="mt-2 text-sm leading-relaxed text-ink/70 dark:text-cream/65">
                 {item.description}
               </p>
             </div>
@@ -80,38 +76,38 @@ const metadataExample = `{
   </section>
 
   <!-- Configuration -->
-  <section class="bg-white py-16 lg:py-20 dark:bg-black/20">
+  <section class="border-y border-ink/10 bg-white/60 py-16 lg:py-20 dark:border-white/5 dark:bg-white/[0.02]">
     <div class="container-site grid items-start gap-10 lg:grid-cols-2">
       <div>
-        <p class="eyebrow">Configuration</p>
-        <h2 class="section-title mt-3">Configured with JSON</h2>
-        <p class="section-lead">
+        <p class="eyebrow" data-reveal>Configuration</p>
+        <h2 class="section-title mt-4" data-reveal style="--reveal-delay: 60ms">Configured with JSON</h2>
+        <p class="section-lead" data-reveal style="--reveal-delay: 120ms">
           Capsium packages are configured using JSON files covering metadata, routes,
-          storage, and security. You author
-          <code class="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary dark:bg-white/10 dark:text-sun">metadata.json</code>;
+          storage, and security. You author{' '}
+          <code class={inlineCode}>metadata.json</code>;{' '}
           the packager generates the rest.
         </p>
         <ul class="mt-6 space-y-3">
-          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/80">
-            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
-            <span><strong class="text-deep dark:text-cream">Identity</strong> — name, version, description, guid, and uuid pin down exactly what the package is.</span>
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/75">
+            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
+            <span><strong class="text-ink dark:text-white">Identity</strong> — name, version, description, guid, and uuid pin down exactly what the package is.</span>
           </li>
-          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/80">
-            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
-            <span><strong class="text-deep dark:text-cream">Provenance</strong> — license and repository record where the package comes from.</span>
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/75">
+            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
+            <span><strong class="text-ink dark:text-white">Provenance</strong> — license and repository record where the package comes from.</span>
           </li>
-          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/80">
-            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
-            <span><strong class="text-deep dark:text-cream">Dependencies</strong> — declared with version constraints, resolved by reactors.</span>
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/75">
+            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
+            <span><strong class="text-ink dark:text-white">Dependencies</strong> — declared with version constraints, resolved by reactors.</span>
           </li>
-          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/80">
-            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
-            <span><strong class="text-deep dark:text-cream">readOnly</strong> — marks the package as immutable once packed.</span>
+          <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/75">
+            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
+            <span><strong class="text-ink dark:text-white">readOnly</strong> — marks the package as immutable once packed.</span>
           </li>
         </ul>
       </div>
-      <div class="code-block">
-        <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-aqua">metadata.json</p>
+      <div class="code-block" data-reveal>
+        <p class="mb-3 font-display text-xs font-semibold uppercase tracking-wider text-glow">metadata.json</p>
         <pre class="text-[13px]">{metadataExample}</pre>
       </div>
     </div>
@@ -120,37 +116,37 @@ const metadataExample = `{
   <!-- Security + file format -->
   <section class="py-16 lg:py-20">
     <div class="container-site grid gap-6 md:grid-cols-2">
-      <div class="card">
-        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-pepper/10 text-pepper">
+      <div class="card" data-reveal>
+        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-pepper/15 text-pepper">
           <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z M9 12l2 2 4-4" />
           </svg>
         </div>
-        <h2 class="mt-4 font-display text-xl font-semibold text-deep dark:text-cream">
+        <h2 class="mt-4 font-display text-xl font-semibold tracking-tight text-ink dark:text-white">
           Security
         </h2>
-        <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/75">
+        <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/70">
           Every file in a package is fingerprinted with a SHA-256 checksum recorded
-          in <code class="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary dark:bg-white/10 dark:text-sun">security.json</code>.
+          in <code class={inlineCode}>security.json</code>.
           Packages can additionally carry RSA digital signatures, so reactors can
           verify both integrity and origin before serving anything.
         </p>
       </div>
-      <div class="card">
-        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-aqua/15 dark:text-aqua">
+      <div class="card" data-reveal style="--reveal-delay: 80ms">
+        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-glow/10 dark:text-glow">
           <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
             <path d="M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8" />
           </svg>
         </div>
-        <h2 class="mt-4 font-display text-xl font-semibold text-deep dark:text-cream">
+        <h2 class="mt-4 font-display text-xl font-semibold tracking-tight text-ink dark:text-white">
           File format
         </h2>
-        <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/75">
-          A Capsium package is a ZIP archive with the
-          <code class="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary dark:bg-white/10 dark:text-sun">.cap</code>
-          extension and the registered MIME type
-          <code class="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary dark:bg-white/10 dark:text-sun">application/vnd.capsium.package</code>.
+        <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/70">
+          A Capsium package is a ZIP archive with the{' '}
+          <code class={inlineCode}>.cap</code>{' '}
+          extension and the registered MIME type{' '}
+          <code class={inlineCode}>application/vnd.capsium.package</code>.
           Any standards-compliant ZIP tool can inspect one.
         </p>
       </div>
@@ -158,11 +154,11 @@ const metadataExample = `{
 
     <!-- Deployment note -->
     <div class="container-site mt-6">
-      <div class="card">
-        <h2 class="font-display text-xl font-semibold text-deep dark:text-cream">
+      <div class="card" data-reveal>
+        <h2 class="font-display text-xl font-semibold tracking-tight text-ink dark:text-white">
           Deployment
         </h2>
-        <p class="mt-2 max-w-3xl leading-relaxed text-ink/75 dark:text-cream/75">
+        <p class="mt-2 max-w-3xl leading-relaxed text-ink/75 dark:text-cream/70">
           Capsium packages are deployed using a Capsium reactor, which reads the
           package configuration and serves the content and data according to the
           defined routes — verify first, then mount.
@@ -172,11 +168,16 @@ const metadataExample = `{
 
     <!-- Standard link -->
     <div class="container-site mt-12">
-      <div class="rounded-2xl bg-deep p-8 text-cream sm:p-10">
-        <div class="flex flex-wrap items-center justify-between gap-6">
+      <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-night p-8 text-cream sm:p-10" data-reveal>
+        <div
+          class="pointer-events-none absolute inset-0 bg-[radial-gradient(36rem_14rem_at_85%_0%,rgba(34,184,212,0.25),transparent)]"
+          aria-hidden="true"
+        >
+        </div>
+        <div class="relative flex flex-wrap items-center justify-between gap-6">
           <div class="max-w-xl">
-            <h2 class="font-display text-2xl font-semibold">The full standard</h2>
-            <p class="mt-2 leading-relaxed text-cream/70">
+            <h2 class="font-display text-2xl font-semibold tracking-tight">The full standard</h2>
+            <p class="mt-2 leading-relaxed text-cream/65">
               These pages summarize the format. The normative text lives in the CC
               62001 draft standard, developed in the open.
             </p>

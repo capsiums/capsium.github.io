@@ -1,15 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
 import { repos, repoUrl } from '../data/ecosystem';
 
 const colors = [
-  { name: 'Teal', hex: '#0F6B83', role: 'Primary brand color', token: 'primary' },
-  { name: 'Deep Teal', hex: '#12404F', role: 'Headings & dark surfaces', token: 'deep' },
-  { name: 'Aqua', hex: '#479AA2', role: 'Secondary accents', token: 'aqua' },
-  { name: 'Pepper Red', hex: '#A1323A', role: 'Accent — the bell pepper', token: 'pepper' },
-  { name: 'Sand', hex: '#D5B579', role: 'Warm highlights', token: 'sand' },
-  { name: 'Cream', hex: '#EEEBE3', role: 'Page background', token: 'cream' },
+  { name: 'Midnight', hex: '#0A1C24', role: 'Dark page background', token: 'abyss' },
+  { name: 'Surface Teal', hex: '#12404F', role: 'Cards & elevated surfaces', token: 'surface' },
+  { name: 'Electric Teal', hex: '#22B8D4', role: 'Primary actions', token: 'primary' },
+  { name: 'Glow Cyan', hex: '#4FD1E5', role: 'Glow & highlight accents', token: 'glow' },
+  { name: 'Pepper Red', hex: '#E85D64', role: 'Accent — the bell pepper', token: 'pepper' },
   { name: 'Sun Yellow', hex: '#DAB956', role: 'Sunny accents', token: 'sun' },
+  { name: 'Sand', hex: '#D5B579', role: 'Warm highlights', token: 'sand' },
+  { name: 'Cream', hex: '#EEEBE3', role: 'Light page background', token: 'cream' },
 ];
 
 const useCases = [
@@ -43,74 +45,92 @@ const useCases = [
 
 <Base
   title="About"
-  description="About Capsium: the name, the logo, the colors, and the Ribose open-source project making content management and deployment easy, secure, and efficient."
+  description="About Capsium: the name (capsule + -ium + Capsicum), the logo, the colors, and the Ribose open-source project behind the elemental unit of web deployment."
 >
-  <section class="bg-deep py-16 text-cream lg:py-20">
-    <div class="container-site">
-      <p class="eyebrow text-aqua">About</p>
-      <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-        About Capsium
-      </h1>
-      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-cream/70">
-        Capsium is a project developed by Ribose to provide a common architecture
-        for portable, secure information interchange and unified management.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="About"
+    title="About Capsium"
+    lead="Capsium is a project developed by Ribose to provide a common architecture for portable, secure information interchange and unified management."
+  />
 
   <!-- The Name & Logo -->
   <section class="py-16 lg:py-20">
     <div class="container-site">
-      <p class="eyebrow">The Name &amp; Logo</p>
-      <h2 class="section-title mt-3">A capsule with a little kick</h2>
+      <p class="eyebrow" data-reveal>The Name &amp; Logo</p>
+      <h2 class="section-title mt-4" data-reveal style="--reveal-delay: 60ms">
+        An element of the deployment table
+      </h2>
       <div class="mt-8 grid items-center gap-10 lg:grid-cols-2">
-        <div class="space-y-5 leading-relaxed text-ink/80 dark:text-cream/80">
+        <div class="space-y-5 leading-relaxed text-ink/80 dark:text-cream/75">
           <p>
-            <strong class="text-deep dark:text-cream">Capsium</strong> blends two
-            words: <em>capsule</em> — the portable, self-contained package at the
-            heart of the project — and <em>Capsicum</em>, the bell-pepper genus.
-            A capsule you can carry anywhere, with a pepper inside.
+            <strong class="text-ink dark:text-white">Capsium</strong> is a word
+            built from three parts, and each one carries a piece of the
+            architecture.
           </p>
+          <ul class="space-y-4">
+            <li class="flex gap-3.5">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
+              <span>
+                <strong class="font-display text-ink dark:text-white">caps- — the capsule.</strong>{' '}
+                A Capsium package is one whole capsule containing an entire
+                website or webservice: content, data, routes, and metadata sealed
+                together, self-contained and self-verifying.
+              </span>
+            </li>
+            <li class="flex gap-3.5">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary"></span>
+              <span>
+                <strong class="font-display text-ink dark:text-white">-ium — the element suffix.</strong>{' '}
+                Like helium or titanium, a Capsium package is an indivisible,
+                fundamental unit — a wholeness unto itself. You deploy it whole or
+                not at all; it is the elemental unit of web deployment.
+              </span>
+            </li>
+            <li class="flex gap-3.5">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-pepper"></span>
+              <span>
+                <strong class="font-display text-ink dark:text-white">Capsicum — the pepper genus.</strong>{' '}
+                A nod to the red bell pepper resting inside the logo's capsule —
+                a little kick inside every package.
+              </span>
+            </li>
+          </ul>
           <p>
             The logo makes the idea literal: a translucent capsule containing a
-            tropical beach diorama — sun, surf, palm trees — with a single red bell
-            pepper resting on the sand. The capsule is the package; the beach is
-            your content, sealed, portable, and intact wherever it lands.
-          </p>
-          <p>
-            On light pages the capsule's glassy highlights stand out against the
-            cream background; on dark pages it glows against deep teal, the beach
-            inside lit like a tiny terrarium.
+            tropical beach diorama — sun, surf, palm trees — with a single red
+            bell pepper on the sand. The capsule is the package; the beach is your
+            content, sealed, portable, and intact wherever it lands.
           </p>
         </div>
-        <div class="card flex items-center justify-center bg-gradient-to-br from-white to-cream p-10 dark:from-white/10 dark:to-white/5">
+        <div class="card flex items-center justify-center bg-gradient-to-br from-white to-cream p-10 dark:from-white/[0.06] dark:to-transparent">
           <img
             src="/images/capsium-logo.png"
             alt="The Capsium logo: a translucent capsule containing a tropical beach diorama — sun, ocean, palm trees — with a red bell pepper on the sand"
-            width="800"
-            height="800"
-            class="w-full max-w-xs drop-shadow-[0_20px_40px_rgba(18,64,79,0.25)]"
+            width="640"
+            height="640"
+            class="w-full max-w-xs drop-shadow-[0_20px_40px_rgba(18,64,79,0.35)]"
           />
         </div>
       </div>
 
       <!-- The Colors -->
-      <h3 class="mt-16 font-display text-2xl font-semibold text-deep dark:text-cream">
+      <h3 class="mt-16 font-display text-2xl font-semibold tracking-tight text-ink dark:text-white" data-reveal>
         The Colors
       </h3>
-      <p class="mt-3 max-w-2xl leading-relaxed text-ink/80 dark:text-cream/80">
-        The palette is drawn straight from the logo — deep teal water, sandy beach,
-        tropical sun, and one very red bell pepper.
+      <p class="mt-3 max-w-2xl leading-relaxed text-ink/80 dark:text-cream/75" data-reveal>
+        The palette is drawn straight from the logo — deep teal water, sandy
+        beach, tropical sun, and one very red bell pepper — brightened for
+        screens into the "midnight capsule" theme.
       </p>
       <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {
           colors.map((color) => (
-            <div class="overflow-hidden rounded-2xl border border-deep/10 dark:border-white/10">
+            <div class="overflow-hidden rounded-2xl border border-ink/10 dark:border-white/10">
               <div class="h-20" style={`background-color: ${color.hex}`} />
-              <div class="bg-white p-4 dark:bg-white/5">
-                <p class="font-semibold text-deep dark:text-cream">{color.name}</p>
-                <p class="font-mono text-xs text-ink/60 dark:text-cream/60">{color.hex}</p>
-                <p class="mt-1 text-xs text-ink/60 dark:text-cream/60">{color.role}</p>
+              <div class="bg-white p-4 dark:bg-white/[0.04]">
+                <p class="font-semibold text-ink dark:text-white">{color.name}</p>
+                <p class="font-mono text-xs text-ink/60 dark:text-cream/55">{color.hex}</p>
+                <p class="mt-1 text-xs text-ink/60 dark:text-cream/55">{color.role}</p>
               </div>
             </div>
           ))
@@ -120,14 +140,14 @@ const useCases = [
   </section>
 
   <!-- Origin + Mission -->
-  <section class="bg-white py-16 lg:py-20 dark:bg-black/20">
+  <section class="border-y border-ink/10 bg-white/60 py-16 lg:py-20 dark:border-white/5 dark:bg-white/[0.02]">
     <div class="container-site grid gap-10 md:grid-cols-2">
       <div>
         <p class="eyebrow">Origin Story</p>
-        <h2 class="mt-3 font-display text-2xl font-semibold text-deep dark:text-cream">
+        <h2 class="mt-3 font-display text-2xl font-semibold tracking-tight text-ink dark:text-white">
           Built at Ribose
         </h2>
-        <p class="mt-4 leading-relaxed text-ink/80 dark:text-cream/80">
+        <p class="mt-4 leading-relaxed text-ink/80 dark:text-cream/75">
           Capsium was created at Ribose to solve a recurring problem: content
           deployment should be portable and secure by default, not an exercise in
           rebuilding the same pipeline for every platform. Capsium packages make
@@ -137,10 +157,10 @@ const useCases = [
       </div>
       <div>
         <p class="eyebrow">Mission Statement</p>
-        <h2 class="mt-3 font-display text-2xl font-semibold text-deep dark:text-cream">
+        <h2 class="mt-3 font-display text-2xl font-semibold tracking-tight text-ink dark:text-white">
           Our mission
         </h2>
-        <p class="mt-4 leading-relaxed text-ink/80 dark:text-cream/80">
+        <p class="mt-4 leading-relaxed text-ink/80 dark:text-cream/75">
           Our mission is to make content management and deployment easy, secure, and
           efficient for developers, packagers, deployers, users, and organizations.
         </p>
@@ -151,36 +171,34 @@ const useCases = [
   <!-- Ecosystem -->
   <section class="py-16 lg:py-20">
     <div class="container-site">
-      <p class="eyebrow">The Ecosystem</p>
-      <h2 class="section-title mt-3">The project family</h2>
-      <div class="mt-10 overflow-x-auto rounded-2xl border border-deep/10 dark:border-white/10">
+      <p class="eyebrow" data-reveal>The Ecosystem</p>
+      <h2 class="section-title mt-4" data-reveal style="--reveal-delay: 60ms">The project family</h2>
+      <div class="mt-10 overflow-x-auto rounded-2xl border border-ink/10 dark:border-white/10" data-reveal>
         <table class="w-full min-w-[36rem] text-left text-sm">
           <thead>
-            <tr class="bg-deep text-cream">
-              <th scope="col" class="px-5 py-3.5 font-semibold">Project</th>
-              <th scope="col" class="px-5 py-3.5 font-semibold">Description</th>
-              <th scope="col" class="px-5 py-3.5 font-semibold">Category</th>
+            <tr class="bg-night text-cream">
+              <th scope="col" class="px-5 py-3.5 font-display font-semibold">Project</th>
+              <th scope="col" class="px-5 py-3.5 font-display font-semibold">Description</th>
+              <th scope="col" class="px-5 py-3.5 font-display font-semibold">Category</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-deep/10 bg-white dark:divide-white/10 dark:bg-white/5">
+          <tbody class="divide-y divide-ink/10 bg-white dark:divide-white/10 dark:bg-white/[0.03]">
             {
               repos.map((repo) => (
-                <tr class="transition-colors hover:bg-primary/5 dark:hover:bg-white/10">
+                <tr class="transition-colors hover:bg-primary/5 dark:hover:bg-white/5">
                   <td class="px-5 py-3.5">
                     <a
                       href={repoUrl(repo.name)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="font-mono font-semibold text-primary hover:underline dark:text-aqua"
+                      class="font-mono font-semibold text-primary hover:underline dark:text-glow"
                     >
                       {repo.name}
                     </a>
                   </td>
-                  <td class="px-5 py-3.5 text-ink/75 dark:text-cream/75">{repo.description}</td>
+                  <td class="px-5 py-3.5 text-ink/75 dark:text-cream/70">{repo.description}</td>
                   <td class="px-5 py-3.5">
-                    <span class="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary dark:bg-aqua/15 dark:text-aqua">
-                      {repo.category}
-                    </span>
+                    <span class="chip">{repo.category}</span>
                   </td>
                 </tr>
               ))
@@ -192,23 +210,23 @@ const useCases = [
   </section>
 
   <!-- Use Cases -->
-  <section class="bg-white py-16 lg:py-20 dark:bg-black/20">
+  <section class="border-y border-ink/10 bg-white/60 py-16 lg:py-20 dark:border-white/5 dark:bg-white/[0.02]">
     <div class="container-site">
-      <p class="eyebrow">Use Cases</p>
-      <h2 class="section-title mt-3">Where Capsium fits</h2>
+      <p class="eyebrow" data-reveal>Use Cases</p>
+      <h2 class="section-title mt-4" data-reveal style="--reveal-delay: 60ms">Where Capsium fits</h2>
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
-          useCases.map((useCase) => (
-            <div class="card">
-              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-aqua/15 dark:text-aqua">
+          useCases.map((useCase, i) => (
+            <div class="card" data-reveal style={`--reveal-delay: ${i * 60}ms`}>
+              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-glow/10 dark:text-glow">
                 <svg class="h-5.5 w-5.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d={useCase.icon} />
                 </svg>
               </div>
-              <h3 class="mt-4 font-display text-lg font-semibold text-deep dark:text-cream">
+              <h3 class="mt-4 font-display text-lg font-semibold tracking-tight text-ink dark:text-white">
                 {useCase.title}
               </h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink/70 dark:text-cream/70">
+              <p class="mt-2 text-sm leading-relaxed text-ink/70 dark:text-cream/65">
                 {useCase.description}
               </p>
             </div>
@@ -223,38 +241,38 @@ const useCases = [
     <div class="container-site grid gap-10 md:grid-cols-2">
       <div>
         <p class="eyebrow">Open Source</p>
-        <h2 class="mt-3 font-display text-2xl font-semibold text-deep dark:text-cream">
+        <h2 class="mt-3 font-display text-2xl font-semibold tracking-tight text-ink dark:text-white">
           Open by default
         </h2>
-        <p class="mt-4 leading-relaxed text-ink/80 dark:text-cream/80">
-          Capsium is an open-source project. Every repository is developed in the
-          open under the
-          <a href="https://github.com/capsiums" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:underline dark:text-aqua">capsiums</a>
+        <p class="mt-4 leading-relaxed text-ink/80 dark:text-cream/75">
+          Capsium is an open-source project. Every repository is developed in
+          the open under the{' '}
+          <a href="https://github.com/capsiums" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:underline dark:text-glow">capsiums</a>{' '}
           organization on GitHub and released under the MIT license. Contributions
           are welcome — fork a repository and open a pull request.
         </p>
       </div>
       <div>
         <p class="eyebrow">Get Started</p>
-        <h2 class="mt-3 font-display text-2xl font-semibold text-deep dark:text-cream">
+        <h2 class="mt-3 font-display text-2xl font-semibold tracking-tight text-ink dark:text-white">
           Ready to dive in?
         </h2>
-        <ul class="mt-4 space-y-2.5 leading-relaxed text-ink/80 dark:text-cream/80">
+        <ul class="mt-4 space-y-2.5 leading-relaxed text-ink/80 dark:text-cream/75">
           <li>
-            <strong class="text-deep dark:text-cream">1.</strong>
-            <a href="/install" class="font-semibold text-primary hover:underline dark:text-aqua">Install the CLI</a> and verify your setup
+            <strong class="text-ink dark:text-white">1.</strong>
+            <a href="/install" class="font-semibold text-primary hover:underline dark:text-glow">Install the CLI</a> and verify your setup
           </li>
           <li>
-            <strong class="text-deep dark:text-cream">2.</strong>
-            <a href="/learn" class="font-semibold text-primary hover:underline dark:text-aqua">Follow the walkthrough</a> to pack your first package
+            <strong class="text-ink dark:text-white">2.</strong>
+            <a href="/learn" class="font-semibold text-primary hover:underline dark:text-glow">Follow the walkthrough</a> to pack your first package
           </li>
           <li>
-            <strong class="text-deep dark:text-cream">3.</strong>
-            <a href="/specifications" class="font-semibold text-primary hover:underline dark:text-aqua">Read the specifications</a> behind the format
+            <strong class="text-ink dark:text-white">3.</strong>
+            <a href="/specifications" class="font-semibold text-primary hover:underline dark:text-glow">Read the specifications</a> behind the format
           </li>
           <li>
-            <strong class="text-deep dark:text-cream">4.</strong>
-            <a href="https://github.com/capsiums" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:underline dark:text-aqua">Star the repos</a> and join the project on GitHub
+            <strong class="text-ink dark:text-white">4.</strong>
+            <a href="https://github.com/capsiums" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:underline dark:text-glow">Star the repos</a> and join the project on GitHub
           </li>
         </ul>
       </div>

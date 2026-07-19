@@ -10,6 +10,6 @@ const { command, label } = Astro.props;
 ---
 
 <div class="code-block flex items-center justify-between gap-4">
-  <code class="whitespace-nowrap"><span class="select-none text-aqua">$ </span>{command}</code>
+  <code class="min-w-0 overflow-x-auto whitespace-nowrap"><span class="select-none text-glow">$ </span>{command}</code>
   <CopyButton client:visible text={command} label={label} />
 </div>

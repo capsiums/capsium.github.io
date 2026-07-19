@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
 
 const audiences = [
   {
@@ -57,40 +58,33 @@ const audiences = [
 
 <Base
   title="Features"
-  description="Capsium benefits for developers, packagers, deployers, users, and organizations — structured content management, portable packages, and secure deployment."
+  description="Capsium features for developers, packagers, deployers, users, and organizations — one self-contained capsule per site, a standardized contract, and secure deployment anywhere."
 >
-  <section class="bg-deep py-16 text-cream lg:py-20">
-    <div class="container-site">
-      <p class="eyebrow text-aqua">Features</p>
-      <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-        Something for everyone in the content lifecycle
-      </h1>
-      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-cream/70">
-        Capsium offers a wide range of features that cater to different audiences —
-        developers, packagers, deployers, users, and organizations.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Features"
+    title="Something for everyone in the content lifecycle"
+    lead="Capsium offers a wide range of features that cater to different audiences — developers, packagers, deployers, users, and organizations."
+  />
 
   <section class="py-16 lg:py-20">
     <div class="container-site grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {
-        audiences.map((audience) => (
-          <div class="card flex flex-col">
+        audiences.map((audience, i) => (
+          <div class="card flex flex-col" data-reveal style={`--reveal-delay: ${i * 60}ms`}>
             <div class="flex items-center gap-4">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-aqua/15 dark:text-aqua">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-glow/10 dark:text-glow">
                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d={audience.icon} />
                 </svg>
               </div>
-              <h2 class="font-display text-xl font-semibold text-deep dark:text-cream">
+              <h2 class="font-display text-xl font-semibold tracking-tight text-ink dark:text-white">
                 {audience.title}
               </h2>
             </div>
             <ul class="mt-5 flex-1 space-y-3">
               {audience.benefits.map((benefit) => (
-                <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/80">
-                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-pepper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink/80 dark:text-cream/75">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-primary dark:text-glow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
                   {benefit}
@@ -102,14 +96,14 @@ const audiences = [
       }
 
       <!-- CTA card -->
-      <div class="card flex flex-col justify-center bg-primary text-white dark:bg-primary">
-        <h2 class="font-display text-xl font-semibold">Ready to try it?</h2>
-        <p class="mt-2 text-sm leading-relaxed text-white/80">
+      <div class="card flex flex-col justify-center border-primary/30 bg-gradient-to-br from-primary/15 to-transparent dark:border-glow/30 dark:from-glow/15" data-reveal style="--reveal-delay: 300ms">
+        <h2 class="font-display text-xl font-semibold tracking-tight text-ink dark:text-white">Ready to try it?</h2>
+        <p class="mt-2 text-sm leading-relaxed text-ink/70 dark:text-cream/65">
           Install the Ruby gem and pack your first Capsium package in minutes.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="/install" class="btn bg-white text-primary hover:bg-cream">Install</a>
-          <a href="/learn" class="btn border border-white/40 text-white hover:border-white">Learn</a>
+          <a href="/install" class="btn-primary">Install</a>
+          <a href="/learn" class="btn-secondary">Learn</a>
         </div>
       </div>
     </div>
