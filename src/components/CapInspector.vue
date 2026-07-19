@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { strFromU8, unzipSync } from 'fflate';
+import { playgroundState } from './playground-state';
 
 interface CheckResult {
   path: string;
@@ -88,13 +89,13 @@ async function inspect(file: File) {
     }
 
     const manifest = readJson(files, 'manifest.json') as
-      | { content?: unknown[] }
+      | { content?: unknown[]; resources?: Record<string, unknown> }
       | null;
     const routes = readJson(files, 'routes.json') as
       | { routes?: unknown[] }
       | null;
     const storage = readJson(files, 'storage.json') as
-      | { datasets?: unknown[] }
+      | { datasets?: unknown[]; storage?: { dataSets?: Record<string, unknown> } }
       | null;
     const security = readJson(files, 'security.json') as
       | {
@@ -141,8 +142,16 @@ async function inspect(file: File) {
       metadata,
       metadataPretty: JSON.stringify(metadata, null, 2),
       routeCount: Array.isArray(routes?.routes) ? routes.routes.length : null,
-      manifestCount: Array.isArray(manifest?.content) ? manifest.content.length : null,
-      datasetCount: Array.isArray(storage?.datasets) ? storage.datasets.length : null,
+      manifestCount: manifest?.resources
+        ? Object.keys(manifest.resources).length
+        : Array.isArray(manifest?.content)
+          ? manifest.content.length
+          : null,
+      datasetCount: storage?.storage?.dataSets
+        ? Object.keys(storage.storage.dataSets).length
+        : Array.isArray(storage?.datasets)
+          ? storage.datasets.length
+          : null,
       algorithm: integrity?.checksumAlgorithm ?? null,
       checks,
       uncoveredCount: Object.keys(files).filter(
@@ -157,9 +166,14 @@ async function inspect(file: File) {
         : integrityState.value === 'failed'
           ? `${file.name}: integrity check failed for ${failedCount.value} file(s).`
           : `${file.name}: package read, no security.json present.`;
+
+    // Publish for the live-serving card (it re-verifies at install time).
+    playgroundState.parsed = { name: file.name, file };
+    playgroundState.lastError = null;
   } catch (e) {
     error.value = e instanceof Error ? e.message : 'Could not read this file.';
     announced.value = error.value;
+    playgroundState.lastError = error.value;
   } finally {
     busy.value = false;
     dragging.value = false;
@@ -185,7 +199,19 @@ function reset() {
   result.value = null;
   error.value = null;
   announced.value = '';
+  playgroundState.parsed = null;
+  playgroundState.lastError = null;
 }
+
+// The live-serving card hands us a File to inspect (sample package flow).
+watch(
+  () => playgroundState.inspectRequest,
+  (file) => {
+    if (!file) return;
+    playgroundState.inspectRequest = null;
+    void inspect(file);
+  },
+);
 </script>
 
 <template>

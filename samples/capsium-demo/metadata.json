@@ -1,0 +1,13 @@
+{
+  "name": "capsium-demo",
+  "version": "0.1.0",
+  "description": "Tiny demo capsule for the Capsium playground: a two-page dark-themed site and a JSON dataset, served live in the browser by the swsws service-worker reactor.",
+  "guid": "https://capsium.org/packages/capsium-demo",
+  "uuid": "bea38815-26fa-46e8-a540-4e55d3c25769",
+  "author": "Ribose",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/capsiums/capsium.github.io"
+  }
+}
