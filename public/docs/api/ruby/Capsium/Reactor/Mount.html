@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>class Capsium::Reactor::Mount - RDoc Documentation</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,class,Capsium::Reactor::Mount"
+  >
+
+    <meta
+      name="description"
+      content="class Capsium::Reactor::Mount: the URL prefix it answers under plus its serving state (routes, merged view; ARCHITECTURE. md section 7)."
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="class Capsium::Reactor::Mount - RDoc Documentation">
+
+
+
+    <meta property="og:description" content="the URL prefix it answers under plus its serving state (routes, merged view; ARCHITECTURE. md section 7).">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="class Capsium::Reactor::Mount - RDoc Documentation">
+
+
+
+    <meta name="twitter:description" content="the URL prefix it answers under plus its serving state (routes, merged view; ARCHITECTURE. md section 7).">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script
+  src="../../js/theme-toggle.js?v=8.0.0"
+></script>
+
+<script
+  src="../../js/search_navigation.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/search_data.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/search_ranker.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/search_controller.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/c_highlighter.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/bash_highlighter.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/aliki.js?v=8.0.0"
+  defer
+></script>
+
+<link
+  href="../../css/rdoc.css?v=8.0.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="class has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="../../index.html" class="navbar-brand">
+    RDoc Documentation
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="false" aria-controls="sidebar-navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="sidebar-navigation" role="navigation" hidden>
+  
+
+
+
+
+
+  
+
+  
+<div id="parent-class-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-ancestors"></use></svg>
+      </span>
+      <span class="nav-section-title">Ancestors</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+    <ul><li>Object</li></ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-class-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Class Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-c-build">build</a></li>
+
+        <li ><a href="#method-c-config_entries">config_entries</a></li>
+
+        <li ><a href="#method-c-load_package">load_package</a></li>
+
+        <li ><a href="#method-c-new">new</a></li>
+
+        <li ><a href="#method-c-normalize_path">normalize_path</a></li>
+
+        <li ><a href="#method-c-parse_spec">parse_spec</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-attach_workdir">attach_workdir</a></li>
+
+        <li ><a href="#method-i-content_api">content_api</a></li>
+
+        <li ><a href="#method-i-data_api">data_api</a></li>
+
+        <li ><a href="#method-i-dataset_data">dataset_data</a></li>
+
+        <li ><a href="#method-i-graphql-3F">graphql?</a></li>
+
+        <li ><a href="#method-i-graphql_api">graphql_api</a></li>
+
+        <li ><a href="#method-i-inner_path">inner_path</a></li>
+
+        <li ><a href="#method-i-matches-3F">matches?</a></li>
+
+        <li ><a href="#method-i-merged_view">merged_view</a></li>
+
+        <li ><a href="#method-i-reload">reload</a></li>
+
+        <li ><a href="#method-i-routes">routes</a></li>
+
+        <li ><a href="#method-i-server_paths">server_paths</a></li>
+
+        <li ><a href="#method-i-summary">summary</a></li>
+
+        <li ><a href="#method-i-writable-3F">writable?</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><details><summary><code><a href="../../Capsium.html">Capsium</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../../Capsium/Cli.html">Cli</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Cli/Convert.html">Convert</a></code></li><li><code><a href="../../Capsium/Cli/Formatting.html">Formatting</a></code></li><li><code><a href="../../Capsium/Cli/Package.html">Package</a></code></li><li><code><a href="../../Capsium/Cli/Reactor.html">Reactor</a></code></li></ul></details></li><li><details><summary><code><a href="../../Capsium/Converters.html">Converters</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Converters/Jekyll.html">Jekyll</a></code></li></ul></details></li><li><code><a href="../../Capsium/Error.html">Error</a></code></li><li><code><a href="../../Capsium/LogBuffer.html">LogBuffer</a></code></li><li><details><summary><code><a href="../../Capsium/Package.html">Package</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Package/Authentication.html">Authentication</a></code></li><li><code><a href="../../Capsium/Package/AuthenticationConfig.html">AuthenticationConfig</a></code></li><li><code><a href="../../Capsium/Package/AuthenticationData.html">AuthenticationData</a></code></li><li><code><a href="../../Capsium/Package/BasicAuthConfig.html">BasicAuthConfig</a></code></li><li><code><a href="../../Capsium/Package/Bundle.html">Bundle</a></code></li><li><details><summary><code><a href="../../Capsium/Package/Cipher.html">Cipher</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Package/Cipher/CipherError.html">CipherError</a></code></li><li><code><a href="../../Capsium/Package/Cipher/DecryptionError.html">DecryptionError</a></code></li><li><code><a href="../../Capsium/Package/Cipher/KeyRequiredError.html">KeyRequiredError</a></code></li></ul></details></li><li><code><a href="../../Capsium/Package/CircularDependencyError.html">CircularDependencyError</a></code></li><li><code><a href="../../Capsium/Package/Composition.html">Composition</a></code></li><li><code><a href="../../Capsium/Package/Dataset.html">Dataset</a></code></li><li><code><a href="../../Capsium/Package/DatasetConfig.html">DatasetConfig</a></code></li><li><code><a href="../../Capsium/Package/DependencyError.html">DependencyError</a></code></li><li><code><a href="../../Capsium/Package/DependencyNotFoundError.html">DependencyNotFoundError</a></code></li><li><code><a href="../../Capsium/Package/DependencyResolver.html">DependencyResolver</a></code></li><li><code><a href="../../Capsium/Package/DependencyVisibilityError.html">DependencyVisibilityError</a></code></li><li><code><a href="../../Capsium/Package/DigitalSignatures.html">DigitalSignatures</a></code></li><li><code><a href="../../Capsium/Package/EncryptionConfig.html">EncryptionConfig</a></code></li><li><code><a href="../../Capsium/Package/EncryptionEnvelope.html">EncryptionEnvelope</a></code></li><li><code><a href="../../Capsium/Package/IntegrityChecks.html">IntegrityChecks</a></code></li><li><code><a href="../../Capsium/Package/LayerConfig.html">LayerConfig</a></code></li><li><code><a href="../../Capsium/Package/Manifest.html">Manifest</a></code></li><li><code><a href="../../Capsium/Package/ManifestConfig.html">ManifestConfig</a></code></li><li><code><a href="../../Capsium/Package/MergedView.html">MergedView</a></code></li><li><code><a href="../../Capsium/Package/Metadata.html">Metadata</a></code></li><li><code><a href="../../Capsium/Package/MetadataData.html">MetadataData</a></code></li><li><code><a href="../../Capsium/Package/OAuth2Config.html">OAuth2Config</a></code></li><li><details><summary><code><a href="../../Capsium/Package/OpenPgp.html">OpenPgp</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Package/OpenPgp/KeyError.html">KeyError</a></code></li><li><code><a href="../../Capsium/Package/OpenPgp/OpenPgpUnavailableError.html">OpenPgpUnavailableError</a></code></li></ul></details></li><li><code><a href="../../Capsium/Package/OpenPgpCipher.html">OpenPgpCipher</a></code></li><li><code><a href="../../Capsium/Package/OpenPgpSigner.html">OpenPgpSigner</a></code></li><li><code><a href="../../Capsium/Package/Preparation.html">Preparation</a></code></li><li><code><a href="../../Capsium/Package/Repository.html">Repository</a></code></li><li><code><a href="../../Capsium/Package/Resource.html">Resource</a></code></li><li><code><a href="../../Capsium/Package/ResponseRewrite.html">ResponseRewrite</a></code></li><li><code><a href="../../Capsium/Package/Route.html">Route</a></code></li><li><code><a href="../../Capsium/Package/Routes.html">Routes</a></code></li><li><code><a href="../../Capsium/Package/RoutesConfig.html">RoutesConfig</a></code></li><li><details><summary><code><a href="../../Capsium/Package/Security.html">Security</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Package/Security/IntegrityError.html">IntegrityError</a></code></li></ul></details></li><li><code><a href="../../Capsium/Package/SecurityConfig.html">SecurityConfig</a></code></li><li><code><a href="../../Capsium/Package/SecurityData.html">SecurityData</a></code></li><li><details><summary><code><a href="../../Capsium/Package/Signer.html">Signer</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Package/Signer/SignatureError.html">SignatureError</a></code></li><li><code><a href="../../Capsium/Package/Signer/SignatureMismatchError.html">SignatureMismatchError</a></code></li><li><code><a href="../../Capsium/Package/Signer/UnsignedPackageError.html">UnsignedPackageError</a></code></li></ul></details></li><li><code><a href="../../Capsium/Package/Storage.html">Storage</a></code></li><li><code><a href="../../Capsium/Package/StorageConfig.html">StorageConfig</a></code></li><li><code><a href="../../Capsium/Package/StorageData.html">StorageData</a></code></li><li><code><a href="../../Capsium/Package/Store.html">Store</a></code></li><li><details><summary><code><a href="../../Capsium/Package/Testing.html">Testing</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Package/Testing/ConfigTest.html">ConfigTest</a></code></li><li><code><a href="../../Capsium/Package/Testing/DataValidationTest.html">DataValidationTest</a></code></li><li><code><a href="../../Capsium/Package/Testing/FileTest.html">FileTest</a></code></li><li><code><a href="../../Capsium/Package/Testing/Report.html">Report</a></code></li><li><code><a href="../../Capsium/Package/Testing/RouteTest.html">RouteTest</a></code></li><li><details><summary><code><a href="../../Capsium/Package/Testing/TestCase.html">TestCase</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Package/Testing/TestCase/DefinitionError.html">DefinitionError</a></code></li></ul></details></li><li><code><a href="../../Capsium/Package/Testing/TestSuite.html">TestSuite</a></code></li></ul></details></li><li><code><a href="../../Capsium/Package/UnsatisfiableDependencyError.html">UnsatisfiableDependencyError</a></code></li><li><code><a href="../../Capsium/Package/Validator.html">Validator</a></code></li><li><code><a href="../../Capsium/Package/Verification.html">Verification</a></code></li><li><code><a href="../../Capsium/Package/Version.html">Version</a></code></li><li><code><a href="../../Capsium/Package/VersionRange.html">VersionRange</a></code></li></ul></details></li><li><details><summary><code><a href="../../Capsium/Packager.html">Packager</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Packager/FileAlreadyExistsError.html">FileAlreadyExistsError</a></code></li><li><code><a href="../../Capsium/Packager/UnsafeEntryError.html">UnsafeEntryError</a></code></li></ul></details></li><li><details><summary><code><a href="../../Capsium/Reactor.html">Reactor</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Reactor/Authenticator.html">Authenticator</a></code></li><li><code><a href="../../Capsium/Reactor/ContentApi.html">ContentApi</a></code></li><li><code><a href="../../Capsium/Reactor/DataApi.html">DataApi</a></code></li><li><code><a href="../../Capsium/Reactor/Deploy.html">Deploy</a></code></li><li><code><a href="../../Capsium/Reactor/Endpoints.html">Endpoints</a></code></li><li><code><a href="../../Capsium/Reactor/GraphqlApi.html">GraphqlApi</a></code></li><li><details><summary><code><a href="../../Capsium/Reactor/GraphqlSchema.html">GraphqlSchema</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Reactor/GraphqlSchema/JsonScalar.html">JsonScalar</a></code></li></ul></details></li><li><details><summary><code><a href="../../Capsium/Reactor/Htpasswd.html">Htpasswd</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Reactor/Htpasswd/Md5Crypt.html">Md5Crypt</a></code></li></ul></details></li><li><code><a href="../../Capsium/Reactor/Introspection.html">Introspection</a></code></li><li><code><a href="../../Capsium/Reactor/Metrics.html">Metrics</a></code></li><li><code><a href="../../Capsium/Reactor/Mount.html">Mount</a></code></li><li><code><a href="../../Capsium/Reactor/MountConflictError.html">MountConflictError</a></code></li><li><details><summary><code><a href="../../Capsium/Reactor/OAuth2.html">OAuth2</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Reactor/OAuth2/FlowError.html">FlowError</a></code></li></ul></details></li><li><details><summary><code><a href="../../Capsium/Reactor/Overlay.html">Overlay</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Reactor/Overlay/ConflictError.html">ConflictError</a></code></li><li><code><a href="../../Capsium/Reactor/Overlay/Error.html">Error</a></code></li><li><code><a href="../../Capsium/Reactor/Overlay/ItemNotFoundError.html">ItemNotFoundError</a></code></li><li><code><a href="../../Capsium/Reactor/Overlay/SchemaViolationError.html">SchemaViolationError</a></code></li><li><code><a href="../../Capsium/Reactor/Overlay/UnsupportedDatasetError.html">UnsupportedDatasetError</a></code></li></ul></details></li><li><code><a href="../../Capsium/Reactor/PackageSaver.html">PackageSaver</a></code></li><li><code><a href="../../Capsium/Reactor/Responses.html">Responses</a></code></li><li><code><a href="../../Capsium/Reactor/Serving.html">Serving</a></code></li><li><code><a href="../../Capsium/Reactor/Session.html">Session</a></code></li></ul></details></li><li><details><summary><code><a href="../../Capsium/Registry.html">Registry</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/Registry/ChecksumMismatchError.html">ChecksumMismatchError</a></code></li><li><code><a href="../../Capsium/Registry/FetchError.html">FetchError</a></code></li><li><code><a href="../../Capsium/Registry/InvalidPackageError.html">InvalidPackageError</a></code></li><li><code><a href="../../Capsium/Registry/InvalidRegistryError.html">InvalidRegistryError</a></code></li><li><code><a href="../../Capsium/Registry/Local.html">Local</a></code></li><li><code><a href="../../Capsium/Registry/PackageNotFoundError.html">PackageNotFoundError</a></code></li><li><code><a href="../../Capsium/Registry/RegistryError.html">RegistryError</a></code></li><li><code><a href="../../Capsium/Registry/RegistryNotConfiguredError.html">RegistryNotConfiguredError</a></code></li><li><code><a href="../../Capsium/Registry/Remote.html">Remote</a></code></li><li><code><a href="../../Capsium/Registry/UnsatisfiableConstraintError.html">UnsatisfiableConstraintError</a></code></li></ul></details></li><li><details><summary><code><a href="../../Capsium/ThorExt.html">ThorExt</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Capsium/ThorExt/Start.html">Start</a></code></li></ul></details></li></ul></details></li><li><details><summary><code><a href="../../WEBrick.html">WEBrick</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../../WEBrick/HTTPServlet.html">HTTPServlet</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../WEBrick/HTTPServlet/ProcHandler.html">ProcHandler</a></code></li></ul></details></li></ul></details></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="class-capsium-reactor-mount">
+  
+  
+    <ol role="navigation" aria-label="Breadcrumb navigation" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../../Capsium.html">Capsium</a><span class="separator">::</span>
+        
+      </li>
+      
+      <li>
+        
+        <a href="../../Capsium/Reactor.html">Reactor</a><span class="separator">::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>Mount</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <span id="class-Capsium::Reactor::Mount" class="legacy-anchor"></span>
+  <h1 id="class-capsium-reactor-mount" class="anchor-link class page-title">
+    <span class="page-title-kind">class</span>
+    <span class="page-title-name">Capsium::Reactor::Mount</span>
+  </h1>
+
+  <section class="description">
+    
+<p>One mounted package: the URL prefix it answers under plus its serving state (routes, merged view; ARCHITECTURE.md section 7). The reactor serves a list of mounts resolved by longest-prefix matching. Default mount points: the first source at “/”, each additional source at “/&lt;metadata.name&gt;/”.</p>
+
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+    <section class="constants-list">
+      <header>
+        <h3 id="untitled-constants"><a href="#untitled-constants">Constants</a></h3>
+      </header>
+      <dl>
+
+        <dt id="Entry">Entry</dt>
+
+        <dd>
+
+          <p>A mount entry as accepted from the CLI or a JSON config file: “path” may be nil (the default is assigned on build), “source” is a package directory or .cap file, “store” optionally overrides the global package store for this mount.</p>
+        </dd>
+
+
+        <dt id="ROOT_PATH">ROOT_PATH</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+        <dt id="SPEC_SEPARATOR">SPEC_SEPARATOR</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+      </dl>
+    </section>
+
+
+
+    <section class="attribute-method-details method-section">
+      <header>
+        <h3 id="untitled-attributes"><a href="#untitled-attributes">Attributes</a></h3>
+      </header>
+
+
+      <div id="attribute-i-overlay" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-overlay" title="Link to this attribute">
+            <span class="method-name">overlay</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+
+          <span class="method-type-signature"><code><a href="Overlay.html" class="rbs-type">Overlay</a>?</code></span>
+
+        </div>
+
+        <div class="method-description">
+
+
+        
+
+        </div>
+      </div>
+
+      <div id="attribute-i-package" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-package" title="Link to this attribute">
+            <span class="method-name">package</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+
+          <span class="method-type-signature"><code>Package</code></span>
+
+        </div>
+
+        <div class="method-description">
+
+
+        
+
+        </div>
+      </div>
+
+      <div id="attribute-i-path" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-path" title="Link to this attribute">
+            <span class="method-name">path</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+
+          <span class="method-type-signature"><code>String</code></span>
+
+        </div>
+
+        <div class="method-description">
+
+
+        
+
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+     <section id="public-class-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-class-untitled-methods"><a href="#public-class-untitled-methods">Public Class Methods</a></h3>
+       </header>
+
+
+      <div id="method-c-build" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-c-build" title="Link to this method">
+                  <span class="method-name">build</span>
+                  <span class="method-args">(entries, store: nil, registry: nil)</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>(Array[Entry] entries, ?store: (Package::Store | String)? store, ?registry: (<a href="../Registry.html" class="rbs-type">Capsium::Registry</a> | String)? registry) &rarr; Array[<a href="Mount.html" class="rbs-type">Mount</a>]</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="build-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">entries</span>, <span class="ruby-value">store:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">registry:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">built</span> = []
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">package_store</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">store</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">store</span>
+    <span class="ruby-identifier">package</span> = <span class="ruby-identifier">load_package</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">source</span>, <span class="ruby-identifier">package_store</span>, <span class="ruby-identifier">registry</span>)
+    <span class="ruby-identifier">path</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">default_path</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">package</span>)
+    <span class="ruby-identifier">built</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new</span>(<span class="ruby-value">path</span><span class="ruby-value">:</span> <span class="ruby-identifier">path</span>, <span class="ruby-value">package</span><span class="ruby-value">:</span> <span class="ruby-identifier">package</span>,
+                 <span class="ruby-value">store</span><span class="ruby-value">:</span> <span class="ruby-identifier">package_store</span>, <span class="ruby-value">registry</span><span class="ruby-value">:</span> <span class="ruby-identifier">registry</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">check_conflicts!</span>(<span class="ruby-identifier">built</span>)
+  <span class="ruby-identifier">built</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span>
+  <span class="ruby-identifier">built</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">mount</span><span class="ruby-operator">|</span> <span class="ruby-identifier">mount</span>.<span class="ruby-identifier">package</span>.<span class="ruby-identifier">cleanup</span> }
+  <span class="ruby-identifier">raise</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Builds the mounts for a list of entries: loads each package, assigns default paths (first entry “/”, each additional “/&lt;metadata.name&gt;/”) and rejects duplicate prefixes with a <a href="MountConflictError.html"><code>MountConflictError</code></a>. On failure every package loaded so far is cleaned up again.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-c-config_entries" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-c-config_entries" title="Link to this method">
+                  <span class="method-name">config_entries</span>
+                  <span class="method-args">(config_file)</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>(String config_file) &rarr; Array[Entry]</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="config_entries-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">config_entries</span>(<span class="ruby-identifier">config_file</span>)
+  <span class="ruby-identifier">doc</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">config_file</span>))
+  <span class="ruby-identifier">mounts</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">doc</span>[<span class="ruby-string">&quot;</span><span class="ruby-string">mounts</span><span class="ruby-string">&quot;</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mounts</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">mounts</span>.<span class="ruby-identifier">all?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;</span><span class="ruby-string">Invalid mount config </span><span class="ruby-string">#{</span><span class="ruby-identifier">config_file</span><span class="ruby-string">}</span><span class="ruby-string">: expected </span><span class="ruby-string">&quot;</span> \
+                 <span class="ruby-string">&#39;</span><span class="ruby-string">{&quot;mounts&quot;: [{&quot;path&quot;: ..., &quot;source&quot;: ...}]}</span><span class="ruby-string">&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">mounts</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">entry</span>[<span class="ruby-string">&quot;</span><span class="ruby-string">source</span><span class="ruby-string">&quot;</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;</span><span class="ruby-string">Invalid mount config </span><span class="ruby-string">#{</span><span class="ruby-identifier">config_file</span><span class="ruby-string">}</span><span class="ruby-string">: every mount </span><span class="ruby-string">&quot;</span> \
+                   <span class="ruby-string">&quot;</span><span class="ruby-string">needs a \&quot;source\&quot;</span><span class="ruby-string">&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-constant">Entry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">path</span><span class="ruby-value">:</span> <span class="ruby-identifier">entry</span>[<span class="ruby-string">&quot;</span><span class="ruby-string">path</span><span class="ruby-string">&quot;</span>], <span class="ruby-value">source</span><span class="ruby-value">:</span> <span class="ruby-identifier">entry</span>[<span class="ruby-string">&quot;</span><span class="ruby-string">source</span><span class="ruby-string">&quot;</span>],
+              <span class="ruby-value">store</span><span class="ruby-value">:</span> <span class="ruby-identifier">entry</span>[<span class="ruby-string">&quot;</span><span class="ruby-string">store</span><span class="ruby-string">&quot;</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">ParserError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;</span><span class="ruby-string">Invalid mount config </span><span class="ruby-string">#{</span><span class="ruby-identifier">config_file</span><span class="ruby-string">}</span><span class="ruby-string">: </span><span class="ruby-string">#{</span><span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span><span class="ruby-string">}</span><span class="ruby-string">&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>The mount entries of a JSON config file: {“mounts”: [{“path”: “/”, “source”: “dir-or.cap”, “store”: “…”}]}</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-c-load_package" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-c-load_package" title="Link to this method">
+                  <span class="method-name">load_package</span>
+                  <span class="method-args">(source, store, registry)</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>(Package | String source, (Package::Store | String)? store, (<a href="../Registry.html" class="rbs-type">Capsium::Registry</a> | String)? registry) &rarr; Package</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="load_package-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_package</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">store</span>, <span class="ruby-identifier">registry</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">source</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+
+  <span class="ruby-constant">Package</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-value">store</span><span class="ruby-value">:</span> <span class="ruby-identifier">store</span>, <span class="ruby-value">registry</span><span class="ruby-value">:</span> <span class="ruby-identifier">registry</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Loads a mount source (a package directory, .cap file or an already-built <a href="../Package.html"><code>Package</code></a>) with the given resolution context.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-c-new" title="Link to this method">
+                  <span class="method-name">new</span>
+                  <span class="method-args">(path:, package:, store: nil, registry: nil, workdir: nil)</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>(path: String? path, package: Package | String package, ?store: (Package::Store | String)? store, ?registry: (<a href="../Registry.html" class="rbs-type">Capsium::Registry</a> | String)? registry, ?workdir: String? workdir) &rarr; void</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="new-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-value">path:</span>, <span class="ruby-value">package:</span>, <span class="ruby-value">store:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">registry:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">workdir:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@path</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">normalize_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-ivar">@store</span> = <span class="ruby-identifier">store</span>
+  <span class="ruby-ivar">@registry</span> = <span class="ruby-identifier">registry</span>
+  <span class="ruby-ivar">@package</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">load_package</span>(<span class="ruby-identifier">package</span>, <span class="ruby-identifier">store</span>, <span class="ruby-identifier">registry</span>)
+  <span class="ruby-identifier">attach_workdir</span>(<span class="ruby-identifier">workdir</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">workdir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-c-normalize_path" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-c-normalize_path" title="Link to this method">
+                  <span class="method-name">normalize_path</span>
+                  <span class="method-args">(path)</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>(String? path) &rarr; String</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="normalize_path-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">normalize_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">ROOT_PATH</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ROOT_PATH</span>
+
+  <span class="ruby-identifier">normalized</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-constant">ROOT_PATH</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">#{</span><span class="ruby-constant">ROOT_PATH</span><span class="ruby-string">}</span><span class="ruby-string">#{</span><span class="ruby-identifier">path</span><span class="ruby-string">}</span><span class="ruby-string">&quot;</span>
+  <span class="ruby-identifier">normalized</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-constant">ROOT_PATH</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Canonical mount prefix: leading “/”, no trailing “/” (except the root itself).</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-c-parse_spec" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-c-parse_spec" title="Link to this method">
+                  <span class="method-name">parse_spec</span>
+                  <span class="method-args">(spec)</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>(String spec) &rarr; Entry</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="parse_spec-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse_spec</span>(<span class="ruby-identifier">spec</span>)
+  <span class="ruby-identifier">path</span>, <span class="ruby-identifier">separator</span>, <span class="ruby-identifier">source</span> = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">partition</span>(<span class="ruby-constant">SPEC_SEPARATOR</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">separator</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;</span><span class="ruby-string">Invalid mount spec </span><span class="ruby-string">#{</span><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">inspect</span><span class="ruby-string">}</span><span class="ruby-string"> (expected PATH=SOURCE)</span><span class="ruby-string">&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Entry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">path</span><span class="ruby-value">:</span> <span class="ruby-identifier">path</span>, <span class="ruby-value">source</span><span class="ruby-value">:</span> <span class="ruby-identifier">source</span>, <span class="ruby-value">store</span><span class="ruby-value">:</span> <span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Parses a “–mount PATH=SOURCE” command-line value into an <a href="Mount.html#Entry"><code>Entry</code></a>.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-untitled-methods"><a href="#public-instance-untitled-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-attach_workdir" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-attach_workdir" title="Link to this method">
+                  <span class="method-name">attach_workdir</span>
+                  <span class="method-args">(workdir)</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>(String workdir) &rarr; void</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="attach_workdir-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attach_workdir</span>(<span class="ruby-identifier">workdir</span>)
+  <span class="ruby-ivar">@overlay</span> = <span class="ruby-constant">Overlay</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">root</span><span class="ruby-value">:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">workdir</span>, <span class="ruby-string">&quot;</span><span class="ruby-string">overlays</span><span class="ruby-string">&quot;</span>, <span class="ruby-ivar">@package</span>.<span class="ruby-identifier">name</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Attaches the reactor workdir: the writable overlay (topmost layer, ARCHITECTURE.md section 5a) lives under it. Reads always resolve through the overlay; writes require <a href="Mount.html#method-i-writable-3F"><code>writable?</code></a>.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-content_api" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-content_api" title="Link to this method">
+                  <span class="method-name">content_api</span>
+                  <span class="method-args">()</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>() &rarr; <a href="ContentApi.html" class="rbs-type">ContentApi</a></code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="content_api-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">content_api</span> = <span class="ruby-ivar">@content_api</span> ||= <span class="ruby-constant">ContentApi</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)</pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-data_api" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-data_api" title="Link to this method">
+                  <span class="method-name">data_api</span>
+                  <span class="method-args">()</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>() &rarr; <a href="DataApi.html" class="rbs-type">DataApi</a></code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="data_api-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">data_api</span> = <span class="ruby-ivar">@data_api</span> ||= <span class="ruby-constant">DataApi</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)</pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-dataset_data" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-dataset_data" title="Link to this method">
+                  <span class="method-name">dataset_data</span>
+                  <span class="method-args">(dataset)</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>(Package::Dataset dataset) &rarr; untyped</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="dataset_data-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dataset_data</span>(<span class="ruby-identifier">dataset</span>)
+  <span class="ruby-ivar">@overlay</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@overlay</span>.<span class="ruby-identifier">dataset_data</span>(<span class="ruby-identifier">dataset</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">dataset</span>.<span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>The dataset as served: base data merged with the overlay’s mutation log.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-graphql-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-graphql-3F" title="Link to this method">
+                  <span class="method-name">graphql?</span>
+                  <span class="method-args">()</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>() &rarr; bool</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="graphql-3F-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">graphql?</span>
+  <span class="ruby-ivar">@package</span>.<span class="ruby-identifier">storage</span>.<span class="ruby-identifier">datasets</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">dataset</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">dataset</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">sqlite?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Whether this mount exposes a GraphQL API (any file-backed dataset; SQLite datasets are skipped).</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-graphql_api" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-graphql_api" title="Link to this method">
+                  <span class="method-name">graphql_api</span>
+                  <span class="method-args">()</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>() &rarr; <a href="GraphqlApi.html" class="rbs-type">GraphqlApi</a></code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="graphql_api-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">graphql_api</span> = <span class="ruby-ivar">@graphql_api</span> ||= <span class="ruby-constant">GraphqlApi</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)</pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-inner_path" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-inner_path" title="Link to this method">
+                  <span class="method-name">inner_path</span>
+                  <span class="method-args">(request_path)</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>(String request_path) &rarr; String</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="inner_path-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inner_path</span>(<span class="ruby-identifier">request_path</span>)
+  <span class="ruby-identifier">inner</span> = <span class="ruby-identifier">request_path</span>.<span class="ruby-identifier">delete_prefix</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">ROOT_PATH</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">inner</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">inner</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">inner</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-constant">ROOT_PATH</span>)
+
+  <span class="ruby-string">&quot;</span><span class="ruby-string">#{</span><span class="ruby-constant">ROOT_PATH</span><span class="ruby-string">}</span><span class="ruby-string">#{</span><span class="ruby-identifier">inner</span><span class="ruby-string">}</span><span class="ruby-string">&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>The package-local path for a request path under this mount (“/” when the request hits the mount prefix itself).</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-matches-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-matches-3F" title="Link to this method">
+                  <span class="method-name">matches?</span>
+                  <span class="method-args">(request_path)</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>(String request_path) &rarr; bool</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="matches-3F-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">request_path</span>)
+  <span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ROOT_PATH</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">request_path</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">request_path</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;</span><span class="ruby-string">#{</span><span class="ruby-identifier">path</span><span class="ruby-string">}</span><span class="ruby-string">#{</span><span class="ruby-constant">ROOT_PATH</span><span class="ruby-string">}</span><span class="ruby-string">&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Whether this mount answers the given request path: the prefix itself or anything below it. The root mount answers everything.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-merged_view" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-merged_view" title="Link to this method">
+                  <span class="method-name">merged_view</span>
+                  <span class="method-args">()</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>() &rarr; Package::MergedView</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="merged_view-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merged_view</span>
+  <span class="ruby-ivar">@merged_view</span> ||= <span class="ruby-keyword">if</span> <span class="ruby-ivar">@overlay</span>
+                     <span class="ruby-ivar">@package</span>.<span class="ruby-identifier">merged_view</span>(<span class="ruby-value">extra_layers</span><span class="ruby-value">:</span> [<span class="ruby-ivar">@overlay</span>.<span class="ruby-identifier">layer</span>])
+                   <span class="ruby-keyword">else</span>
+                     <span class="ruby-ivar">@package</span>.<span class="ruby-identifier">merged_view</span>
+                   <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>The merged content view; the overlay is always the topmost layer when a workdir is attached (hot-swap: content writes and tombstones resolve on the next request).</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-reload" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-reload" title="Link to this method">
+                  <span class="method-name">reload</span>
+                  <span class="method-args">()</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>() &rarr; Package</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="reload-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reload</span>
+  <span class="ruby-ivar">@merged_view</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@graphql_api</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@package</span> = <span class="ruby-constant">Package</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@package</span>.<span class="ruby-identifier">path</span>, <span class="ruby-value">store</span><span class="ruby-value">:</span> <span class="ruby-ivar">@store</span>, <span class="ruby-value">registry</span><span class="ruby-value">:</span> <span class="ruby-ivar">@registry</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Reloads the package from its (prepared) path, e.g. after the filesystem listener noticed changes. The overlay survives (it lives in the reactor workdir, not in the package).</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-routes" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-routes" title="Link to this method">
+                  <span class="method-name">routes</span>
+                  <span class="method-args">()</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>() &rarr; Package::Routes</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="routes-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">routes</span> = <span class="ruby-ivar">@package</span>.<span class="ruby-identifier">routes</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-server_paths" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-server_paths" title="Link to this method">
+                  <span class="method-name">server_paths</span>
+                  <span class="method-args">()</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>() &rarr; Array[String]</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="server_paths-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">server_paths</span>
+  <span class="ruby-keyword">return</span> [<span class="ruby-identifier">path</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ROOT_PATH</span>
+
+  <span class="ruby-identifier">routes</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">routes</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:</span><span class="ruby-value">serving_path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>The <a href="../../WEBrick.html"><code>WEBrick</code></a> mount points serving this mount: every serving path for the root mount (unchanged single-package behavior), the prefix itself for a non-root mount (longest-prefix matching routes everything below it to the reactor).</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-summary" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-summary" title="Link to this method">
+                  <span class="method-name">summary</span>
+                  <span class="method-args">()</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>() &rarr; String</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="summary-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">summary</span> = <span class="ruby-string">&quot;</span><span class="ruby-string">#{</span><span class="ruby-ivar">@package</span>.<span class="ruby-identifier">name</span><span class="ruby-string">}</span><span class="ruby-string"> </span><span class="ruby-string">#{</span><span class="ruby-ivar">@package</span>.<span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">version</span><span class="ruby-string">}</span><span class="ruby-string">&quot;</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>The one-line “name version” summary used in reactor logs.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-writable-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-writable-3F" title="Link to this method">
+                  <span class="method-name">writable?</span>
+                  <span class="method-args">()</span>
+                </a>
+              </div>
+
+
+
+            <pre class="method-type-signature"><code>() &rarr; bool</code></pre>
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="writable-3F-source">
+            <pre class="ruby"><span class="ruby-comment"># File lib/capsium/reactor/mount.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">writable?</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@overlay</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@package</span>.<span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">read_only</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Writable unless the package declares “readOnly”: true; writes then produce 403s and no overlay state is recorded.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+  </section>
+
+</main>
+
+<aside id="table-of-contents" class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 8.0.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+
