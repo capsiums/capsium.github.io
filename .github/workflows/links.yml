@@ -26,9 +26,14 @@ jobs:
 
     # Offline check: internal links (including root-relative ones like /features)
     # are resolved against dist/ and verified; external URLs are skipped so the
-    # check never flakes on network or rate limits.
+    # check never flakes on network or rate limits. The two --exclude patterns are
+    # known-dead relative links inside generated API docs we cannot fix at the
+    # source: TypeDoc rewrote a `[schemas/](schemas)` directory link from the
+    # @capsium/core README into media/schemas without copying the directory, and
+    # RDoc misparsed an AsciiDoc URL macro in the capsium gem README into a
+    # relative mn-samples-iso-Linux link.
     - name: Link Checker
       uses: lycheeverse/lychee-action@v2
       with:
-        args: --offline --no-progress --root-dir "${{ github.workspace }}/dist" 'dist/**/*.html'
+        args: --offline --no-progress --root-dir "${{ github.workspace }}/dist" --exclude 'docs/api/(js/media/schemas|ruby/mn-samples-iso-Linux)' 'dist/**/*.html'
         fail: true

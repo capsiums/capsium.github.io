@@ -1,0 +1,312 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CommandBlock from '../components/CommandBlock.astro';
+
+const cards = [
+  {
+    title: 'Read the standard',
+    href: '/standard/',
+    description:
+      'CC 62001 — the normative Capsium package format, hosted here as HTML and PDF.',
+    icon: 'M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8',
+  },
+  {
+    title: 'Try the playground',
+    href: '/playground/',
+    description:
+      'Pack, inspect, and serve a capsule entirely in your browser — nothing to install.',
+    icon: 'M6 3h12l4 6-10 12L2 9Z M11 3 8 9l4 12 4-12-3-6 M2 9h20',
+  },
+  {
+    title: 'Ruby API — capsium gem',
+    href: '/docs/api/ruby/',
+    description:
+      'RDoc for the reference implementation: Capsium::Package, Packager, Reactor, and Registry.',
+    badge: 'capsium 0.3.0 · RDoc',
+    icon: 'M12 2 2 7l10 5 10-5Z M2 17l10 5 10-5 M2 12l10 5 10-5',
+  },
+  {
+    title: 'TypeScript API — @capsium/*',
+    href: '/docs/api/js/',
+    description:
+      'TypeDoc for @capsium/core, @capsium/packager, @capsium/reactor-node, and @capsium/swsws.',
+    badge: '0.2.0 · TypeDoc',
+    icon: 'M16 18l6-6-6-6 M8 6l-6 6 6 6',
+  },
+];
+
+const metadataExample = `{
+  "name": "my-site",
+  "version": "1.0.0",
+  "description": "My first Capsium capsule",
+  "guid": "https://example.com/my-site",
+  "uuid": "3f6b0d2a-9c4e-4b1a-8e7d-2c5f9a1b0e3d",
+  "license": "MIT"
+}`;
+
+const indexExample = `<!doctype html>
+<h1>Hello from my first capsule</h1>`;
+
+const reactorExample = `import { createServer } from 'node:http';
+import { createReactor } from '@capsium/reactor-node';
+
+const handler = await createReactor({ package: './my-site-1.0.0.cap' });
+createServer((req, res) => void handler(req, res)).listen(8864);`;
+
+const inlineCode =
+  'rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary dark:bg-glow/10 dark:text-glow';
+---
+
+<Base
+  title="Docs"
+  description="Capsium documentation hub: the CC 62001 standard, the browser playground, Ruby and TypeScript API references, and a first-capsule tutorial — pack, validate, and serve a capsule in minutes."
+>
+  <PageHero
+    eyebrow="Documentation"
+    title="Everything about capsules, in one place"
+    lead="The Capsium ecosystem is documented end to end: the standard that defines the format, generated API references for the Ruby and TypeScript implementations, and a five-minute walk from an empty folder to a served capsule."
+  />
+
+  <!-- Doc cards -->
+  <section class="py-16 lg:py-20">
+    <div class="container-site">
+      <p class="eyebrow" data-reveal>Start here</p>
+      <h2 class="section-title mt-4" data-reveal style="--reveal-delay: 60ms">Pick your path</h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          cards.map((card, i) => (
+            <a
+              href={card.href}
+              class="card group flex flex-col"
+              data-reveal
+              style={`--reveal-delay: ${i * 60}ms`}
+            >
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-glow/10 dark:text-glow">
+                <svg
+                  class="h-6 w-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d={card.icon} />
+                </svg>
+              </div>
+              <h3 class="mt-4 font-display text-lg font-semibold tracking-tight text-ink group-hover:text-primary dark:text-white dark:group-hover:text-glow">
+                {card.title}
+              </h3>
+              <p class="mt-2 flex-1 text-sm leading-relaxed text-ink/70 dark:text-cream/65">
+                {card.description}
+              </p>
+              {card.badge && <span class="chip mt-4 self-start">{card.badge}</span>}
+              <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary dark:text-glow">
+                Open
+                <svg
+                  class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14 M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- First capsule tutorial -->
+  <section class="border-y border-ink/10 bg-white/60 py-16 lg:py-20 dark:border-white/5 dark:bg-white/[0.02]">
+    <div class="container-site">
+      <p class="eyebrow" data-reveal>Tutorial</p>
+      <h2 class="section-title mt-4" data-reveal style="--reveal-delay: 60ms">Your first capsule</h2>
+      <p class="section-lead" data-reveal style="--reveal-delay: 120ms">
+        From an empty folder to a verified, served capsule with the{' '}
+        <code class={inlineCode}>capsium</code> CLI (Ruby gem, version 0.3.0).
+      </p>
+
+      <ol class="mt-12 max-w-3xl space-y-12">
+        <!-- Step 1 -->
+        <li class="flex gap-5" data-reveal>
+          <span
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-display text-sm font-bold text-primary dark:border-glow/30 dark:bg-glow/10 dark:text-glow"
+            aria-hidden="true"
+          >1</span>
+          <div class="min-w-0 flex-1">
+            <h3 class="font-display text-xl font-semibold tracking-tight text-ink dark:text-white">
+              Install the CLI
+            </h3>
+            <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/70">
+              Capsium's reference implementation ships as a Ruby gem:
+            </p>
+            <div class="mt-4">
+              <CommandBlock command="gem install capsium" />
+            </div>
+          </div>
+        </li>
+
+        <!-- Step 2 -->
+        <li class="flex gap-5" data-reveal>
+          <span
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-display text-sm font-bold text-primary dark:border-glow/30 dark:bg-glow/10 dark:text-glow"
+            aria-hidden="true"
+          >2</span>
+          <div class="min-w-0 flex-1">
+            <h3 class="font-display text-xl font-semibold tracking-tight text-ink dark:text-white">
+              Lay out a tiny site
+            </h3>
+            <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/70">
+              A capsule starts as a plain directory. Make one with two files:
+            </p>
+            <div class="mt-4">
+              <CommandBlock command="mkdir my-site" />
+            </div>
+            <div class="mt-4 grid gap-4 lg:grid-cols-2">
+              <div class="code-block">
+                <p class="mb-3 font-display text-xs font-semibold uppercase tracking-wider text-glow">
+                  my-site/index.html
+                </p>
+                <pre class="text-[13px]">{indexExample}</pre>
+              </div>
+              <div class="code-block">
+                <p class="mb-3 font-display text-xs font-semibold uppercase tracking-wider text-glow">
+                  my-site/metadata.json
+                </p>
+                <pre class="text-[13px]">{metadataExample}</pre>
+              </div>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60 dark:text-cream/55">
+              <code class={inlineCode}>metadata.json</code> is the one file you author:
+              name, version, description, guid, and uuid are required by the{' '}
+              <a
+                class="underline decoration-primary/50 underline-offset-2 hover:text-primary"
+                href="/schemas/metadata.schema.json">canonical schema</a>;
+              license is recommended. The packager generates the manifest, routes,
+              and checksums for you.
+            </p>
+          </div>
+        </li>
+
+        <!-- Step 3 -->
+        <li class="flex gap-5" data-reveal>
+          <span
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-display text-sm font-bold text-primary dark:border-glow/30 dark:bg-glow/10 dark:text-glow"
+            aria-hidden="true"
+          >3</span>
+          <div class="min-w-0 flex-1">
+            <h3 class="font-display text-xl font-semibold tracking-tight text-ink dark:text-white">
+              Pack the capsule
+            </h3>
+            <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/70">
+              From the directory containing <code class={inlineCode}>my-site/</code>:
+            </p>
+            <div class="mt-4">
+              <CommandBlock command="capsium package pack -f my-site/" />
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60 dark:text-cream/55">
+              This writes <code class={inlineCode}>my-site-1.0.0.cap</code> next to the
+              folder — a ZIP archive with every file fingerprinted in{' '}
+              <code class={inlineCode}>security.json</code>. The{' '}
+              <code class={inlineCode}>-f</code> flag lets you re-pack over an existing
+              capsule.
+            </p>
+          </div>
+        </li>
+
+        <!-- Step 4 -->
+        <li class="flex gap-5" data-reveal>
+          <span
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-display text-sm font-bold text-primary dark:border-glow/30 dark:bg-glow/10 dark:text-glow"
+            aria-hidden="true"
+          >4</span>
+          <div class="min-w-0 flex-1">
+            <h3 class="font-display text-xl font-semibold tracking-tight text-ink dark:text-white">
+              Validate it
+            </h3>
+            <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/70">
+              Check structure, configs, and integrity before serving:
+            </p>
+            <div class="mt-4">
+              <CommandBlock command="capsium package validate my-site-1.0.0.cap" />
+            </div>
+          </div>
+        </li>
+
+        <!-- Step 5 -->
+        <li class="flex gap-5" data-reveal>
+          <span
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-display text-sm font-bold text-primary dark:border-glow/30 dark:bg-glow/10 dark:text-glow"
+            aria-hidden="true"
+          >5</span>
+          <div class="min-w-0 flex-1">
+            <h3 class="font-display text-xl font-semibold tracking-tight text-ink dark:text-white">
+              Serve it
+            </h3>
+            <p class="mt-2 leading-relaxed text-ink/75 dark:text-cream/70">
+              Start the built-in reactor (it verifies the capsule first, then listens
+              on port 8864):
+            </p>
+            <div class="mt-4">
+              <CommandBlock command="capsium reactor serve my-site-1.0.0.cap" />
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60 dark:text-cream/55">
+              Browse to <code class={inlineCode}>http://localhost:8864</code> for your
+              page, and to{' '}
+              <code class={inlineCode}>http://localhost:8864/api/v1/introspect/metadata</code>{' '}
+              to see the reactor report the capsule's own metadata as JSON.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Write a reactor -->
+  <section class="py-16 lg:py-20">
+    <div class="container-site grid items-start gap-10 lg:grid-cols-2">
+      <div>
+        <p class="eyebrow" data-reveal>Build on it</p>
+        <h2 class="section-title mt-4" data-reveal style="--reveal-delay: 60ms">
+          Write a reactor in 5 minutes
+        </h2>
+        <p class="section-lead" data-reveal style="--reveal-delay: 120ms">
+          A reactor is anything that verifies a capsule and serves it. With{' '}
+          <code class={inlineCode}>@capsium/reactor-node</code> it is five lines of
+          Node.js — checksum and signature verification on load, content and dataset
+          routes, and the introspection API included.
+        </p>
+        <div class="mt-6" data-reveal style="--reveal-delay: 180ms">
+          <CommandBlock command="npm i @capsium/reactor-node" />
+        </div>
+        <p class="mt-3 text-sm leading-relaxed text-ink/60 dark:text-cream/55" data-reveal>
+          The <code class={inlineCode}>@capsium/*</code> packages are pending publication
+          on npm; until they land, install them from source at{' '}
+          <a
+            class="underline decoration-primary/50 underline-offset-2 hover:text-primary"
+            href="https://github.com/capsiums/capsium-js"
+            target="_blank"
+            rel="noopener noreferrer">capsiums/capsium-js</a>. The full API is in the{' '}
+          <a
+            class="underline decoration-primary/50 underline-offset-2 hover:text-primary"
+            href="/docs/api/js/">TypeScript reference</a>.
+        </p>
+      </div>
+      <div class="code-block" data-reveal>
+        <p class="mb-3 font-display text-xs font-semibold uppercase tracking-wider text-glow">
+          reactor.mjs
+        </p>
+        <pre class="text-[13px]">{reactorExample}</pre>
+      </div>
+    </div>
+  </section>
+</Base>

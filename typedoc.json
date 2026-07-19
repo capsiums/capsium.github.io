@@ -1,0 +1,20 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "name": "Capsium TypeScript API",
+  "entryPoints": [
+    "../capsium-js/packages/core",
+    "../capsium-js/packages/packager",
+    "../capsium-js/packages/reactor-node",
+    "../capsium-js/packages/swsws"
+  ],
+  "entryPointStrategy": "packages",
+  "out": "public/docs/api/js",
+  "readme": "none",
+  "excludeNotDocumented": false,
+  "sourceLinkExternal": true,
+  "disableSources": true,
+  "navigationLinks": {
+    "Capsium": "/docs/",
+    "GitHub": "https://github.com/capsiums/capsium-js"
+  }
+}
