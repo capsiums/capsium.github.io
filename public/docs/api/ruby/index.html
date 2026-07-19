@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>RDoc Documentation</title>
+
+
+  <meta name="keywords" content="ruby,documentation,RDoc Documentation">
+
+    <meta
+      name="description"
+      content="RDoc Documentation: Common architecture for portable secure information interchange and unified management. Capsium is designed to facilitate the creation, management and"
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="RDoc Documentation">
+
+
+  <meta
+    property="og:description"
+    content="API documentation for RDoc Documentation - Browse classes, modules, and methods"
+  >
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RDoc Documentation">
+
+
+  <meta
+    name="twitter:description"
+    content="API documentation for RDoc Documentation - Browse classes, modules, and methods"
+  >
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script
+  src="./js/theme-toggle.js?v=8.0.0"
+></script>
+
+<script
+  src="./js/search_navigation.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/search_data.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/search_ranker.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/search_controller.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/c_highlighter.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/bash_highlighter.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/aliki.js?v=8.0.0"
+  defer
+></script>
+
+<link
+  href="./css/rdoc.css?v=8.0.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="file has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="./index.html" class="navbar-brand">
+    RDoc Documentation
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="false" aria-controls="sidebar-navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="sidebar-navigation" role="navigation" hidden>
+  
+
+
+
+
+
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><details open><summary><code><a href="./Capsium.html">Capsium</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="./Capsium/Cli.html">Cli</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Cli/Convert.html">Convert</a></code></li><li><code><a href="./Capsium/Cli/Formatting.html">Formatting</a></code></li><li><code><a href="./Capsium/Cli/Package.html">Package</a></code></li><li><code><a href="./Capsium/Cli/Reactor.html">Reactor</a></code></li></ul></details></li><li><details><summary><code><a href="./Capsium/Converters.html">Converters</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Converters/Jekyll.html">Jekyll</a></code></li></ul></details></li><li><code><a href="./Capsium/Error.html">Error</a></code></li><li><code><a href="./Capsium/LogBuffer.html">LogBuffer</a></code></li><li><details><summary><code><a href="./Capsium/Package.html">Package</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Package/Authentication.html">Authentication</a></code></li><li><code><a href="./Capsium/Package/AuthenticationConfig.html">AuthenticationConfig</a></code></li><li><code><a href="./Capsium/Package/AuthenticationData.html">AuthenticationData</a></code></li><li><code><a href="./Capsium/Package/BasicAuthConfig.html">BasicAuthConfig</a></code></li><li><details><summary><code><a href="./Capsium/Package/Cipher.html">Cipher</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Package/Cipher/CipherError.html">CipherError</a></code></li><li><code><a href="./Capsium/Package/Cipher/DecryptionError.html">DecryptionError</a></code></li><li><code><a href="./Capsium/Package/Cipher/KeyRequiredError.html">KeyRequiredError</a></code></li></ul></details></li><li><code><a href="./Capsium/Package/CircularDependencyError.html">CircularDependencyError</a></code></li><li><code><a href="./Capsium/Package/Composition.html">Composition</a></code></li><li><code><a href="./Capsium/Package/Dataset.html">Dataset</a></code></li><li><code><a href="./Capsium/Package/DatasetConfig.html">DatasetConfig</a></code></li><li><code><a href="./Capsium/Package/DependencyError.html">DependencyError</a></code></li><li><code><a href="./Capsium/Package/DependencyNotFoundError.html">DependencyNotFoundError</a></code></li><li><code><a href="./Capsium/Package/DependencyResolver.html">DependencyResolver</a></code></li><li><code><a href="./Capsium/Package/DependencyVisibilityError.html">DependencyVisibilityError</a></code></li><li><code><a href="./Capsium/Package/DigitalSignatures.html">DigitalSignatures</a></code></li><li><code><a href="./Capsium/Package/EncryptionConfig.html">EncryptionConfig</a></code></li><li><code><a href="./Capsium/Package/EncryptionEnvelope.html">EncryptionEnvelope</a></code></li><li><code><a href="./Capsium/Package/IntegrityChecks.html">IntegrityChecks</a></code></li><li><code><a href="./Capsium/Package/LayerConfig.html">LayerConfig</a></code></li><li><code><a href="./Capsium/Package/Manifest.html">Manifest</a></code></li><li><code><a href="./Capsium/Package/ManifestConfig.html">ManifestConfig</a></code></li><li><code><a href="./Capsium/Package/MergedView.html">MergedView</a></code></li><li><code><a href="./Capsium/Package/Metadata.html">Metadata</a></code></li><li><code><a href="./Capsium/Package/MetadataData.html">MetadataData</a></code></li><li><code><a href="./Capsium/Package/OAuth2Config.html">OAuth2Config</a></code></li><li><code><a href="./Capsium/Package/Preparation.html">Preparation</a></code></li><li><code><a href="./Capsium/Package/Repository.html">Repository</a></code></li><li><code><a href="./Capsium/Package/Resource.html">Resource</a></code></li><li><code><a href="./Capsium/Package/ResponseRewrite.html">ResponseRewrite</a></code></li><li><code><a href="./Capsium/Package/Route.html">Route</a></code></li><li><code><a href="./Capsium/Package/Routes.html">Routes</a></code></li><li><code><a href="./Capsium/Package/RoutesConfig.html">RoutesConfig</a></code></li><li><details><summary><code><a href="./Capsium/Package/Security.html">Security</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Package/Security/IntegrityError.html">IntegrityError</a></code></li></ul></details></li><li><code><a href="./Capsium/Package/SecurityConfig.html">SecurityConfig</a></code></li><li><code><a href="./Capsium/Package/SecurityData.html">SecurityData</a></code></li><li><details><summary><code><a href="./Capsium/Package/Signer.html">Signer</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Package/Signer/SignatureError.html">SignatureError</a></code></li><li><code><a href="./Capsium/Package/Signer/SignatureMismatchError.html">SignatureMismatchError</a></code></li><li><code><a href="./Capsium/Package/Signer/UnsignedPackageError.html">UnsignedPackageError</a></code></li></ul></details></li><li><code><a href="./Capsium/Package/Storage.html">Storage</a></code></li><li><code><a href="./Capsium/Package/StorageConfig.html">StorageConfig</a></code></li><li><code><a href="./Capsium/Package/StorageData.html">StorageData</a></code></li><li><code><a href="./Capsium/Package/Store.html">Store</a></code></li><li><details><summary><code><a href="./Capsium/Package/Testing.html">Testing</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Package/Testing/ConfigTest.html">ConfigTest</a></code></li><li><code><a href="./Capsium/Package/Testing/DataValidationTest.html">DataValidationTest</a></code></li><li><code><a href="./Capsium/Package/Testing/FileTest.html">FileTest</a></code></li><li><code><a href="./Capsium/Package/Testing/Report.html">Report</a></code></li><li><code><a href="./Capsium/Package/Testing/RouteTest.html">RouteTest</a></code></li><li><details><summary><code><a href="./Capsium/Package/Testing/TestCase.html">TestCase</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Package/Testing/TestCase/DefinitionError.html">DefinitionError</a></code></li></ul></details></li><li><code><a href="./Capsium/Package/Testing/TestSuite.html">TestSuite</a></code></li></ul></details></li><li><code><a href="./Capsium/Package/UnsatisfiableDependencyError.html">UnsatisfiableDependencyError</a></code></li><li><code><a href="./Capsium/Package/Validator.html">Validator</a></code></li><li><code><a href="./Capsium/Package/Verification.html">Verification</a></code></li><li><code><a href="./Capsium/Package/Version.html">Version</a></code></li><li><code><a href="./Capsium/Package/VersionRange.html">VersionRange</a></code></li></ul></details></li><li><details><summary><code><a href="./Capsium/Packager.html">Packager</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Packager/FileAlreadyExistsError.html">FileAlreadyExistsError</a></code></li><li><code><a href="./Capsium/Packager/UnsafeEntryError.html">UnsafeEntryError</a></code></li></ul></details></li><li><details><summary><code><a href="./Capsium/Reactor.html">Reactor</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Reactor/Authenticator.html">Authenticator</a></code></li><li><code><a href="./Capsium/Reactor/Deploy.html">Deploy</a></code></li><li><details><summary><code><a href="./Capsium/Reactor/Htpasswd.html">Htpasswd</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Reactor/Htpasswd/Md5Crypt.html">Md5Crypt</a></code></li></ul></details></li><li><code><a href="./Capsium/Reactor/Introspection.html">Introspection</a></code></li><li><code><a href="./Capsium/Reactor/Metrics.html">Metrics</a></code></li><li><details><summary><code><a href="./Capsium/Reactor/OAuth2.html">OAuth2</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Reactor/OAuth2/FlowError.html">FlowError</a></code></li></ul></details></li><li><code><a href="./Capsium/Reactor/Serving.html">Serving</a></code></li><li><code><a href="./Capsium/Reactor/Session.html">Session</a></code></li></ul></details></li><li><details><summary><code><a href="./Capsium/Registry.html">Registry</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/Registry/ChecksumMismatchError.html">ChecksumMismatchError</a></code></li><li><code><a href="./Capsium/Registry/FetchError.html">FetchError</a></code></li><li><code><a href="./Capsium/Registry/InvalidPackageError.html">InvalidPackageError</a></code></li><li><code><a href="./Capsium/Registry/InvalidRegistryError.html">InvalidRegistryError</a></code></li><li><code><a href="./Capsium/Registry/Local.html">Local</a></code></li><li><code><a href="./Capsium/Registry/PackageNotFoundError.html">PackageNotFoundError</a></code></li><li><code><a href="./Capsium/Registry/RegistryError.html">RegistryError</a></code></li><li><code><a href="./Capsium/Registry/RegistryNotConfiguredError.html">RegistryNotConfiguredError</a></code></li><li><code><a href="./Capsium/Registry/Remote.html">Remote</a></code></li><li><code><a href="./Capsium/Registry/UnsatisfiableConstraintError.html">UnsatisfiableConstraintError</a></code></li></ul></details></li><li><details><summary><code><a href="./Capsium/ThorExt.html">ThorExt</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Capsium/ThorExt/Start.html">Start</a></code></li></ul></details></li></ul></details></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main">
+
+  
+<span id="label-Capsium" class="legacy-anchor"></span>
+<h1 id="capsium"><a href="#capsium"><a href="Capsium.html"><code>Capsium</code></a></a></h1>
+
+<p>Capsium: Common architecture for portable secure information interchange and unified management.</p>
+
+<p><a href="Capsium.html"><code>Capsium</code></a> is designed to facilitate the creation, management and deployment of content packages with ease.</p>
+
+<p>This gem provides a structured way to handle content, data, and metadata for various applications.</p>
+
+<span id="label-Test+it+out-21" class="legacy-anchor"></span>
+<h2 id="test-it-out"><a href="#test-it-out">Test it out!</a></h2>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>$ wget <a href="https://github.com/capsiums/cap-story/releases/download/v0.9.0/story_of_claire-0.9.0.cap">github.com/capsiums/cap-story/releases/download/v0.9.0/story_of_claire-0.9.0.cap</a> $ capsium reactor serve story_of_claire-0.9.0.cap $ open <a href="http://localhost:8864">localhost:8864</a> # =&gt; Read the story!</p>
+<hr>
+
+<span id="label-Installation" class="legacy-anchor"></span>
+<h2 id="installation"><a href="#installation">Installation</a></h2>
+
+<p>To install the <a href="Capsium.html"><code>Capsium</code></a> gem, add it to your Gemfile:</p>
+<dl class="rdoc-list label-list"><dt>source,ruby</dt>
+<dd><hr>
+
+<p>gem ‘capsium’</p>
+<hr>
+
+<p>Then, run the following command to install it:</p>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>bundle install</p>
+<hr>
+
+<p>Alternatively, you can install the gem directly using:</p>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>gem install capsium</p>
+<hr>
+
+<span id="label-What+is+a+Capsium+package-3F" class="legacy-anchor"></span>
+<h2 id="what-is-a-capsium-package"><a href="#what-is-a-capsium-package">What is a <a href="Capsium.html"><code>Capsium</code></a> package?</a></h2>
+
+<p>A <a href="Capsium.html"><code>Capsium</code></a> package is a structured collection of content, data, metadata, and routing information, distributed as a single <code>.cap</code> file (a ZIP archive, MIME <code>application/vnd.capsium.package</code>). The canonical layout:</p>
+<dl class="rdoc-list label-list"><dt>source</dt>
+<dd><hr>
+
+<p>metadata.json     # REQUIRED, hand-authored manifest.json     # auto-generated at load/pack time when absent routes.json       # auto-generated when absent storage.json      # optional (only when datasets exist) security.json     # generated at pack time (SHA-256 checksums) authentication.json # optional (user authentication) content/          # served content root (URL space mirrors paths below it) data/             # datasets (optional)</p>
+<hr>
+
+<p>Paths inside the configuration files are package-relative POSIX paths.</p>
+<ul><li>
+<p><strong>metadata.json</strong>: name (kebab-case), version (semver), description, guid (URI) and uuid are required; author, license, repository, dependencies (an object of ‘guid -&gt; semver range`) are optional.</p>
+</li><li>
+<p><strong>manifest.json</strong>: an object keyed by package-relative resource path, e.g. ‘“content/index.html”: { “type”: “text/html”, “visibility”: “exported” }`. Generated by scanning <code>content/</code> (MIME types via marcel) when absent.</p>
+</li><li>
+<p><strong>routes.json</strong>: an optional top-level <code>index</code> plus a <code>routes</code> array. Route kinds: ‘{path, resource}` for static files, `{path, dataset}` for datasets (served under `/api/v1/data/&lt;id&gt;`). HTML files get two routes (basename and full filename); the index HTML additionally gets <code>/</code>.</p>
+</li><li>
+<p><strong>storage.json</strong>: dataset definitions under <code>storage.dataSets</code>, either schema-backed files (<code>source</code>, <code>schemaFile</code>, ‘schemaType: json-schema`) or SQLite (<code>databaseFile</code>, <code>table</code>). <code>storage.layers</code> declares overlay layers (see “Layered storage” below).</p>
+</li><li>
+<p><strong>security.json</strong>: <code>security.integrityChecks.checksums</code> holds a SHA-256 hex digest for every file in the package except <code>security.json</code> itself and <code>signature.sig</code>. When the package is signed, <code>security.digitalSignatures</code> records ‘{ “publicKey”, “signatureFile” }`.</p>
+</li><li>
+<p><strong>authentication.json</strong>: optional user authentication (see “Authentication” below): <code>authentication.basicAuth</code> and/or <code>authentication.oauth2</code>.</p>
+</li></ul>
+
+<p>Legacy (pre-0.2) configuration files are still accepted on read and normalized to the canonical forms; writers emit only the canonical forms.</p>
+
+<span id="label-What+is+a+Capsium+reactor-3F" class="legacy-anchor"></span>
+<h2 id="what-is-a-capsium-reactor"><a href="#what-is-a-capsium-reactor">What is a <a href="Capsium.html"><code>Capsium</code></a> reactor?</a></h2>
+
+<p>A <a href="Capsium.html"><code>Capsium</code></a> reactor is a runtime environment that serves <a href="Capsium.html"><code>Capsium</code></a> packages. It reads the package configuration and starts a server that can handle HTTP requests according to the routes defined in the package. The reactor verifies the package against <code>security.json</code> when present and rejects tampered packages. Dataset routes are served as JSON; static resources are served with ‘Cache-Control: public, max-age=31536000` (configurable). While serving, the reactor also answers the introspection endpoints described below.</p>
+
+<span id="label-CLI-3A+Package" class="legacy-anchor"></span>
+<h2 id="cli-package"><a href="#cli-package">CLI: Package</a></h2>
+
+<p><a href="Capsium.html"><code>Capsium</code></a> provides a CLI to help you pack and manage your packages.</p>
+
+<span id="label-Packing+a+package" class="legacy-anchor"></span>
+<h3 id="packing-a-package"><a href="#packing-a-package">Packing a package</a></h3>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package pack [–force/-f] path-to-package</p>
+<hr>
+
+<p>This command generates <code>manifest.json</code>/<code>routes.json</code> when absent, writes <code>security.json</code> with SHA-256 checksums of every package file, and packs the directory into ‘{package-name}-{package-version}.cap` (name and version from <code>metadata.json</code>).</p>
+
+<p>.Sample <code>pack</code> command</p>
+
+<span id="label-" class="legacy-anchor"></span>
+<h4 id=""><a href="#"></a></h4>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package pack -f spec/fixtures/bare-package</p>
+<hr>
+
+<span id="label--1" class="legacy-anchor"></span>
+<h4 id="-1"><a href="#-1"></a></h4>
+
+<span id="label-Unpacking+a+package" class="legacy-anchor"></span>
+<h3 id="unpacking-a-package"><a href="#unpacking-a-package">Unpacking a package</a></h3>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package unpack bare-package-0.1.0.cap [-o/–output my_bare_package]</p>
+<hr>
+
+<p>When <code>-o</code> is omitted, the package is unpacked into a directory named after the <code>.cap</code> file.</p>
+
+<p>Extraction is zip-slip safe: entries whose names would escape the destination (absolute paths, drive letters, <code>..</code> segments) are rejected with <a href="Capsium/Packager/UnsafeEntryError.html"><code>Capsium::Packager::UnsafeEntryError</code></a>.</p>
+
+<span id="label-Validating+a+package" class="legacy-anchor"></span>
+<h3 id="validating-a-package"><a href="#validating-a-package">Validating a package</a></h3>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package validate path-to-package-or-cap</p>
+<hr>
+
+<p>Runs a per-check report and exits with status 1 on any failure:</p>
+<ul><li>
+<p>metadata: required fields present and well-formed (kebab-case name, semver version, URI guid, UUID)</p>
+</li><li>
+<p>manifest: every resource exists on disk</p>
+</li><li>
+<p>routes: route targets exist; dataset routes live under <code>/api/v1/data/</code>; the index resolves to an existing HTML file</p>
+</li><li>
+<p>storage: dataset sources (and schemas) exist; dataset data passes JSON-schema validation</p>
+</li><li>
+<p>security: checksums match when <code>security.json</code> is present</p>
+</li><li>
+<p>content: no external ‘http(s)` references in <code>content/</code> files</p>
+</li></ul>
+
+<span id="label-Inspecting+a+package" class="legacy-anchor"></span>
+<h3 id="inspecting-a-package"><a href="#inspecting-a-package">Inspecting a package</a></h3>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package info|manifest|routes|metadata|storage path-to-package [–store DIR]</p>
+<hr>
+
+<p><code>info</code> additionally prints the resolved dependency tree for composite packages (declared GUID and range, resolved version, store <code>.cap</code>), see “Composite packages” below.</p>
+
+<span id="label-Signing+a+package" class="legacy-anchor"></span>
+<h3 id="signing-a-package"><a href="#signing-a-package">Signing a package</a></h3>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package sign path-to-package-or-cap –key private.pem [–cert cert.pem]</p>
+<hr>
+
+<p>Signs the package with an RSA private key (minimum 2048 bits) using RSA-SHA256, per the packaging standard’s digital signature clause. Signing is a post-pack step: <code>pack</code> drops signing artifacts, so sign the packed directory or the <code>.cap</code> file itself.</p>
+
+<p>The signed payload is the concatenation, in sorted package-relative path order, of the raw bytes of every file covered by the <code>security.json</code> integrity checksums — i.e. every package file except <code>security.json</code> and <code>signature.sig</code>. The signature over that payload is stored as raw bytes in <code>signature.sig</code>, the signer’s public key PEM is embedded as <code>signature.pub.pem</code>, and <code>security.json</code> records:</p>
+<dl class="rdoc-list label-list"><dt>source,json</dt>
+<dd><hr>
+
+<p>{</p>
+
+<pre>&quot;security&quot;: {
+  &quot;digitalSignatures&quot;: {
+    &quot;publicKey&quot;: &quot;signature.pub.pem&quot;,
+    &quot;signatureFile&quot;: &quot;signature.sig&quot;
+  }
+}</pre>
+
+<p>}</p>
+<hr>
+
+<p>When <code>--cert</code> is given, the X.509 certificate must match the private key, and the certificate’s public key is embedded instead.</p>
+
+<p>The payload construction is openssl-compatible; to verify a signed package independently, concatenate the checksum-covered files in sorted order and run:</p>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>openssl dgst -sha256 -verify signature.pub.pem -signature signature.sig payload.bin</p>
+<hr>
+
+<span id="label-Verifying+a+package+signature" class="legacy-anchor"></span>
+<h3 id="verifying-a-package-signature"><a href="#verifying-a-package-signature">Verifying a package signature</a></h3>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package verify-signature path-to-package-or-cap [–cert cert-or-public-key.pem]</p>
+<hr>
+
+<p>Verifies the declared signature against the package contents (using the embedded public key, or the given certificate/public key) and exits with status 1 when the package is unsigned or the signature does not match. Packages that declare a signature are also verified automatically on load —a mismatch raises <a href="Capsium/Package/Signer/SignatureMismatchError.html"><code>Capsium::Package::Signer::SignatureMismatchError</code></a>, so a tampered signed package cannot be served by the reactor.</p>
+
+<span id="label-Encrypting+a+package" class="legacy-anchor"></span>
+<h3 id="encrypting-a-package"><a href="#encrypting-a-package">Encrypting a package</a></h3>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package encrypt path-to-package-or-cap –public-key public.pem -o encrypted.cap</p>
+<hr>
+
+<p>Encrypts the whole package for the recipient’s RSA public key (or X.509 certificate), per the packaging standard’s encryption clause: the encrypted <code>.cap</code> is a zip containing <code>metadata.json</code> (cleartext, so name/version stay readable), <code>signature.json</code> (the encryption envelope) and <code>package.enc</code> — the AES-256-GCM ciphertext of the inner plaintext <code>.cap</code> zip (content, configuration files, data). A random 256-bit data encryption key (DEK) encrypts the inner zip and is wrapped with the recipient’s public key using RSA-OAEP with SHA-256:</p>
+<dl class="rdoc-list label-list"><dt>source,json</dt>
+<dd><hr>
+
+<p>{</p>
+
+<pre>&quot;encryption&quot;: {
+  &quot;algorithm&quot;: &quot;AES-256-GCM&quot;,
+  &quot;keyManagement&quot;: &quot;RSA-OAEP-SHA256&quot;,
+  &quot;encryptedDek&quot;: &quot;&lt;base64&gt;&quot;,
+  &quot;iv&quot;: &quot;&lt;base64&gt;&quot;,
+  &quot;authTag&quot;: &quot;&lt;base64&gt;&quot;
+}</pre>
+
+<p>}</p>
+<hr>
+
+<p>The OCB/OpenPGP alternatives mentioned by the standard are intentionally not implemented.</p>
+
+<span id="label-Decrypting+a+package" class="legacy-anchor"></span>
+<h3 id="decrypting-a-package"><a href="#decrypting-a-package">Decrypting a package</a></h3>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package decrypt encrypted.cap –private-key private.pem [-o decrypted.cap]</p>
+<hr>
+
+<p>Decrypts an encrypted package with the recipient’s RSA private key and writes the plaintext <code>.cap</code> (default output: ‘&lt;name&gt;-decrypted.cap`). Decryption fails with a typed error when the key does not match or the ciphertext was tampered with (GCM authentication). Loading an encrypted package without a key raises <a href="Capsium/Package/Cipher/KeyRequiredError.html"><code>Capsium::Package::Cipher::KeyRequiredError</code></a> — the reactor refuses to serve it.</p>
+
+<span id="label-Testing+a+package" class="legacy-anchor"></span>
+<h3 id="testing-a-package"><a href="#testing-a-package">Testing a package</a></h3>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package test path-to-package-or-cap</p>
+<hr>
+
+<p>Runs the package’s test suite declared in the <a href="Capsium.html"><code>Capsium</code></a> testing YAML DSL (05x-testing): all ‘tests/*.yaml` files in the package, each holding a top-level <code>tests</code> list. Every test has a <code>name</code> and a <code>type</code>; the four supported types:</p>
+<ul><li>
+<p><code>route</code> — requests the URL path from a reactor started for the run and checks <code>expected_status</code>, plus optional <code>response_contains</code> (body substring) and <code>expected_content_type</code>. Absolute URLs are accepted; only their path (and query) is used.</p>
+</li><li>
+<p><code>file</code> — the file at <code>path</code> must exist in the package; optional <code>contains</code> checks a content substring.</p>
+</li><li>
+<p><code>data_validation</code> — the rows of <code>data_file</code> (format <code>json</code> or <code>yaml</code>) must validate against the JSON schema at <code>schema_file</code>. Array data validates row by row.</p>
+</li><li>
+<p><code>config</code> — <code>config_file</code> (format <code>json</code> or <code>yaml</code>) must exist and parse; the known package configs (<code>metadata.json</code>, <code>manifest.json</code>, <code>routes.json</code>, <code>storage.json</code>, <code>security.json</code>) are additionally validated against their canonical models.</p>
+</li></ul>
+
+<p>Example:</p>
+<dl class="rdoc-list label-list"><dt>source,yaml</dt>
+<dd><hr>
+
+<p>tests:</p>
+
+<pre>- name: Home Route Test
+  type: route
+  url: &quot;/home&quot;
+  expected_status: 200
+  response_contains: &quot;Welcome&quot;
+
+- name: Config File Exists
+  type: file
+  path: &quot;metadata.json&quot;
+
+- name: JSON Data Validation
+  type: data_validation
+  format: json
+  data_file: &quot;data/animals.json&quot;
+  schema_file: &quot;data/animals.schema.json&quot;
+
+- name: Metadata Config Validation
+  type: config
+  format: json
+  config_file: &quot;metadata.json&quot;</pre>
+<hr>
+
+<p>Each test is reported as <code>PASS</code>/<code>FAIL</code> with messages; the command exits with status 1 when any test fails (or a test definition is invalid).</p>
+
+<span id="label-CLI-3A+Reactor" class="legacy-anchor"></span>
+<h2 id="cli-reactor"><a href="#cli-reactor">CLI: Reactor</a></h2>
+
+<span id="label-Starting+a+reactor+on+your+package" class="legacy-anchor"></span>
+<h3 id="starting-a-reactor-on-your-package"><a href="#starting-a-reactor-on-your-package">Starting a reactor on your package</a></h3>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium reactor serve my_package.cap [–port 8864] [–store DIR] [–deploy deploy.json] capsium reactor serve capsium://example.com/story [–registry DIR_OR_URL] [–store DIR] [–constraint “&gt;=1.0”]</p>
+<hr>
+
+<p>The reactor takes a local package directory or <code>.cap</code> file, or a <code>capsium://</code> GUID which is installed from a registry first (see “Static registries” below). <code>--store</code> (or <code>CAPSIUM_STORE</code>) resolves composite-package dependencies; <code>--deploy</code> (or <code>CAPSIUM_DEPLOY</code>) points at the reactor-side <code>deploy.json</code> with authentication secrets (see “Authentication” below); <code>--registry</code> (or <code>CAPSIUM_REGISTRY</code>) supplies the registry for <code>capsium://</code> GUIDs and for dependency fallback.</p>
+
+<span id="label-Reactor+introspection+API" class="legacy-anchor"></span>
+<h3 id="reactor-introspection-api"><a href="#reactor-introspection-api">Reactor introspection API</a></h3>
+
+<p>While serving, the reactor answers the Monitoring HTTP API (ARCHITECTURE.md section 7) as <code>application/json</code>:</p>
+<dl class="rdoc-list label-list"><dt>source</dt>
+<dd><hr>
+
+<p>GET /api/v1/introspect/metadata         # =&gt; {“packages”: [{“name”, “version”, “author”, “description”}]} GET /api/v1/introspect/routes           # =&gt; {“routes”: [{“package”, “routes”: [{“method”, “path”}]}]} GET /api/v1/introspect/content-hashes   # =&gt; {“contentHashes”: [{“package”, “hash”}]} GET /api/v1/introspect/content-validity # =&gt; {“contentValidity”: [{“package”, “valid”, “lastChecked”, “reason”?}]}</p>
+<hr>
+
+<p>Non-GET methods on these paths are answered ‘405 Method Not Allowed`.</p>
+
+<p><code>content-hashes</code> is the SHA-256 of the <code>.cap</code> blob when the package was served from one. For a directory source there is no blob, so the hash covers the canonical (sorted-key) JSON serialization of the package content checksums — the same data <code>security.json</code> integrityChecks carry.</p>
+
+<p><code>content-validity</code> re-verifies the package against <code>security.json</code> on every request and reports the outcome with a UTC <code>lastChecked</code> timestamp; <code>reason</code> lists the integrity errors when <code>valid</code> is false. The entry also reports <code>signed</code> and <code>encrypted</code> status, plus <code>signatureValid</code> when the package declares a signature.</p>
+
+<span id="label-Layered+storage" class="legacy-anchor"></span>
+<h2 id="layered-storage"><a href="#layered-storage">Layered storage</a></h2>
+
+<p><code>storage.layers</code> stacks overlay directories over <code>content/</code> (bottom -&gt; top in declaration order), each mirroring the <code>content/</code> tree:</p>
+<dl class="rdoc-list label-list"><dt>source,json</dt>
+<dd><hr>
+
+<p>{ “storage”: { “layers”: [</p>
+
+<pre>{ &quot;path&quot;: &quot;base&quot;,    &quot;writable&quot;: false, &quot;visibility&quot;: &quot;exported&quot; },
+{ &quot;path&quot;: &quot;updates&quot;, &quot;writable&quot;: true,  &quot;visibility&quot;: &quot;private&quot; }</pre>
+
+<p>] } }</p>
+<hr>
+
+<p>A request resolves against layers from the TOP down; the first hit wins. Deletions are recorded as tombstones: a <code>.capsium-tombstones</code> JSON file (an array of <code>content/</code>-relative paths) in a writable layer; a tombstoned path resolves 404 even when a lower layer holds the file, while a file reappearing above the tombstone is served again. Packages without a <code>layers</code> config behave exactly as before (single implicit <code>content/</code> layer). ‘visibility: private` layers are hidden from dependent packages (see below), as are resources whose manifest visibility is <code>private</code>.</p>
+
+<span id="label-Composite+packages" class="legacy-anchor"></span>
+<h2 id="composite-packages"><a href="#composite-packages">Composite packages</a></h2>
+
+<p><code>metadata.dependencies</code> maps a dependency GUID to a semver range (‘&gt;=1.0.0`, `^1.2.3`, `~1.2.3`, exact, `*`, <code>1.x</code>/<code>1.2.x</code>, partials, and comma/space conjunctions like `&gt;=1.0.0, &lt;2.0.0`). Dependencies resolve against a *package store* — a directory of `&lt;name&gt;-&lt;version&gt;.cap` files plus an optional <code>index.json</code> (GUID -&gt; file) — given via <code>CAPSIUM_STORE</code> or <code>--store</code>; the newest satisfying version wins.</p>
+
+<p>On load, each resolved dependency’s exported content becomes read-only layers below all of the dependent’s own layers. Routes may address dependency content explicitly (‘“resource”: “&lt;dependency-guid&gt;/content/app.js”`) or declare route-inheritance attributes per 05x-routing: <code>remap</code> (replaces the serving path), <code>responseRewrite</code> (<code>body</code>, <code>headers</code>), <code>responseHeaders</code> (merged over served headers) and <code>requestHeaders</code> (parsed and exposed for forwarding reactors; this reactor serves statically, so they do not alter its responses). Referencing a dependency’s private or missing resource is a load-time error, as are circular, missing or unsatisfiable dependencies.</p>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>capsium package info my-composite-package –store ./store capsium reactor serve my-composite-package –store ./store</p>
+<hr>
+
+<span id="label-Static+registries" class="legacy-anchor"></span>
+<h2 id="static-registries"><a href="#static-registries">Static registries</a></h2>
+
+<p>A <strong>registry</strong> is a directory or a static https base URL holding an <code>index.json</code> plus <code>.cap</code> files stored relative to the registry root, so any static host (GitHub Pages, S3, nginx) can serve one:</p>
+<dl class="rdoc-list label-list"><dt>source,json</dt>
+<dd><hr>
+
+<p>{</p>
+
+<pre>&quot;packages&quot;: {
+  &quot;https://github.com/capsiums/cap-story&quot;: {
+    &quot;name&quot;: &quot;story-of-claire&quot;,
+    &quot;versions&quot;: {
+      &quot;1.0.0&quot;: {
+        &quot;file&quot;: &quot;story-of-claire-1.0.0.cap&quot;,
+        &quot;sha256&quot;: &quot;&lt;hex sha256 of the .cap&gt;&quot;,
+        &quot;size&quot;: 642047
+      }
+    }
+  }
+}</pre>
+
+<p>}</p>
+<hr>
+
+<p>‘Capsium::Registry.fetch(ref)` returns the implementation for a reference: <code>Registry::Local</code> for a directory (read-write) or <code>Registry::Remote</code> for an https base URL (read-only; plain http is accepted for loopback hosts only). Both resolve a GUID to the newest version satisfying a semver constraint and install it: the <code>.cap</code> is fetched, verified against the sha256 declared in the index (<code>Registry::ChecksumMismatchError</code> on mismatch) and recorded in the package store as `&lt;name&gt;-&lt;version&gt;.cap` with an updated store <code>index.json</code>. Failures are typed (<code>RegistryError</code> subclasses): <code>RegistryNotConfiguredError</code>, <code>InvalidRegistryError</code>, <code>InvalidPackageError</code>, <code>PackageNotFoundError</code>, <code>UnsatisfiableConstraintError</code>, <code>ChecksumMismatchError</code>, <code>FetchError</code>.</p>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p># Validate a .cap, copy it into a registry directory and record it in # index.json (atomically rewritten; sha256+size recomputed): capsium package push story-of-claire-1.0.0.cap –registry ./registry</p>
+
+<p># Resolve, download, sha256-verify and install into the package store: capsium install <a href="https://github.com/capsiums/cap-story">github.com/capsiums/cap-story</a> \</p>
+
+<pre>[--constraint &quot;&gt;=1.0&quot;] [--registry DIR_OR_URL] [--store DIR]</pre>
+
+<p># Install-then-serve a capsium:// GUID: capsium reactor serve capsium://example.com/story \</p>
+
+<pre>[--registry DIR_OR_URL] [--store DIR] [--constraint &quot;&gt;=1.0&quot;]</pre>
+<hr>
+
+<p>The registry comes from <code>--registry</code> or <code>CAPSIUM_REGISTRY</code> (a typed error when neither is set); the store from <code>--store</code> or <code>CAPSIUM_STORE</code>. Composite-package dependency resolution uses the same fallback chain: when the store has no package for a dependency GUID, the resolver installs it from the configured registry into the store (store -&gt; registry -&gt; typed error).</p>
+
+<span id="label-Authentication" class="legacy-anchor"></span>
+<h2 id="authentication"><a href="#authentication">Authentication</a></h2>
+
+<p><code>authentication.json</code> enables user authentication (05x-authentication):</p>
+<dl class="rdoc-list label-list"><dt>source,json</dt>
+<dd><hr>
+
+<p>{ “authentication”: {</p>
+
+<pre>&quot;basicAuth&quot;: { &quot;enabled&quot;: true, &quot;passwdFile&quot;: &quot;auth/.htpasswd&quot;, &quot;realm&quot;: &quot;capsium&quot; },
+&quot;oauth2&quot;: { &quot;enabled&quot;: true, &quot;provider&quot;: &quot;google&quot;, &quot;clientId&quot;: &quot;...&quot;,
+            &quot;authorizationUrl&quot;: &quot;...&quot;, &quot;tokenUrl&quot;: &quot;...&quot;, &quot;userinfoUrl&quot;: &quot;...&quot;,
+            &quot;redirectPath&quot;: &quot;/auth/callback&quot;, &quot;scopes&quot;: [&quot;openid&quot;, &quot;email&quot;] }</pre>
+
+<p>} }</p>
+<hr>
+
+<p>When enabled, the reactor challenges every unauthenticated request (<code>401</code>, with ‘WWW-Authenticate: Basic realm=“…”` when basicAuth is enabled) and verifies credentials against the htpasswd file. Supported hashes: bcrypt (`htpasswd -B`, via the <code>bcrypt</code> gem), Apache apr1 MD5 and md5-crypt (`$apr1$<code>/</code>$1$`, pure Ruby), unsalted SHA-1 (`{SHA}`), and a platform `crypt(3)` fallback for the rest.</p>
+
+<p>With OAuth2, <code>/auth/login</code> redirects to the provider with HMAC-signed state; the callback exchanges the code at <code>tokenUrl</code>, fetches the userinfo claims and establishes an HMAC-SHA256 signed session cookie (<code>capsium_session</code>, ‘HttpOnly; SameSite=Lax`). Provider errors during the exchange answer <code>502</code>; a tampered state answers <code>401</code>.</p>
+
+<p>Route-level <code>accessControl</code> on dataset routes is enforced after authentication — <code>401</code> unauthenticated, <code>403</code> when the identity lacks a required role:</p>
+<dl class="rdoc-list label-list"><dt>source,json</dt>
+<dd><hr>
+
+<p>{ “path”: “/api/v1/data/animals”, “dataset”: “animals”,</p>
+
+<pre>&quot;accessControl&quot;: { &quot;roles&quot;: [&quot;admin&quot;], &quot;authenticationRequired&quot;: true } }</pre>
+<hr>
+
+<p>Secrets NEVER come from the package. They live in <code>deploy.json</code> (<code>--deploy</code> or <code>CAPSIUM_DEPLOY</code>):</p>
+<dl class="rdoc-list label-list"><dt>source,json</dt>
+<dd><hr>
+
+<p>{</p>
+
+<pre>&quot;baseUrl&quot;: &quot;http://localhost:8864&quot;,
+&quot;authentication&quot;: {
+  &quot;basicAuth&quot;: { &quot;passwdFile&quot;: &quot;/secure/outside/package/.htpasswd&quot; },
+  &quot;oauth2&quot;: { &quot;clientSecret&quot;: &quot;...&quot; },
+  &quot;sessionSecret&quot;: &quot;...&quot;,
+  &quot;roles&quot;: { &quot;alice&quot;: [&quot;admin&quot;] }
+}</pre>
+
+<p>}</p>
+<hr>
+
+<p><code>roles</code> assigns roles by identity name (basic-auth username, OAuth2 email or subject); userinfo <code>roles</code> claims are honored too. Without a configured <code>sessionSecret</code>, the reactor generates one and persists it (mode <code>0600</code>) outside the package.</p>
+
+<span id="label-Programmatically+managing+packages" class="legacy-anchor"></span>
+<h2 id="programmatically-managing-packages"><a href="#programmatically-managing-packages">Programmatically managing packages</a></h2>
+
+<p>The public API below ships with RBS signatures in <code>sig/</code> (‘bundle exec rbs -I sig validate`).</p>
+
+<span id="label-Loading+packages" class="legacy-anchor"></span>
+<h3 id="loading-packages"><a href="#loading-packages">Loading packages</a></h3>
+<dl class="rdoc-list label-list"><dt>source,ruby</dt>
+<dd><hr>
+
+<p>require ‘capsium’</p>
+
+<p># Read a package directory or a .cap file package = <a href="Capsium/Package.html#method-c-new"><code>Capsium::Package.new(path)</code></a></p>
+
+<p># Read an encrypted .cap (raises <a href="Capsium/Package/Cipher/KeyRequiredError.html"><code>Capsium::Package::Cipher::KeyRequiredError</code></a> # without a key, <a href="Capsium/Package/Cipher/DecryptionError.html"><code>Capsium::Package::Cipher::DecryptionError</code></a> for a wrong key # or tampered ciphertext) package = <a href="Capsium/Package.html#method-c-new"><code>Capsium::Package.new</code></a>(‘encrypted.cap’, decryption_key: ‘private.pem’)</p>
+<hr>
+
+<p>When <code>security.json</code> is present, the package is verified on load and <a href="Capsium/Package/Security/IntegrityError.html"><code>Capsium::Package::Security::IntegrityError</code></a> is raised on mismatch.</p>
+
+<span id="label-Using+packages+in+your+program" class="legacy-anchor"></span>
+<h3 id="using-packages-in-your-program"><a href="#using-packages-in-your-program">Using packages in your program</a></h3>
+<dl class="rdoc-list label-list"><dt>source,ruby</dt>
+<dd><hr>
+
+<p># Accessing package metadata puts “Package Name: #{package.metadata.name}” puts “Package Version: #{package.metadata.version}”</p>
+
+<p># Accessing manifest resources package.manifest.resources.each do |path, resource|</p>
+
+<pre class="ruby"><span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Resource: </span><span class="ruby-string">#{</span><span class="ruby-identifier">path</span><span class="ruby-string">}</span><span class="ruby-string">, Type: </span><span class="ruby-string">#{</span><span class="ruby-identifier">resource</span>.<span class="ruby-identifier">type</span><span class="ruby-string">}</span><span class="ruby-string">&quot;</span>
+</pre>
+
+<p>end</p>
+
+<p># Accessing routes route = package.routes.resolve(‘/’) puts route.resource</p>
+
+<p># Accessing datasets animals = package.storage.dataset(‘animals’) puts animals.data.inspect</p>
+
+<p># Verifying integrity (returns a list of typed errors, empty when valid) errors = package.verify_integrity</p>
+
+<p># Digital signatures (RSA-SHA256) package.signed?           # =&gt; security.json declares digitalSignatures package.verify_signature  # =&gt; true/false</p>
+
+<p>signer = <a href="Capsium/Package/Signer.html#method-c-new"><code>Capsium::Package::Signer.new(package_dir)</code></a> signer.sign(‘private.pem’)                    # or sign(‘private.pem’, ‘cert.pem’) signer.verify                                 # embedded public key signer.verify(‘cert-or-public-key.pem’)       # explicit key signer.verify!                                # raises SignatureMismatchError</p>
+
+<p># Whole-package encryption (AES-256-GCM, RSA-OAEP-SHA256 wrapped DEK) cipher = Capsium::Package::Cipher.new cipher.encrypt(‘pkg-1.0.0.cap’, ‘public.pem’, ‘encrypted.cap’) cipher.decrypt(‘encrypted.cap’, ‘private.pem’, ‘decrypted.cap’) <a href="Capsium/Package/Cipher.html#method-c-encrypted-3F"><code>Capsium::Package::Cipher.encrypted?</code></a>(‘encrypted.cap’)  # =&gt; true</p>
+
+<p># Running the package’s tests/*.yaml suite (05x-testing DSL) report = <a href="Capsium/Package/Testing/TestSuite.html#method-c-new"><code>Capsium::Package::Testing::TestSuite.new(package)</code></a>.run report.ok?       # =&gt; true/false report.failures  # =&gt; failed TestCase::Result list report.summary   # =&gt; “7 tests, 0 failures”</p>
+
+<p># Layered storage (5a): the merged overlay view shared with the reactor view = package.merged_view view.resolve(‘content/app.js’)   # =&gt; absolute path of the topmost hit, or nil</p>
+
+<p># Composite packages (4a): resolve metadata.dependencies against a store package = <a href="Capsium/Package.html#method-c-new"><code>Capsium::Package.new</code></a>(dir, store: ‘./store’)  # or CAPSIUM_STORE package.resolved_dependencies.each do |dep|</p>
+
+<pre class="ruby"><span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;</span><span class="ruby-string">#{</span><span class="ruby-identifier">dep</span>.<span class="ruby-identifier">guid</span><span class="ruby-string">}</span><span class="ruby-string"> (</span><span class="ruby-string">#{</span><span class="ruby-identifier">dep</span>.<span class="ruby-identifier">range</span><span class="ruby-string">}</span><span class="ruby-string">) =&gt; </span><span class="ruby-string">#{</span><span class="ruby-identifier">dep</span>.<span class="ruby-identifier">version</span><span class="ruby-string">}</span><span class="ruby-string"> [</span><span class="ruby-string">#{</span><span class="ruby-identifier">dep</span>.<span class="ruby-identifier">path</span><span class="ruby-string">}</span><span class="ruby-string">]</span><span class="ruby-string">&quot;</span>
+</pre>
+
+<p>end view = package.merged_view                # own layers over dependency layers view = package.merged_view(exported_only: true)  # what dependents may see</p>
+
+<p># Serving with authentication and a store reactor = <a href="Capsium/Reactor.html#method-c-new"><code>Capsium::Reactor.new</code></a>(package: dir, store: ‘./store’,</p>
+
+<pre>deploy: &#39;deploy.json&#39;)</pre>
+
+<p>reactor.serve</p>
+<hr>
+
+<span id="label-Packing+and+unpacking+programmatically" class="legacy-anchor"></span>
+<h3 id="packing-and-unpacking-programmatically"><a href="#packing-and-unpacking-programmatically">Packing and unpacking programmatically</a></h3>
+<dl class="rdoc-list label-list"><dt>source,ruby</dt>
+<dd><hr>
+
+<p>packager = Capsium::Packager.new cap_file = packager.pack(package, force: true) packager.unpack(cap_file, ‘output-directory’)</p>
+<hr>
+
+<span id="label-Building+the+mn-samples-iso+cap+package" class="legacy-anchor"></span>
+<h2 id="building-the-mn-samples-iso-cap-package"><a href="#building-the-mn-samples-iso-cap-package">Building the mn-samples-iso cap package</a></h2>
+
+<p>Download the mn-samples-iso built site: <a href="https://github.com/metanorma/mn-samples-iso/actions/runs/8862815829/artifacts">github.com/metanorma/mn-samples-iso/actions/runs/8862815829/artifacts</a>/<a href="mn-samples-iso-Linux">1453746303</a>.</p>
+
+<p>Then run these commands:</p>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>$ unzip mn-samples-iso-Linux.zip $ cd mn-samples-iso-Linux $ mkdir content $ mv index.html documents.xml documents content $ cat &gt; metadata.json &lt;&lt;‘JSON’ {</p>
+
+<pre>&quot;name&quot;: &quot;mn-samples-iso&quot;,
+&quot;version&quot;: &quot;0.1.0&quot;,
+&quot;description&quot;: &quot;Metanorma ISO sample documents&quot;,
+&quot;guid&quot;: &quot;https://github.com/metanorma/mn-samples-iso&quot;,
+&quot;uuid&quot;: &quot;123e4567-e89b-12d3-a456-426614174000&quot;</pre>
+
+<p>} JSON $ cd .. $ bundle exec capsium package pack -f mn-samples-iso-Linux Package created: mn-samples-iso-0.1.0.cap $ bundle exec capsium reactor serve mn-samples-iso-0.1.0.cap Starting server on <a href="http://localhost:8864">localhost:8864</a> …</p>
+<hr>
+
+<span id="label-Contributing" class="legacy-anchor"></span>
+<h2 id="contributing"><a href="#contributing">Contributing</a></h2>
+
+<p>We welcome contributions to the <a href="Capsium.html"><code>Capsium</code></a> gem. If you would like to contribute, please fork the repository and submit a pull request.</p>
+
+<span id="label-Running+tests" class="legacy-anchor"></span>
+<h3 id="running-tests"><a href="#running-tests">Running tests</a></h3>
+
+<p>To run the tests, use the following command:</p>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>bundle exec rspec</p>
+<hr>
+
+<p>The linter and the RBS signature validation are part of the default rake task (‘bundle exec rake`), or run them individually:</p>
+<dl class="rdoc-list label-list"><dt>source,bash</dt>
+<dd><hr>
+
+<p>bundle exec rubocop bundle exec rbs -I sig validate</p>
+<hr>
+
+<span id="label-License" class="legacy-anchor"></span>
+<h2 id="license"><a href="#license">License</a></h2>
+
+<p>Copyright Ribose.</p>
+
+<p><a href="Capsium.html"><code>Capsium</code></a> is released under the MIT License. See the LICENSE file for more details.</p>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+
+
+</main>
+
+<aside id="table-of-contents" class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 8.0.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

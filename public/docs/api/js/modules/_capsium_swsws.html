@@ -1,0 +1,188 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="../"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@capsium/swsws | Capsium TypeScript API</title><meta name="description" content="Documentation for Capsium TypeScript API"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container"><a href="../index.html" class="title">Capsium TypeScript API</a>
+<div id="tsd-toolbar-links"><a href="/docs/">Capsium</a><a href="https://github.com/capsiums/capsium-js">GitHub</a></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/>
+<ul role="listbox" id="tsd-search-results"></ul>
+<div id="tsd-search-status" aria-live="polite" aria-atomic="true">
+<div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></header>
+<div class="container container-main">
+<div class="col-content">
+<div class="tsd-page-title">
+<ul class="tsd-breadcrumb" aria-label="Breadcrumb">
+<li><a href="" aria-current="page">@capsium/swsws</a></li></ul>
+<h1>Module @capsium/swsws</h1></div>
+<section class="tsd-panel tsd-typography"><h1 id="swsws-service-worker-static-website-server" class="tsd-anchor-link">swsws — service worker static website server<a href="#swsws-service-worker-static-website-server" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<p>The browser Capsium reactor (<code>@capsium/swsws</code>): a dependency-light, hand-rolled
+service worker that serves <code>.cap</code> packages straight from the zip.</p>
+<blockquote>
+<p><strong>Status: 0.2.0</strong> — published to npm under the <code>@capsium</code> org (see the
+repo-root <a href="../media/README.md#releasing">release docs</a>).</p>
+</blockquote>
+<h2 id="install" class="tsd-anchor-link">Install<a href="#install" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="sh"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-2">@capsium/swsws</span>
+</code><button type="button">Copy</button></pre>
+
+<p>The published package ships the reactor building blocks as an ESM library
+(<code>dist/index.js</code>: <code>handleRequest</code>, <code>PackageStore</code>, scope helpers, WebCrypto
+providers) and the self-contained service-worker script as <code>dist/sw.js</code>
+(IIFE, all deps bundled — register or copy it as-is).</p>
+<ul>
+<li>Accepts a <code>.cap</code> blob from the page via <code>postMessage</code>, verifies SHA-256
+checksums against <code>security.json</code> (WebCrypto) and rejects tampered packages.</li>
+<li>Persists the verified blob in the Cache API and serves requests per
+<code>routes.json</code> (auto-generated routes included), unpacking entries with fflate.</li>
+<li>Answers the reactor introspection API under <code>/api/v1/introspect/</code>
+(<code>metadata</code>, <code>routes</code>, <code>content-hashes</code>, <code>content-validity</code>).</li>
+<li>Verifies RSA-SHA256 digital signatures (§6a, WebCrypto
+RSASSA-PKCS1-v1_5) when <code>security.json</code> declares them and rejects
+packages whose signature does not verify.</li>
+<li>Executes JS handler routes (§4a) as ES modules — see below.</li>
+<li>Serves §5a layered storage (top → bottom, <code>.capsium-tombstones</code> → 404).</li>
+<li>Serves §4a composite packages (dependency resources + route inheritance).</li>
+<li>Gates routes with §4b authentication (basicAuth / OAuth2 PKCE).</li>
+</ul>
+<h2 id="handler-routes-§4a" class="tsd-anchor-link">Handler routes (§4a)<a href="#handler-routes-§4a" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Routes declared as <code>{ &quot;path&quot;: &quot;/api/v1/echo&quot;, &quot;method&quot;: &quot;POST&quot;, &quot;handler&quot;: &quot;content/handlers/echo.js&quot; }</code> execute in the service worker: the handler
+source is read from the package, imported as an ES module through a blob:
+URL, and its default export (or named <code>fetch</code> export) is called with the
+fetch-style <code>Request</code>; it must produce the <code>Response</code>:</p>
+<pre><code class="js"><span class="hl-3">export</span><span class="hl-1"> </span><span class="hl-3">default</span><span class="hl-1"> </span><span class="hl-5">async</span><span class="hl-1"> (</span><span class="hl-4">request</span><span class="hl-1">) </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">Response</span><span class="hl-1">(</span><span class="hl-2">&#39;echo&#39;</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+<ul>
+<li>The route matches on both path and method; other methods get
+<code>405 Method Not Allowed</code> (with an <code>Allow</code> header).</li>
+<li>Sync and async handlers are supported; GET/POST/PUT/DELETE etc. all work
+(the original <code>Request</code>, including its body, is passed through).</li>
+<li>Error mapping: missing module / import failure / no callable entry /
+non-Response return → <code>502</code> with a clear body; a handler exception →
+<code>500</code>.</li>
+<li>Non-JS handlers (e.g. <code>.lua</code>) are <strong>not</strong> executed: this reactor answers
+<code>501</code> (§4a: JS handlers execute only in JS-capable reactors).</li>
+<li>Modules are cached per installed package (ES module semantics).</li>
+</ul>
+<h3 id="sandboxing-caveats" class="tsd-anchor-link">Sandboxing caveats<a href="#sandboxing-caveats" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>A service worker has <strong>no real sandbox</strong>: handler code runs with the
+worker's full privileges — same-origin <code>fetch</code>, Cache API, the installed
+package bytes. Only install <code>.cap</code> packages from sources you trust, prefer
+signed packages (§6a), and deploy a Content Security Policy on the page,
+e.g. <code>script-src 'self' blob:; connect-src 'self'</code>, to constrain module
+loading and exfiltration. Handler modules are imported from in-memory
+blob: URLs only — never from the network.</p>
+<h2 id="layered-storage-§5a" class="tsd-anchor-link">Layered storage (§5a)<a href="#layered-storage-§5a" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Packages with <code>storage.layers</code> serve a merged view: layers are
+package-relative directories mirroring the package tree, resolved <strong>top →
+bottom</strong> (first hit wins); packages without a <code>layers</code> config behave as a
+single implicit root layer. Deletions recorded in a layer's
+<code>.capsium-tombstones</code> file (JSON array of merged-view paths) answer <code>404</code>
+even when a lower layer still has the file. <code>visibility: private</code> layers
+are served to the package itself but never exposed to dependent packages.</p>
+<h2 id="composite-packages-§4a" class="tsd-anchor-link">Composite packages (§4a)<a href="#composite-packages-§4a" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>A package with <code>metadata.dependencies</code> (guid → semver range) can inherit
+dependency content. The browser reactor has no store directory, so the
+dependency <code>.cap</code> blobs are <strong>supplied explicitly alongside the main
+package</strong> (e.g. the page's multi-file picker posts them with the install
+message); they are verified and persisted like the main package.</p>
+<ul>
+<li>Resource routes may reference dependencies:
+<code>{ &quot;path&quot;: &quot;/vendor/app.js&quot;, &quot;resource&quot;: &quot;capsium://&lt;guid&gt;/content/app.js&quot; }</code>.
+Only <code>exported</code> manifest resources are visible — referencing a
+dependency's <code>private</code> resource is rejected with a clear 404.</li>
+<li>Route inheritance attributes are honored at serve time: <code>remap</code>
+(the route is served at the remapped path), <code>responseRewrite</code>
+(<code>body</code> replacement, <code>headers</code> override), additive <code>responseHeaders</code>
+(never override), and <code>requestHeaders</code> (supplanted before forwarding
+to an inherited handler).</li>
+</ul>
+<h2 id="authentication-§4b" class="tsd-anchor-link">Authentication (§4b)<a href="#authentication-§4b" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><code>authentication.json</code> gates package routes (the introspection API stays
+open):</p>
+<ul>
+<li><strong>basicAuth</strong> — <code>401</code> + <code>WWW-Authenticate</code> challenge; the package's
+htpasswd file is verified in pure TS. Supported hash types: <strong>bcrypt</strong>
+(<code>$2a$</code>/<code>$2b$</code>/<code>$2y$</code>) and <strong>apr1-MD5</strong> (<code>$apr1$</code>). Anything else
+(sha-crypt, plaintext, ...) answers <code>501</code> with a precise body, as does
+a missing <code>passwdFile</code>.</li>
+<li><strong>oauth2</strong> — browser-native authorization-code + <strong>PKCE</strong> (S256) flow.
+Provider config (clientId, authorization/token/userinfo URLs,
+<code>redirectPath</code>, scopes) comes from the package; the session-cookie
+signing secret comes from a <strong>deploy-time config message</strong> (<code>{type: 'deploy-config', config: {sessionSecret}}</code>) — never from the package.
+OAuth2 without the deploy secret answers <code>501</code>. Sessions are
+HMAC-SHA256-signed cookies; PKCE pending state lives in memory, so a
+worker restart mid-login restarts the flow.</li>
+<li>Route-level <code>accessControl</code> on dataset routes is enforced after
+authentication (<code>401</code> unauthenticated, <code>403</code> unauthorized). htpasswd
+has no roles, so basic-auth principals are role-less; roles come from
+the OAuth2 userinfo profile.</li>
+</ul>
+<h2 id="files" class="tsd-anchor-link">Files<a href="#files" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><code>src/sw.ts</code> — service worker entry (built to <code>dist/sw.js</code> as an IIFE).</li>
+<li><code>src/resolver.ts</code> — pure routes.json path+method resolution (unit-tested).</li>
+<li><code>src/fetch-handler.ts</code> — request pipeline (unit-tested with a mocked store).</li>
+<li><code>src/handler-executor.ts</code> — §4a ES-module handler execution.</li>
+<li><code>src/package-store.ts</code> — verification + Cache-API persistence (incl.
+composite dependencies).</li>
+<li><code>src/auth/</code> — §4b: htpasswd (pure-TS MD5/apr1 + bcryptjs), PKCE flow,
+signed session cookies, the authentication gate.</li>
+<li><code>index.html</code> — demo page with a <code>.cap</code> file picker.</li>
+</ul>
+<h2 id="try-it" class="tsd-anchor-link">Try it<a href="#try-it" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="sh"><span class="hl-0">corepack</span><span class="hl-1"> </span><span class="hl-2">yarn</span><span class="hl-1"> </span><span class="hl-2">build</span><span class="hl-1">          </span><span class="hl-7"># produces dist/sw.js</span><br/><span class="hl-0">npx</span><span class="hl-1"> </span><span class="hl-2">serve</span><span class="hl-1"> </span><span class="hl-2">packages/swsws</span><span class="hl-1">     </span><span class="hl-7"># any static server; serve the package dir</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Open the page, pick a <code>.cap</code> (build one with <code>@capsium/packager</code>), then
+browse <code>/</code>.</p>
+</section>
+<details class="tsd-panel-group tsd-member-group tsd-accordion" open><summary class="tsd-accordion-summary" data-key="section-Classes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
+<h2 class="tsd-anchor-link" id="classes">Classes<a href="#classes" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2></summary><dl class="tsd-member-summaries"><dt class="tsd-member-summary" id="cacheapiblobcache"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><a href="../classes/_capsium_swsws.CacheApiBlobCache.html">CacheApiBlobCache</a><a href="#cacheapiblobcache" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="packageintegrityerror"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><a href="../classes/_capsium_swsws.PackageIntegrityError.html">PackageIntegrityError</a><a href="#packageintegrityerror" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="packagesignatureerror"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><a href="../classes/_capsium_swsws.PackageSignatureError.html">PackageSignatureError</a><a href="#packagesignatureerror" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="packagestore"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><a href="../classes/_capsium_swsws.PackageStore.html">PackageStore</a><a href="#packagestore" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="routeresolver"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><a href="../classes/_capsium_swsws.RouteResolver.html">RouteResolver</a><a href="#routeresolver" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="webcryptohashprovider"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><a href="../classes/_capsium_swsws.WebCryptoHashProvider.html">WebCryptoHashProvider</a><a href="#webcryptohashprovider" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="webcryptosignatureprovider"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><a href="../classes/_capsium_swsws.WebCryptoSignatureProvider.html">WebCryptoSignatureProvider</a><a href="#webcryptosignatureprovider" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd></dl></details>
+<details class="tsd-panel-group tsd-member-group tsd-accordion" open><summary class="tsd-accordion-summary" data-key="section-Interfaces"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
+<h2 class="tsd-anchor-link" id="interfaces">Interfaces<a href="#interfaces" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2></summary><dl class="tsd-member-summaries"><dt class="tsd-member-summary" id="handlerequestoptions"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Interface"><use href="../assets/icons.svg#icon-256"></use></svg><a href="../interfaces/_capsium_swsws.HandleRequestOptions.html">HandleRequestOptions</a><a href="#handlerequestoptions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="installedpackage"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Interface"><use href="../assets/icons.svg#icon-256"></use></svg><a href="../interfaces/_capsium_swsws.InstalledPackage.html">InstalledPackage</a><a href="#installedpackage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="keyvalueblobcache"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Interface"><use href="../assets/icons.svg#icon-256"></use></svg><a href="../interfaces/_capsium_swsws.KeyValueBlobCache.html">KeyValueBlobCache</a><a href="#keyvalueblobcache" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd></dl></details>
+<details class="tsd-panel-group tsd-member-group tsd-accordion" open><summary class="tsd-accordion-summary" data-key="section-Type Aliases"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
+<h2 class="tsd-anchor-link" id="type-aliases">Type Aliases<a href="#type-aliases" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2></summary><dl class="tsd-member-summaries"><dt class="tsd-member-summary" id="introspectionendpoint"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Type Alias"><use href="../assets/icons.svg#icon-2097152"></use></svg><a href="../types/_capsium_swsws.IntrospectionEndpoint.html">IntrospectionEndpoint</a><a href="#introspectionendpoint" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="resolution"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Type Alias"><use href="../assets/icons.svg#icon-2097152"></use></svg><a href="../types/_capsium_swsws.Resolution.html">Resolution</a><a href="#resolution" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd></dl></details>
+<details class="tsd-panel-group tsd-member-group tsd-accordion" open><summary class="tsd-accordion-summary" data-key="section-Variables"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
+<h2 class="tsd-anchor-link" id="variables">Variables<a href="#variables" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2></summary><dl class="tsd-member-summaries"><dt class="tsd-member-summary" id="introspection_paths"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Variable"><use href="../assets/icons.svg#icon-32"></use></svg><a href="../variables/_capsium_swsws.INTROSPECTION_PATHS.html">INTROSPECTION_PATHS</a><a href="#introspection_paths" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd></dl></details>
+<details class="tsd-panel-group tsd-member-group tsd-accordion" open><summary class="tsd-accordion-summary" data-key="section-Functions"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
+<h2 class="tsd-anchor-link" id="functions">Functions<a href="#functions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2></summary><dl class="tsd-member-summaries"><dt class="tsd-member-summary" id="handlerequest"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Function"><use href="../assets/icons.svg#icon-64"></use></svg><a href="../functions/_capsium_swsws.handleRequest.html">handleRequest</a><a href="#handlerequest" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="joinscopeprefix"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Function"><use href="../assets/icons.svg#icon-64"></use></svg><a href="../functions/_capsium_swsws.joinScopePrefix.html">joinScopePrefix</a><a href="#joinscopeprefix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="matchintrospection"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Function"><use href="../assets/icons.svg#icon-64"></use></svg><a href="../functions/_capsium_swsws.matchIntrospection.html">matchIntrospection</a><a href="#matchintrospection" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd><dt class="tsd-member-summary" id="stripscopeprefix"><span class="tsd-member-summary-name"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Function"><use href="../assets/icons.svg#icon-64"></use></svg><a href="../functions/_capsium_swsws.stripScopePrefix.html">stripScopePrefix</a><a href="#stripscopeprefix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></span></dt><dd class="tsd-member-summary"></dd></dl></details></div>
+<div class="col-sidebar">
+<div class="page-menu">
+<div class="tsd-navigation settings">
+<details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
+<h3>Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div>
+<div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
+<h3>On This Page</h3></summary>
+<div class="tsd-accordion-details"><a href="#swsws-service-worker-static-website-server"><span>swsws — service worker static website server</span></a>
+<ul>
+<li><a href="#install"><span>Install</span></a></li>
+<li><a href="#handler-routes-§4a"><span>Handler routes (§4a)</span></a></li>
+<li>
+<ul>
+<li><a href="#sandboxing-caveats"><span>Sandboxing caveats</span></a></li></ul></li>
+<li><a href="#layered-storage-§5a"><span>Layered storage (§5a)</span></a></li>
+<li><a href="#composite-packages-§4a"><span>Composite packages (§4a)</span></a></li>
+<li><a href="#authentication-§4b"><span>Authentication (§4b)</span></a></li>
+<li><a href="#files"><span>Files</span></a></li>
+<li><a href="#try-it"><span>Try it</span></a></li></ul>
+<details open class="tsd-accordion tsd-page-navigation-section"><summary class="tsd-accordion-summary" data-key="section-Classes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Classes</summary>
+<div><a href="#cacheapiblobcache"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><span>Cache<wbr/>Api<wbr/>Blob<wbr/>Cache</span></a><a href="#packageintegrityerror"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><span>Package<wbr/>Integrity<wbr/>Error</span></a><a href="#packagesignatureerror"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><span>Package<wbr/>Signature<wbr/>Error</span></a><a href="#packagestore"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><span>Package<wbr/>Store</span></a><a href="#routeresolver"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><span>Route<wbr/>Resolver</span></a><a href="#webcryptohashprovider"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><span>Web<wbr/>Crypto<wbr/>Hash<wbr/>Provider</span></a><a href="#webcryptosignatureprovider"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Class"><use href="../assets/icons.svg#icon-128"></use></svg><span>Web<wbr/>Crypto<wbr/>Signature<wbr/>Provider</span></a></div></details>
+<details open class="tsd-accordion tsd-page-navigation-section"><summary class="tsd-accordion-summary" data-key="section-Interfaces"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Interfaces</summary>
+<div><a href="#handlerequestoptions"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Interface"><use href="../assets/icons.svg#icon-256"></use></svg><span>Handle<wbr/>Request<wbr/>Options</span></a><a href="#installedpackage"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Interface"><use href="../assets/icons.svg#icon-256"></use></svg><span>Installed<wbr/>Package</span></a><a href="#keyvalueblobcache"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Interface"><use href="../assets/icons.svg#icon-256"></use></svg><span>Key<wbr/>Value<wbr/>Blob<wbr/>Cache</span></a></div></details>
+<details open class="tsd-accordion tsd-page-navigation-section"><summary class="tsd-accordion-summary" data-key="section-Type Aliases"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Type Aliases</summary>
+<div><a href="#introspectionendpoint"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Type Alias"><use href="../assets/icons.svg#icon-2097152"></use></svg><span>Introspection<wbr/>Endpoint</span></a><a href="#resolution"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Type Alias"><use href="../assets/icons.svg#icon-2097152"></use></svg><span>Resolution</span></a></div></details>
+<details open class="tsd-accordion tsd-page-navigation-section"><summary class="tsd-accordion-summary" data-key="section-Variables"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Variables</summary>
+<div><a href="#introspection_paths"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Variable"><use href="../assets/icons.svg#icon-32"></use></svg><span>INTROSPECTION_<wbr/>PATHS</span></a></div></details>
+<details open class="tsd-accordion tsd-page-navigation-section"><summary class="tsd-accordion-summary" data-key="section-Functions"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Functions</summary>
+<div><a href="#handlerequest"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Function"><use href="../assets/icons.svg#icon-64"></use></svg><span>handle<wbr/>Request</span></a><a href="#joinscopeprefix"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Function"><use href="../assets/icons.svg#icon-64"></use></svg><span>join<wbr/>Scope<wbr/>Prefix</span></a><a href="#matchintrospection"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Function"><use href="../assets/icons.svg#icon-64"></use></svg><span>match<wbr/>Introspection</span></a><a href="#stripscopeprefix"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Function"><use href="../assets/icons.svg#icon-64"></use></svg><span>strip<wbr/>Scope<wbr/>Prefix</span></a></div></details></div></details></div>
+<div class="site-menu">
+<nav id="tsd-sidebar-links" class="tsd-navigation"><a href="/docs/" class="tsd-nav-link">Capsium</a><a href="https://github.com/capsiums/capsium-js" class="tsd-nav-link">GitHub</a></nav>
+<nav class="tsd-navigation"><a href="../index.html">Capsium TypeScript API</a>
+<ul class="tsd-small-nested-navigation" id="tsd-nav-container">
+<li>Loading...</li></ul></nav></div></div></div><footer>
+<p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer>
+<div class="overlay"></div></body></html>

@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "docs:api:js": "typedoc --options typedoc.json",
     "astro": "astro"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "typedoc": "^0.28.20",
     "typescript": "^5.9.3"
   }
 }
