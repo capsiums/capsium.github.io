@@ -22,7 +22,7 @@ services:
       - "9292"
 
   apache:
-    build: ./apache
+    build: .
     depends_on:
       - reactor
     ports:
