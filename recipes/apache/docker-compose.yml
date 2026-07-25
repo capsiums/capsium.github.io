@@ -9,7 +9,7 @@
 
 services:
   reactor:
-    image: ruby:3.4-slim
+    image: ruby:3.4
     working_dir: /pkg
     command: >
       bash -c "
