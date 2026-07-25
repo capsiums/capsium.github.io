@@ -1,0 +1,29 @@
+# Serve a Capsium package behind Caddy via docker compose.
+#
+# Caddy auto-TLS (Let's Encrypt for real domains, internal CA for
+# localhost). Reactor on port 9292; Caddy on 80/443.
+#
+# Run: docker compose up
+# Test: curl -k https://localhost/
+
+services:
+  reactor:
+    image: ruby:3.4-slim
+    working_dir: /pkg
+    command: >
+      bash -c "
+      gem install capsium --no-document &&
+      capsium reactor serve /pkg/capsium-package.cap --host 0.0.0.0 --port 9292
+      "
+    volumes:
+      - ./capsium-package.cap:/pkg/capsium-package.cap:ro
+    ports:
+      - "9292"
+
+  caddy:
+    build: ./caddy
+    depends_on:
+      - reactor
+    ports:
+      - "80:80"
+      - "443:443"

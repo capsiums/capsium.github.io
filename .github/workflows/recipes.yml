@@ -1,0 +1,71 @@
+name: recipes
+
+# Verifies the deployment recipes (Apache + Caddy) actually start and
+# serve a Capsium package end-to-end. Builds a tiny sample .cap via
+# the gem, brings up each compose stack, and asserts the reactor's
+# introspection endpoint is reachable through the proxy.
+#
+# Runs on every PR that touches recipes/ plus weekly on main.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'recipes/**'
+      - '.github/workflows/recipes.yml'
+  pull_request:
+    paths:
+      - 'recipes/**'
+      - '.github/workflows/recipes.yml'
+  schedule:
+    - cron: '0 6 * * 1'  # weekly Monday 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        recipe: [apache, caddy]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+
+      - name: Install capsium gem
+        run: gem install capsium --no-document
+
+      - name: Build a sample .cap for the recipe
+        run: |
+          capsium init static-site smoke-site
+          (cd smoke-site && capsium package pack .)
+          cp smoke-site/*.cap recipes/${{ matrix.recipe }}/capsium-package.cap
+
+      - name: Bring up the stack
+        working-directory: recipes/${{ matrix.recipe }}
+        run: docker compose up -d --build --wait
+
+      - name: Verify the reactor is reachable through the proxy
+        run: |
+          # Apache uses a self-signed cert; Caddy uses its internal CA.
+          # -k bypasses both. Retry up to 30s for slow container starts.
+          for i in $(seq 1 30); do
+            status=$(curl -sk -o /dev/null -w '%{http_code}' https://localhost/api/v1/introspect/status || echo "000")
+            if [ "$status" = "200" ]; then
+              echo "OK — introspection 200 after ${i}s"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "FAIL — introspection never returned 200 (last status: $status)"
+          docker compose -f recipes/${{ matrix.recipe }}/docker-compose.yml logs
+          exit 1
+
+      - name: Dump container logs on failure
+        if: ${{ failure() }}
+        working-directory: recipes/${{ matrix.recipe }}
+        run: docker compose logs
