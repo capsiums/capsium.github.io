@@ -1,0 +1,80 @@
+name: release
+
+# Ship the website as a Capsium package (.cap) attached to every
+# GitHub release. Tags a release → builds the Astro site → converts
+# the dist/ output to a Capsium package via the gem's Astro converter
+# → packs to a .cap → attaches to the release.
+#
+# The .cap is loadable directly by the playground (TODO 16's
+# load-by-URL feature), so each release gives visitors a one-click
+# "download this site as a Capsium package" path.
+#
+# Pipeline-stage ordering matters:
+#   build → convert → pack → attach
+# The converter runs the gem's Capsium::Converters::Astro, which
+# walks dist/ and produces metadata.json + routes.json + content/.
+# The packer then solidifies (manifest + security.json) and writes
+# the .cap.
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+
+      - name: Install capsium gem
+        run: gem install capsium --no-document
+
+      - name: Convert dist/ to a Capsium package
+        run: |
+          capsium convert astro dist/ \
+            --name capsium-website \
+            --output capsium-website-src
+          # The converter produces a package directory; pack it.
+          (cd capsium-website-src && capsium package pack .)
+
+      - name: Resolve .cap path
+        id: cap
+        run: |
+          cap_path="$(ls capsium-website-src/*.cap | head -n1)"
+          echo "path=${cap_path}" >> "$GITHUB_OUTPUT"
+          echo "name=$(basename "${cap_path}")" >> "$GITHUB_OUTPUT"
+
+      - name: Attach .cap to the release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.cap.outputs.path }}
+
+      - name: Upload .cap as workflow artifact
+        if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.cap.outputs.name }}
+          path: ${{ steps.cap.outputs.path }}
