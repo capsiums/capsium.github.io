@@ -39,11 +39,15 @@ jobs:
       - name: Install capsium gem
         run: gem install capsium --no-document
 
-      - name: Build a sample .cap for the recipe
+      - name: Fetch a published sample .cap (cap-story v1.0.0)
         run: |
-          capsium init static-site smoke-site
-          (cd smoke-site && capsium package pack .)
-          cp smoke-site/*.cap recipes/${{ matrix.recipe }}/capsium-package.cap
+          gh release download v1.0.0 \
+            --repo capsiums/cap-story \
+            --pattern 'story-of-claire-1.0.0.cap' \
+            --dir sample
+          cp sample/story-of-claire-1.0.0.cap recipes/${{ matrix.recipe }}/capsium-package.cap
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Bring up the stack
         working-directory: recipes/${{ matrix.recipe }}
