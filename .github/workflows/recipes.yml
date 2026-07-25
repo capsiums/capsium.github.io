@@ -56,14 +56,15 @@ jobs:
       - name: Verify the reactor is reachable through the proxy
         run: |
           # Apache uses a self-signed cert; Caddy uses its internal CA.
-          # -k bypasses both. Retry up to 30s for slow container starts.
-          for i in $(seq 1 30); do
+          # -k bypasses both. Retry up to 180s for slow gem installs
+          # (bcrypt compiles a C extension on first install).
+          for i in $(seq 1 90); do
             status=$(curl -sk -o /dev/null -w '%{http_code}' https://localhost/api/v1/introspect/status || echo "000")
             if [ "$status" = "200" ]; then
               echo "OK — introspection 200 after ${i}s"
               exit 0
             fi
-            sleep 1
+            sleep 2
           done
           echo "FAIL — introspection never returned 200 (last status: $status)"
           docker compose -f recipes/${{ matrix.recipe }}/docker-compose.yml logs
