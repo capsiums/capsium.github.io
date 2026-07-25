@@ -1,0 +1,30 @@
+# Serve a Capsium package behind Apache httpd via docker compose.
+#
+# The reactor mounts a sample .cap from ./capsium-package.cap (drop
+# your own there) and serves it on port 9292. Apache fronts on 443
+# with TLS + reverse proxy.
+#
+# Run: docker compose up --build
+# Test: curl -k https://localhost/
+
+services:
+  reactor:
+    image: ruby:3.4-slim
+    working_dir: /pkg
+    command: >
+      bash -c "
+      gem install capsium --no-document &&
+      capsium reactor serve /pkg/capsium-package.cap --host 0.0.0.0 --port 9292
+      "
+    volumes:
+      - ./capsium-package.cap:/pkg/capsium-package.cap:ro
+    ports:
+      - "9292"
+
+  apache:
+    build: ./apache
+    depends_on:
+      - reactor
+    ports:
+      - "80:80"
+      - "443:443"

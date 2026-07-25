@@ -1,0 +1,32 @@
+# Caddyfile for serving a Capsium package via the capsium reactor.
+#
+# Caddy obtains a real Let's Encrypt cert automatically when the site
+# address is a real domain. For localhost (dev), Caddy uses its
+# internal CA — browsers need `mkcert` or the Caddy root installed.
+
+# Site block: TLS + reverse proxy.
+:443 {
+	# Proxy every request to the capsium reactor container.
+	reverse_proxy reactor:9292 {
+		# Forward the original Host so the reactor sees the public name.
+		header_up Host {host}
+		# Forward the original scheme so introspection generates
+		# correct absolute URLs.
+		header_up X-Forwarded-Proto {scheme}
+	}
+
+	# Capsium reactor returns per-route Cache-Control; pass through.
+	encode zstd gzip
+
+	# Standard access log.
+	log {
+		output stdout
+		format console
+	}
+}
+
+# HTTP listener: redirect to HTTPS (Caddy auto-redirects when :443
+# has TLS, but explicit is safer).
+:80 {
+	redir https://{host}{uri} permanent
+}
