@@ -10,10 +10,14 @@ services:
   reactor:
     image: ruby:3.4
     working_dir: /pkg
+    # Bind on 0.0.0.0 inside the container so Caddy can reach the
+    # reactor from outside the Ruby process. The published 0.6.0 gem
+    # binds to 0.0.0.0 by default (WEBrick default) but does NOT
+    # accept --host yet (added post-0.6.0, not yet released).
     command: >
       bash -c "
       gem install capsium --no-document &&
-      capsium reactor serve /pkg/capsium-package.cap --host 0.0.0.0 --port 9292
+      capsium reactor serve /pkg/capsium-package.cap --port 9292
       "
     volumes:
       - ./capsium-package.cap:/pkg/capsium-package.cap:ro
