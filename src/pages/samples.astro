@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+
+// Sample gallery entries. Each links to the playground with the
+// sample's .cap URL so visitors can try it live.
+const samples = [
+  {
+    name: 'Capsium Demo',
+    description: 'A tiny two-page dark-themed site with one JSON dataset. Exercises page routes, static assets, dataset routes, and introspection endpoints.',
+    url: '/packages/capsium-demo-0.1.0.cap',
+    tags: ['static', 'dataset'],
+  },
+  {
+    name: 'cap-story',
+    description: 'An interactive storybook ("Story of Claire") demonstrating narrative content, multiple chapters, and character bios. The showcase Capsium package.',
+    url: 'https://github.com/capsiums/cap-story/releases/latest/download/story-of-claire-1.0.0.cap',
+    tags: ['story', 'multi-page'],
+    external: true,
+  },
+];
+
+const tagColors: Record<string, string> = {
+  static: 'bg-blue-500/15 text-blue-700 dark:text-blue-400',
+  dataset: 'bg-green-500/15 text-green-700 dark:text-green-400',
+  story: 'bg-purple-500/15 text-purple-700 dark:text-purple-400',
+  'multi-page': 'bg-orange-500/15 text-orange-700 dark:text-orange-400',
+};
+---
+
+<Base
+  title="Sample Packages"
+  description="Try Capsium packages live in the playground — each sample opens with one click."
+>
+  <PageHero
+    eyebrow="Samples"
+    title="Sample Packages"
+    subtitle="Each sample opens in the playground with one click. Try the dataset routes, the introspection API, and the route conventions."
+  />
+
+  <section class="container-site py-12">
+    <div class="grid gap-6 md:grid-cols-2">
+      {samples.map((sample) => (
+        <div class="rounded-xl border border-ink/10 bg-surface p-6 dark:border-white/5">
+          <h3 class="font-display text-lg font-semibold">{sample.name}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/60 dark:text-cream/60">
+            {sample.description}
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {sample.tags.map((tag) => (
+              <span class={`rounded px-2 py-0.5 text-xs font-medium ${tagColors[tag] ?? 'bg-gray-500/10'}`}>
+                {tag}
+              </span>
+            ))}
+          </div>
+          <a
+            href={`/playground?url=${encodeURIComponent(sample.url)}`}
+            class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
+          >
+            Open in playground →
+          </a>
+          {sample.external && (
+            <a
+              href={sample.url}
+              class="ml-4 text-xs text-ink/50 hover:text-ink/70 dark:text-cream/50"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              download .cap
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 rounded-xl border border-dashed border-ink/15 p-6 dark:border-white/10">
+      <h3 class="font-display text-lg font-semibold">More samples coming</h3>
+      <p class="mt-2 text-sm leading-relaxed text-ink/60 dark:text-cream/60">
+        The following sample packages are planned and documented in
+        <a href="https://github.com/capsiums/capsium.github.io/tree/main/TODO.finalize/16-samples-repo.md" class="text-accent hover:underline" target="_blank" rel="noopener noreferrer">TODO.finalize/16</a>:
+      </p>
+      <ul class="mt-3 space-y-1 text-sm text-ink/60 dark:text-cream/60">
+        <li><strong>data-dashboard</strong> — datasets + GraphQL</li>
+        <li><strong>composite-demo</strong> — dependency inheritance</li>
+        <li><strong>writable-demo</strong> — POST/PUT/DELETE on datasets</li>
+        <li><strong>signed-encrypted</strong> — OpenPGP verification + decryption</li>
+      </ul>
+    </div>
+  </section>
+</Base>
