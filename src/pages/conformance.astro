@@ -1,0 +1,158 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+
+// Static conformance matrix data. In production this would be
+// CI-published JSON; for now it's manually maintained from the
+// latest conformance kit run.
+const reactors = [
+  {
+    name: 'Ruby (capsium)',
+    repo: 'capsiums/capsium',
+    classes: {
+      'core-reactor': 'pass',
+      'signatures': 'pass',
+      'encryption': 'pass',
+      'layered-storage': 'pass',
+      'composite': 'pass',
+      'authentication': 'pass',
+      'writable-packages': 'pass',
+      'registries': 'pass',
+      'handler-routes': 'pending',
+    },
+  },
+  {
+    name: 'Lua (capsium-lua)',
+    repo: 'capsiums/capsium-lua',
+    classes: {
+      'core-reactor': 'pass',
+      'signatures': 'partial',
+      'encryption': 'partial',
+      'layered-storage': 'pass',
+      'composite': 'pass',
+      'authentication': 'pass',
+      'writable-packages': 'in-progress',
+      'registries': 'pass',
+      'handler-routes': 'pending',
+    },
+  },
+  {
+    name: 'Browser Extension (swsws)',
+    repo: 'capsiums/capsium-js',
+    classes: {
+      'core-reactor': 'pass',
+      'signatures': 'pending',
+      'encryption': 'pending',
+      'layered-storage': 'pass',
+      'composite': 'pass',
+      'authentication': 'pass',
+      'writable-packages': 'in-progress',
+      'registries': 'pending',
+      'handler-routes': 'pass',
+    },
+  },
+];
+
+const classNames = [
+  'core-reactor',
+  'signatures',
+  'encryption',
+  'layered-storage',
+  'composite',
+  'authentication',
+  'writable-packages',
+  'registries',
+  'handler-routes',
+];
+
+const statusLabels: Record<string, string> = {
+  pass: 'Pass',
+  partial: 'Partial',
+  'in-progress': 'WIP',
+  pending: '—',
+};
+---
+
+<Base
+  title="Conformance Matrix"
+  description="CC 62001 conformance class coverage across the Capsium reactor implementations."
+>
+  <PageHero
+    eyebrow="Conformance"
+    title="Conformance Matrix"
+    subtitle="Which reactors pass which CC 62001 conformance classes."
+  />
+
+  <section class="container-site py-12">
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse text-sm">
+        <thead>
+          <tr class="border-b border-ink/20 dark:border-white/10">
+            <th class="py-3 pr-4 text-left font-semibold">Reactor</th>
+            {classNames.map((cls) => (
+              <th class="px-2 py-3 text-center font-medium text-ink/70 dark:text-cream/70">
+                <span class="block max-w-[6rem]">{cls}</span>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {reactors.map((r) => (
+            <tr class="border-b border-ink/10 dark:border-white/5">
+              <td class="py-3 pr-4">
+                <a
+                  href={`https://github.com/${r.repo}`}
+                  class="font-medium text-accent hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {r.name}
+                </a>
+              </td>
+              {classNames.map((cls) => {
+                const status = r.classes[cls as keyof typeof r.classes] ?? 'pending';
+                const colors: Record<string, string> = {
+                  pass: 'bg-green-500/15 text-green-700 dark:text-green-400',
+                  partial: 'bg-yellow-500/15 text-yellow-700 dark:text-yellow-400',
+                  'in-progress': 'bg-blue-500/15 text-blue-700 dark:text-blue-400',
+                  pending: 'bg-gray-500/10 text-gray-500',
+                };
+                return (
+                  <td class="px-2 py-3 text-center">
+                    <span
+                      class={`inline-block rounded px-2 py-0.5 text-xs font-medium ${colors[status] ?? colors.pending}`}
+                    >
+                      {statusLabels[status] ?? '—'}
+                    </span>
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-8 text-sm text-ink/60 dark:text-cream/60">
+      <p>
+        The conformance kit (<a
+          href="https://github.com/capsiums/capsium-conformance"
+          class="text-accent hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >capsium-conformance</a>) tests each reactor against CC 62001's
+        conformance classes. A reactor claiming a class MUST pass every
+        expectation for that class. See <a
+          href="/specifications"
+          class="text-accent hover:underline"
+        >the specification</a> for the normative requirements.
+      </p>
+      <p class="mt-4">
+        Status legend: <span class="font-medium text-green-700 dark:text-green-400">Pass</span> =
+        all expectations green; <span class="font-medium text-yellow-700 dark:text-yellow-400">Partial</span> =
+        some expectations pass, some pending; <span class="font-medium text-blue-700 dark:text-blue-400">WIP</span> =
+        implementation in progress; <span class="font-medium text-gray-500">—</span> = not yet started.
+      </p>
+    </div>
+  </section>
+</Base>
