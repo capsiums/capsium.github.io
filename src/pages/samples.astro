@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero.astro';
 
 // Sample gallery entries. Each links to the playground with the
 // sample's .cap URL so visitors can try it live.
+const RELEASES = 'https://github.com/capsiums/capsium-samples/releases/latest/download';
 const samples = [
   {
     name: 'Capsium Demo',
@@ -18,6 +19,34 @@ const samples = [
     tags: ['story', 'multi-page'],
     external: true,
   },
+  {
+    name: 'data-dashboard',
+    description: 'Single-page dashboard reading from a YAML dataset. Exercises the core + layered-storage modules: client-side JS fetches /api/v1/data/metrics and renders rows in a table.',
+    url: `${RELEASES}/data-dashboard-0.1.0.cap`,
+    tags: ['static', 'dataset'],
+    external: true,
+  },
+  {
+    name: 'composite-demo',
+    description: 'Parent package depending on composite-base. Demonstrates route inheritance, remap, exported vs private visibility, and responseRewrite / responseHeaders enhancement.',
+    url: `${RELEASES}/composite-demo-0.1.0.cap`,
+    tags: ['composite', 'inheritance'],
+    external: true,
+  },
+  {
+    name: 'legacy-format-demo',
+    description: 'Annex E legacy config forms read-tolerated by every conformant reactor: object-keyed-by-path routes, target: {file|dataset} shape, datasets-array storage.',
+    url: `${RELEASES}/legacy-format-demo-0.1.0.cap`,
+    tags: ['legacy'],
+    external: true,
+  },
+  {
+    name: 'signed-encrypted-demo',
+    description: 'Same content as data-dashboard, but signed (RSA-SHA256) and encrypted (AES-256-GCM with RSA-OAEP-SHA256 wrapped DEK). TEST-ONLY keys ship alongside for end-to-end decryption.',
+    url: `${RELEASES}/signed-encrypted-demo-0.1.0.enc.cap`,
+    tags: ['signatures', 'encryption'],
+    external: true,
+  },
 ];
 
 const tagColors: Record<string, string> = {
@@ -25,6 +54,11 @@ const tagColors: Record<string, string> = {
   dataset: 'bg-green-500/15 text-green-700 dark:text-green-400',
   story: 'bg-purple-500/15 text-purple-700 dark:text-purple-400',
   'multi-page': 'bg-orange-500/15 text-orange-700 dark:text-orange-400',
+  composite: 'bg-teal-500/15 text-teal-700 dark:text-teal-400',
+  inheritance: 'bg-cyan-500/15 text-cyan-700 dark:text-cyan-400',
+  legacy: 'bg-amber-500/15 text-amber-700 dark:text-amber-400',
+  signatures: 'bg-rose-500/15 text-rose-700 dark:text-rose-400',
+  encryption: 'bg-red-500/15 text-red-700 dark:text-red-400',
 };
 ---
 
@@ -74,17 +108,13 @@ const tagColors: Record<string, string> = {
     </div>
 
     <div class="mt-12 rounded-xl border border-dashed border-ink/15 p-6 dark:border-white/10">
-      <h3 class="font-display text-lg font-semibold">More samples coming</h3>
+      <h3 class="font-display text-lg font-semibold">Building your own?</h3>
       <p class="mt-2 text-sm leading-relaxed text-ink/60 dark:text-cream/60">
-        The following sample packages are planned and documented in
-        <a href="https://github.com/capsiums/capsium.github.io/tree/main/TODO.finalize/16-samples-repo.md" class="text-accent hover:underline" target="_blank" rel="noopener noreferrer">TODO.finalize/16</a>:
+        The full source for every sample above lives in
+        <a href="https://github.com/capsiums/capsium-samples" class="text-accent hover:underline" target="_blank" rel="noopener noreferrer">capsiums/capsium-samples</a>.
+        Each sample is a complete <code>.cap</code> source tree you can clone, modify, and repack with
+        <code>capsium package pack</code>. Pull requests welcome.
       </p>
-      <ul class="mt-3 space-y-1 text-sm text-ink/60 dark:text-cream/60">
-        <li><strong>data-dashboard</strong> — datasets + GraphQL</li>
-        <li><strong>composite-demo</strong> — dependency inheritance</li>
-        <li><strong>writable-demo</strong> — POST/PUT/DELETE on datasets</li>
-        <li><strong>signed-encrypted</strong> — OpenPGP verification + decryption</li>
-      </ul>
     </div>
   </section>
 </Base>
