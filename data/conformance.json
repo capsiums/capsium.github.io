@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "run_at": "2026-07-30T00:00:00Z",
+  "sha": "initial",
+  "exit_code": 0,
+  "summary": { "examples": 99, "failures": 0, "pending": 0 },
+  "reactors": [
+    {
+      "name": "Ruby (capsium)",
+      "repo": "capsiums/capsium",
+      "classes": {
+        "core-package": "pass",
+        "core-packager": "pass",
+        "core-reactor": "pass",
+        "handler-routes": "pass",
+        "testing": "pass",
+        "signatures": "pass",
+        "encryption": "pass",
+        "layered-storage": "pass",
+        "composite": "pass",
+        "authentication": "pass",
+        "writable-packages": "pass",
+        "registries": "pass"
+      }
+    },
+    {
+      "name": "Lua (capsium-lua)",
+      "repo": "capsiums/capsium-lua",
+      "classes": {
+        "core-reactor": "pass",
+        "layered-storage": "pass",
+        "composite": "pass",
+        "authentication": "pass",
+        "writable-packages": "pass",
+        "registries": "pass",
+        "signatures": "partial",
+        "encryption": "partial",
+        "handler-routes": "pending"
+      }
+    },
+    {
+      "name": "Browser Extension (swsws)",
+      "repo": "capsiums/capsium-js",
+      "classes": {
+        "core-reactor": "pass",
+        "layered-storage": "pass",
+        "composite": "partial",
+        "authentication": "in-progress",
+        "writable-packages": "pass",
+        "handler-routes": "pass"
+      }
+    }
+  ]
+}
