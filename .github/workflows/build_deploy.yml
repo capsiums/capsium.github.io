@@ -35,6 +35,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Sync conformance matrix (latest kit run)
+        run: ./scripts/sync-conformance.sh
+
+      - name: Sync registry (latest packages + index)
+        run: ./scripts/sync-registry.sh
+
       - name: Build site
         run: npm run build
 

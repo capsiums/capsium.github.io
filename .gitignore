@@ -19,3 +19,7 @@ pnpm-debug.log*
 
 # macOS
 .DS_Store
+
+# Registry content is synced from capsiums/registry at build time via
+# scripts/sync-registry.sh — never commit (we'd be duplicating .caps).
+public/registry/
