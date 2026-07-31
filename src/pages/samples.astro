@@ -41,6 +41,20 @@ const samples = [
     external: true,
   },
   {
+    name: 'docs-site',
+    description: 'A multi-page documentation site with a sidebar table of contents rendered from a JSON dataset. Five pages across three sections, responsive grid layout.',
+    url: `${RELEASES}/docs-site-0.1.0.cap`,
+    tags: ['static', 'dataset', 'docs'],
+    external: true,
+  },
+  {
+    name: 'photo-gallery',
+    description: 'An image gallery with six gradient-placeholder photos, a JSON dataset of titles and tags, and a live client-side filter. Native lazy-loading keeps the page light.',
+    url: `${RELEASES}/photo-gallery-0.1.0.cap`,
+    tags: ['static', 'dataset', 'assets', 'gallery'],
+    external: true,
+  },
+  {
     name: 'data-dashboard',
     description: 'Single-page dashboard reading from a YAML dataset. Exercises the core + layered-storage modules: client-side JS fetches /api/v1/data/metrics and renders rows in a table.',
     url: `${RELEASES}/data-dashboard-0.1.0.cap`,
@@ -84,6 +98,8 @@ const tagColors: Record<string, string> = {
   writable: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-400',
   assets: 'bg-sky-500/15 text-sky-700 dark:text-sky-400',
   blog: 'bg-indigo-500/15 text-indigo-700 dark:text-indigo-400',
+  docs: 'bg-violet-500/15 text-violet-700 dark:text-violet-400',
+  gallery: 'bg-pink-500/15 text-pink-700 dark:text-pink-400',
 };
 ---
 
