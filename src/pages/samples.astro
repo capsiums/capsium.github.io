@@ -10,6 +10,7 @@ const samples = [
     name: 'personal-blog',
     description: 'A personal blog: three Markdown-style posts served as static HTML, with a YAML dataset of post metadata (dates, tags, slugs). The post list is rendered client-side from /api/v1/data/posts.',
     url: `${RELEASES}/personal-blog-0.1.0.cap`,
+    sampleId: 'personal-blog',
     tags: ['static', 'dataset', 'blog'],
     external: true,
   },
@@ -17,6 +18,7 @@ const samples = [
     name: 'interactive-quiz',
     description: 'A 5-question quiz that scores answers via a JS handler route. Questions come from a JSON dataset; high scores persist via the writable overlay. Demonstrates handlers + writable datasets end-to-end.',
     url: `${RELEASES}/interactive-quiz-0.1.0.cap`,
+    sampleId: 'interactive-quiz',
     tags: ['handler-routes', 'dataset', 'writable'],
     external: true,
   },
@@ -24,6 +26,7 @@ const samples = [
     name: 'portfolio',
     description: 'A single-page portfolio: dark-mode CSS, image gallery, JSON dataset of projects rendered client-side. The whole site (HTML + CSS + JS + assets + data) ships in one signed .cap.',
     url: `${RELEASES}/portfolio-0.1.0.cap`,
+    sampleId: 'portfolio',
     tags: ['static', 'dataset', 'assets'],
     external: true,
   },
@@ -44,6 +47,7 @@ const samples = [
     name: 'docs-site',
     description: 'A multi-page documentation site with a sidebar table of contents rendered from a JSON dataset. Five pages across three sections, responsive grid layout.',
     url: `${RELEASES}/docs-site-0.1.0.cap`,
+    sampleId: 'docs-site',
     tags: ['static', 'dataset', 'docs'],
     external: true,
   },
@@ -51,6 +55,7 @@ const samples = [
     name: 'photo-gallery',
     description: 'An image gallery with six gradient-placeholder photos, a JSON dataset of titles and tags, and a live client-side filter. Native lazy-loading keeps the page light.',
     url: `${RELEASES}/photo-gallery-0.1.0.cap`,
+    sampleId: 'photo-gallery',
     tags: ['static', 'dataset', 'assets', 'gallery'],
     external: true,
   },
@@ -58,6 +63,7 @@ const samples = [
     name: 'data-dashboard',
     description: 'Single-page dashboard reading from a YAML dataset. Exercises the core + layered-storage modules: client-side JS fetches /api/v1/data/metrics and renders rows in a table.',
     url: `${RELEASES}/data-dashboard-0.1.0.cap`,
+    sampleId: 'data-dashboard',
     tags: ['static', 'dataset'],
     external: true,
   },
@@ -65,6 +71,7 @@ const samples = [
     name: 'composite-demo',
     description: 'Parent package depending on composite-base. Demonstrates route inheritance, remap, exported vs private visibility, and responseRewrite / responseHeaders enhancement.',
     url: `${RELEASES}/composite-demo-0.1.0.cap`,
+    sampleId: 'composite-demo',
     tags: ['composite', 'inheritance'],
     external: true,
   },
@@ -72,6 +79,7 @@ const samples = [
     name: 'legacy-format-demo',
     description: 'Annex E legacy config forms read-tolerated by every conformant reactor: object-keyed-by-path routes, target: {file|dataset} shape, datasets-array storage.',
     url: `${RELEASES}/legacy-format-demo-0.1.0.cap`,
+    sampleId: 'legacy-format-demo',
     tags: ['legacy'],
     external: true,
   },
@@ -129,7 +137,9 @@ const tagColors: Record<string, string> = {
             ))}
           </div>
           <a
-            href={`/playground?url=${encodeURIComponent(sample.url)}`}
+            href={sample.sampleId
+              ? `/playground?sample=${encodeURIComponent(sample.sampleId)}`
+              : `/playground?url=${encodeURIComponent(sample.url)}`}
             class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
           >
             Open in playground →

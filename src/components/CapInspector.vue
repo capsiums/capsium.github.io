@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { strFromU8, unzipSync } from 'fflate';
 import { playgroundState } from './playground-state';
 
@@ -66,15 +66,24 @@ function readJson(files: Record<string, Uint8Array>, name: string): unknown | nu
 }
 
 async function inspect(file: File) {
+  await inspectBytes(new Uint8Array(await file.arrayBuffer()), file.name);
+}
+
+// URL/sample loading: ?url=<asset> fetches any .cap; ?sample=<id>
+// expands to the capsium-samples latest-release asset URL. Used by
+// the /samples gallery cards so the playground opens pre-loaded.
+const SAMPLE_BASE = 'https://github.com/capsiums/capsium-samples/releases/latest/download';
+
+async function inspectBytes(bytes: Uint8Array, fileName: string) {
   error.value = null;
   result.value = null;
   busy.value = true;
-  announced.value = `Inspecting ${file.name}…`;
+  announced.value = `Inspecting ${fileName}…`;
 
   try {
     let files: Record<string, Uint8Array>;
     try {
-      files = unzipSync(new Uint8Array(await file.arrayBuffer()));
+      files = unzipSync(bytes);
     } catch {
       throw new Error('This file is not a readable ZIP archive — a .cap package is a ZIP at heart.');
     }
@@ -136,8 +145,8 @@ async function inspect(file: File) {
     checks.sort((a, b) => a.path.localeCompare(b.path));
 
     result.value = {
-      fileName: file.name,
-      fileSize: file.size,
+      fileName,
+      fileSize: bytes.byteLength,
       entryCount: Object.keys(files).length,
       metadata,
       metadataPretty: JSON.stringify(metadata, null, 2),
@@ -162,13 +171,13 @@ async function inspect(file: File) {
 
     announced.value =
       integrityState.value === 'ok'
-        ? `${file.name}: integrity verified, ${checks.length} files checked.`
+        ? `${fileName}: integrity verified, ${checks.length} files checked.`
         : integrityState.value === 'failed'
-          ? `${file.name}: integrity check failed for ${failedCount.value} file(s).`
-          : `${file.name}: package read, no security.json present.`;
+          ? `${fileName}: integrity check failed for ${failedCount.value} file(s).`
+          : `${fileName}: package read, no security.json present.`;
 
     // Publish for the live-serving card (it re-verifies at install time).
-    playgroundState.parsed = { name: file.name, file };
+    playgroundState.parsed = { name: fileName, file: new File([bytes.slice()], fileName) };
     playgroundState.lastError = null;
   } catch (e) {
     error.value = e instanceof Error ? e.message : 'Could not read this file.';
@@ -193,6 +202,38 @@ function onPick(event: Event) {
   const file = input.files?.[0];
   if (file) void inspect(file);
   input.value = '';
+}
+
+// On mount, auto-load from ?url= or ?sample=. The samples gallery at
+// /samples links to /playground?sample=<id>; visitors arrive with the
+// package pre-loaded instead of facing an empty drop zone.
+onMounted(() => {
+  void loadFromUrlParams();
+});
+
+async function loadFromUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  const sample = params.get('sample');
+  const url = params.get('url');
+  const target = sample ? `${SAMPLE_BASE}/${sample}-0.1.0.cap` : url;
+  if (!target) return;
+  if (!/^https?:\/\//.test(target)) {
+    error.value = 'Refusing to load: url must be http(s)';
+    return;
+  }
+  try {
+    busy.value = true;
+    announced.value = `Fetching ${target}…`;
+    const res = await fetch(target);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const bytes = new Uint8Array(await res.arrayBuffer());
+    const name = target.slice(target.lastIndexOf('/') + 1);
+    await inspectBytes(bytes, name);
+  } catch (e) {
+    error.value = `Failed to load ${target}: ${e instanceof Error ? e.message : String(e)}`;
+    announced.value = error.value;
+    busy.value = false;
+  }
 }
 
 function reset() {
