@@ -44,6 +44,22 @@ const samples = [
     external: true,
   },
   {
+    name: 'cookbook',
+    description: 'A recipe collection: five real recipes (Italian, Japanese, Indian, Middle-Eastern, American). Each recipe served as static HTML; the index page renders from /api/v1/data/recipes with a live filter by title, ingredient, or cuisine.',
+    url: `${RELEASES}/cookbook-0.1.0.cap`,
+    sampleId: 'cookbook',
+    tags: ['static', 'dataset', 'food'],
+    external: true,
+  },
+  {
+    name: 'marketing-page',
+    description: 'A startup landing page: hero, features grid, customer logos, testimonial, email-capture CTA. The whole page ships in one signed .cap. Audience: early-stage startups, OSS project landing pages.',
+    url: `${RELEASES}/marketing-page-0.1.0.cap`,
+    sampleId: 'marketing-page',
+    tags: ['static', 'assets', 'marketing'],
+    external: true,
+  },
+  {
     name: 'docs-site',
     description: 'A multi-page documentation site with a sidebar table of contents rendered from a JSON dataset. Five pages across three sections, responsive grid layout.',
     url: `${RELEASES}/docs-site-0.1.0.cap`,
@@ -108,6 +124,8 @@ const tagColors: Record<string, string> = {
   blog: 'bg-indigo-500/15 text-indigo-700 dark:text-indigo-400',
   docs: 'bg-violet-500/15 text-violet-700 dark:text-violet-400',
   gallery: 'bg-pink-500/15 text-pink-700 dark:text-pink-400',
+  food: 'bg-orange-500/15 text-orange-700 dark:text-orange-400',
+  marketing: 'bg-fuchsia-500/15 text-fuchsia-700 dark:text-fuchsia-400',
 };
 ---
 
